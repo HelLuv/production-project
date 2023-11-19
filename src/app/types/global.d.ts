@@ -1,12 +1,13 @@
-declare module "*.module.scss" {
-  const styles: { [className: string]: string }
+declare module '*.module.scss' {
+  const styles: { [className: string]: string };
   export = styles
 }
 
-declare module "*.png";
-declare module "*.jpg";
-declare module "*.jpeg";
-declare module "*.svg" {
+declare module '*.png';
+declare module '*.jpg';
+declare module '*.jpeg';
+declare module '*.svg' {
+  // eslint-disable-next-line no-undef
   const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   export default content;
 }
