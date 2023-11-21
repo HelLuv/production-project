@@ -10,3 +10,8 @@
     background: none;
     outline: none;
 }
+
+.primary {
+    background: var(--inverted-bg-color);
+    border: 1px solid var(--inverted-primary-color);
+}
