@@ -46,10 +46,28 @@ module.exports = {
         'react/jsx-no-bind': [1, {
             allowArrowFunctions: true,
         }],
-        'i18next/no-literal-string': ['error', { markupOnly: true }],
+        'i18next/no-literal-string': [
+            'error',
+            {
+                markupOnly: true,
+                ignoreAttribute: ['data-testid'],
+            },
+        ],
         'max-len': ['error', { ignoreComments: true, code: 100 }],
+        'react/no-unknown-property': [
+            'error',
+            { ignore: ['date-testid'] },
+        ],
     },
     globals: {
         __IS_DEV__: true,
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+    ],
 };

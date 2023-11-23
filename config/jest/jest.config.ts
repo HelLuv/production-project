@@ -4,8 +4,38 @@
  */
 
 import type { Config } from 'jest';
+import path from 'path';
 
 const config: Config = {
+    clearMocks: true,
+    testEnvironment: 'jsdom',
+    coveragePathIgnorePatterns: [
+        '\\\\node_modules\\\\',
+    ],
+    moduleFileExtensions: [
+        'js',
+        'jsx',
+        'ts',
+        'tsx',
+        'json',
+        'node',
+    ],
+    moduleDirectories: [
+        'node_modules',
+    ],
+    modulePaths: [
+        '<rootDir>src',
+    ],
+    testMatch: [
+        // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
+        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+    ],
+    rootDir: '../../',
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    },
     // All imported modules in your tests should be mocked automatically
     // automock: false,
 
@@ -14,29 +44,6 @@ const config: Config = {
 
     // The directory where Jest should store its cached dependency information
     // cacheDirectory: "C:\\Users\\nikol\\AppData\\Local\\Temp\\jest",
-
-    // Automatically clear mock calls, instances, contexts and results before every test
-    clearMocks: true,
-    coveragePathIgnorePatterns: [
-        '\\\\node_modules\\\\',
-    ],
-    moduleDirectories: [
-        'node_modules',
-    ],
-    moduleFileExtensions: [
-        'js',
-        'mjs',
-        'cjs',
-        'jsx',
-        'ts',
-        'tsx',
-        'json',
-        'node',
-    ],
-    rootDir: '../../',
-    testMatch: [
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-    ],
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
@@ -147,9 +154,6 @@ const config: Config = {
 
     // A list of paths to snapshot serializer modules Jest should use for snapshot testing
     // snapshotSerializers: [],
-
-    // The test environment that will be used for testing
-    testEnvironment: 'jsdom',
 
     // Options that will be passed to the testEnvironment
     // testEnvironmentOptions: {},
