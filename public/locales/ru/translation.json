@@ -2,8 +2,10 @@
   "Test key": "Это тестовый ключ для русского перевода",
   "Translate": "Translate",
   "Main page": "Главная страница",
+  "About page": "О сайте",
   "Language": "English",
   "Page not found": "Страница не найдена",
   "Something went wrong!": "Произошла непредвиденная ошибка!",
-  "Reload page": "Обновить страницу"
+  "Reload page": "Обновить страницу",
+  "Quit": "ВЫЙТИ!"
 }

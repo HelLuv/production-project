@@ -6,8 +6,8 @@ module.exports = {
     },
     extends: [
         'plugin:react/recommended',
-        'airbnb',
-        'plugin:i18next/recommended',
+        'airbnb', 'plugin:i18next/recommended',
+        'plugin:storybook/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -50,7 +50,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid'],
+                ignoreAttribute: ['data-testid', 'to'],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 100 }],

@@ -2,8 +2,10 @@
   "Test key": "This is a test key for an English translation",
   "Translate": "Перевести",
   "Main page": "MAIN PAGE",
+  "About page": "About page",
   "Language": "Русский",
   "Page not found": "Page not found",
   "Something went wrong!": "Something went wrong!",
-  "Reload page": "Reload page"
+  "Reload page": "Reload page",
+  "Quit": "QUIT!"
 }

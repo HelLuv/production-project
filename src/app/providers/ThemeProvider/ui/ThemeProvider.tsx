@@ -1,5 +1,5 @@
 import React, {
-    FC, PropsWithChildren, useMemo, useState,
+    FC, ReactNode, useMemo, useState,
 } from 'react';
 import {
     LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext, ThemeContextProps,
@@ -7,8 +7,13 @@ import {
 
 const DEFAULT_THEME = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
 
-const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
-    const [theme, setTheme] = useState<Theme>(DEFAULT_THEME);
+export interface ThemeProviderProps {
+    children: ReactNode;
+    initialTheme: Theme;
+}
+
+const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
+    const [theme, setTheme] = useState<Theme>(DEFAULT_THEME || initialTheme);
 
     function toggleTheme() {
         setTheme((prevTheme) => (prevTheme === Theme.DARK ? Theme.LIGHT : Theme.DARK));
