@@ -13,7 +13,9 @@
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "unit": "jest --config ./config/jest/jest.config.ts",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "build-storybook": "storybook build -c ./config/storybook"
+    "build-storybook": "storybook build -c ./config/storybook",
+    "loki:update": "npx loki update --config ./config/loki/loki.config.ts",
+    "loki:test": "npx loki test --config ./config/loki/loki.config.ts"
   },
   "keywords": [],
   "author": "",
@@ -58,6 +60,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "loki": "^0.33.1",
     "mini-css-extract-plugin": "^2.7.6",
     "regenerator-runtime": "^0.14.0",
     "sass": "^1.69.5",
