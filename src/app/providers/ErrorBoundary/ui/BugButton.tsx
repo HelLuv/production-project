@@ -1,8 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const BugButton = () => {
+    const { t } = useTranslation();
     const [error, setError] = useState(false);
 
     const onThrow = () => setError(true);
@@ -19,7 +21,7 @@ export const BugButton = () => {
             className={classNames('', {}, [])}
             onClick={onThrow}
         >
-            Throw error
+            {t('Throw error')}
         </Button>
     );
 };
