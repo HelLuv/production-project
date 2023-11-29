@@ -18,20 +18,20 @@ type Story = StoryObj<typeof AppLink>;
 export const Primary: Story = {
     decorators: [ThemeDecorator(Theme.LIGHT)],
     render: () => (
-        <AppLink to="https://google.com" theme={AppLinkTheme.PRIMARY}>AppLink</AppLink>
+        <AppLink to="https://google.com" theme={AppLinkTheme.PRIMARY} />
     ),
 };
 
 export const Secondary: Story = {
     decorators: [ThemeDecorator(Theme.LIGHT)],
     render: () => (
-        <AppLink to="https://google.com" theme={AppLinkTheme.SECONDARY}>AppLink</AppLink>
+        <AppLink to="https://google.com" theme={AppLinkTheme.SECONDARY} />
     ),
 };
 
 export const Danger: Story = {
     decorators: [ThemeDecorator(Theme.LIGHT)],
     render: () => (
-        <AppLink to="https://google.com" theme={AppLinkTheme.DANGER}>AppLink</AppLink>
+        <AppLink to="https://google.com" theme={AppLinkTheme.DANGER} />
     ),
 };

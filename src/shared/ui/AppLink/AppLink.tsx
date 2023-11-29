@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { FC, ReactNode } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
@@ -16,6 +17,7 @@ interface AppLinkProps extends LinkProps {
 }
 
 export const AppLink: FC<AppLinkProps> = (props) => {
+    const { t } = useTranslation();
     const {
         className,
         children,
@@ -30,7 +32,7 @@ export const AppLink: FC<AppLinkProps> = (props) => {
             className={classNames(cls.appLink, {}, [className, cls[theme]])}
             {...otherProps}
         >
-            {children}
+            {children || t('AppLink')}
         </Link>
     );
 };
