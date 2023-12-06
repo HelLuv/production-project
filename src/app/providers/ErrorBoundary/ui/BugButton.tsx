@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -17,7 +17,7 @@ export const BugButton = () => {
 
     return (
         <Button
-            theme={ThemeButton.PRIMARY}
+            theme={ButtonTheme.PRIMARY}
             className={classNames('', {}, [])}
             onClick={onThrow}
         >
