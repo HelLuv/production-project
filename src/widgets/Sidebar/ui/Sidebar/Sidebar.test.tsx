@@ -1,21 +1,26 @@
 import { fireEvent, screen, waitFor } from '@testing-library/react';
-import { renderWithTranslation } from 'shared/lib/tests';
+import { componentRender } from 'shared/lib/tests';
 import { Sidebar } from './Sidebar';
 
 describe('Sidebar', () => {
     test('with only first param', () => {
-        renderWithTranslation(<Sidebar />);
+        componentRender(<Sidebar />);
         waitFor(
             () => expect((screen.getByTestId('sidebar'))).toBeInTheDocument(),
         );
     });
 
     test('test closing sidebar on click', () => {
-        renderWithTranslation(<Sidebar />);
+        componentRender(<Sidebar />);
         const toggleBtn = screen.getByTestId('sidebar-toggle');
         fireEvent.click(toggleBtn);
         waitFor(
-            () => expect((screen.getByTestId('sidebar'))).toHaveClass('collapsed'),
+            () => expect(screen.getByTestId('sidebar')).toBeInTheDocument(),
+        );
+        fireEvent.click(toggleBtn);
+
+        waitFor(
+            () => expect(screen.getByTestId('sidebar')).not.toHaveClass('collapsed'),
         );
     });
 });

@@ -1,4 +1,3 @@
-// eslint-disable-next-line max-len
-import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
+import { componentRender } from './componentRender/componentRender';
 
-export { renderWithTranslation };
+export { componentRender };
