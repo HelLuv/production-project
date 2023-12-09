@@ -19,7 +19,8 @@
     "test:ui:ok": "npx loki approve",
     "visual:report": "npm run visual:report:json && npm run visual:report:html",
     "visual:report:json": "node scripts/generate-visual-json-report.js",
-    "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html"
+    "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+    "all": "npm run lint:ts:fix && npm run lint:scss:fix && npm run test:unit && npm run build-storybook && npm run test:ui && npm run visual:report"
   },
   "keywords": [],
   "author": "",

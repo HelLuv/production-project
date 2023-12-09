@@ -9,11 +9,12 @@ const DEFAULT_THEME = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || 
 
 export interface ThemeProviderProps {
     children: ReactNode;
-    initialTheme: Theme;
+    initialTheme?: Theme;
 }
 
-const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
-    const [theme, setTheme] = useState<Theme>(DEFAULT_THEME || initialTheme);
+const ThemeProvider: FC<ThemeProviderProps> = (props) => {
+    const { children, initialTheme } = props;
+    const [theme, setTheme] = useState<Theme>(initialTheme || DEFAULT_THEME);
 
     function toggleTheme() {
         setTheme((prevTheme) => (prevTheme === Theme.DARK ? Theme.LIGHT : Theme.DARK));

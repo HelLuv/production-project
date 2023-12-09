@@ -4,18 +4,31 @@
 @import "themes/dark";
 
 
-.app {
+body {
     font: var(--font-l);
-    background-color: var(--bg-color);
     color: var(--primary-color);
+}
+
+.app {
     min-height: 100vh;
+    background: var(--bg-color);
 }
 
 .content-page {
     display: flex;
 }
 
-.page-wrapper {
-    flex-grow: 1;
-    padding: 20px;
+*::-webkit-scrollbar {
+    width: 12px;
+    height: 8px; /* ширина scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--card-bg); /* цвет дорожки */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--inverted-primary-color); /* цвет плашки */
+    border-radius: 20px; /* закругления плашки */
+    border: 3px solid var(--primary-color); /* padding вокруг плашки */
 }
