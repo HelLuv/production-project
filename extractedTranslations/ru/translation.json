@@ -1,6 +1,7 @@
 {
   "About page": "About page",
   "AppLink": "AppLink",
+  "Auth modal": "Auth modal",
   "Language": "Language",
   "Language_1": "Language_1",
   "Login": "Login",
@@ -10,6 +11,5 @@
   "Reload page": "Reload page",
   "Something went wrong!": "Something went wrong!",
   "TOGGLE": "TOGGLE",
-  "Throw error": "Throw error",
-  "Auth modal": "Auth modal"
+  "Throw error": "Throw error"
 }

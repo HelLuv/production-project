@@ -48,7 +48,7 @@ module.exports = {
             allowArrowFunctions: true,
         }],
         'i18next/no-literal-string': [
-            'error',
+            'warn',
             {
                 markupOnly: true,
                 ignoreAttribute: ['data-testid', 'to'],
@@ -73,6 +73,12 @@ module.exports = {
             rules: {
                 'i18next/no-literal-string': 'off',
                 'max-len': 'off',
+            },
+        },
+        {
+            files: ['**/src/**/*Slice.ts'],
+            rules: {
+                'no-param-reassign': 'off',
             },
         },
     ],
