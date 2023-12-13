@@ -17,7 +17,7 @@ if (rootElement) {
         <StoreProvider>
             <BrowserRouter>
                 <ErrorBoundary>
-                    <ThemeProvider initialTheme={Theme.LIGHT}>
+                    <ThemeProvider initialTheme={Theme.DARK}>
                         <App />
                     </ThemeProvider>
                 </ErrorBoundary>

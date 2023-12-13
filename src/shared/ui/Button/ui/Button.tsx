@@ -32,7 +32,7 @@ export const Button: FC<ButtonProps> = (props) => {
         children,
         className,
         theme = ButtonTheme.PRIMARY,
-        size = ButtonSize.M,
+        size = ButtonSize.L,
         label,
         square = false,
         ...otherProps

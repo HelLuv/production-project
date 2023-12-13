@@ -15,15 +15,17 @@ type Story = StoryObj<typeof Modal>;
 export const Light: Story = {
     decorators: [ThemeDecorator(Theme.LIGHT)],
     render: () => (
-        // eslint-disable-next-line
-        <Modal isOpen={true}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, placeat.</Modal>
+        <Modal isOpen>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, placeat.
+        </Modal>
     ),
 };
 
 export const Dark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
     render: () => (
-        // eslint-disable-next-line
-        <Modal isOpen={true}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, placeat.</Modal>
+        <Modal isOpen>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, placeat.
+        </Modal>
     ),
 };
