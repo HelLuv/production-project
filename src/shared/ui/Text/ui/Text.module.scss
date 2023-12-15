@@ -1,0 +1,31 @@
+.title {
+    color: var(--primary-color);
+
+    &.smallSize {
+        font: var(--font-m);
+    }
+
+    &.mediumSize {
+        font: var(--font-l);
+    }
+
+    &.largeSize {
+        font: var(--font-xl);
+    }
+}
+
+.text {
+    color: var(--secondary-color);
+
+    &.mediumSize {
+        font: var(--font-m);
+    }
+
+    &.largeSize {
+        font: var(--font-l);
+    }
+}
+
+.error {
+    color: var(--error-color);
+}

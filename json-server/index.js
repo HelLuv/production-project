@@ -2,7 +2,7 @@ const fs = require('fs');
 const jsonServer = require('json-server');
 const path = require('path');
 
-const SERVER_PORT = 8080;
+const SERVER_PORT = 8000;
 
 const server = jsonServer.create();
 

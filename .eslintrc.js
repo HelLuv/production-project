@@ -6,7 +6,8 @@ module.exports = {
     },
     extends: [
         'plugin:react/recommended',
-        'airbnb', 'plugin:i18next/recommended',
+        'airbnb',
+        'plugin:i18next/recommended',
         'plugin:storybook/recommended',
     ],
     parser: '@typescript-eslint/parser',
@@ -54,7 +55,7 @@ module.exports = {
                 ignoreAttribute: ['data-testid', 'to'],
             },
         ],
-        'max-len': ['error', { ignoreComments: true, code: 100 }],
+        'max-len': ['error', { ignoreComments: true, code: 120 }],
         'react/no-unknown-property': [
             'error',
             { ignore: ['date-testid'] },
@@ -63,9 +64,11 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
+        'no-param-reassign': 'warn',
     },
     globals: {
         __IS_DEV__: true,
+        __API_URL__: true,
     },
     overrides: [
         {
@@ -73,12 +76,6 @@ module.exports = {
             rules: {
                 'i18next/no-literal-string': 'off',
                 'max-len': 'off',
-            },
-        },
-        {
-            files: ['**/src/**/*Slice.ts'],
-            rules: {
-                'no-param-reassign': 'off',
             },
         },
     ],

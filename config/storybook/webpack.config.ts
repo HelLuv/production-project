@@ -1,9 +1,9 @@
-import webpack from 'webpack';
+import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 import { BuildPaths } from '../build/types/config';
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 
-export default ({ config }:{config: webpack.Configuration}) => {
+export default ({ config }:{config: Configuration}) => {
     const paths: BuildPaths = {
         src: path.resolve(__dirname, '../../src'),
         html: '',
@@ -15,7 +15,7 @@ export default ({ config }:{config: webpack.Configuration}) => {
     config.resolve?.extensions?.push('.ts', '.tsx');
 
     // eslint-disable-next-line no-param-reassign
-    config!.module!.rules = config.module?.rules?.map((rule: webpack.RuleSetRule) => {
+    config!.module!.rules = config.module?.rules?.map((rule: RuleSetRule) => {
         if (/svg/.test(rule.test as string)) {
             return { ...rule, exclude: /\.svg$/i };
         }
@@ -29,6 +29,14 @@ export default ({ config }:{config: webpack.Configuration}) => {
     });
 
     config.module?.rules?.push(buildCssLoaders(true));
+    if (config.plugins) {
+        config.plugins.push(
+            new DefinePlugin({
+                __IS_DEV__: true,
+                __API_URL__: JSON.stringify('http://storybook.mock.api.com'),
+            }),
+        );
+    }
 
     return config;
 };
