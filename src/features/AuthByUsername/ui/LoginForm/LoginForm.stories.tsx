@@ -19,6 +19,7 @@ const state: DeepPartial<StateSchema> = {
     loginForm: {
         username: 'user',
         password: '123',
+        isLoading: false,
     },
 };
 

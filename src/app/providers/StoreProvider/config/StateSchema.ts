@@ -5,13 +5,16 @@ import { LoginSchema } from 'features/AuthByUsername';
 import {
     EnhancedStore, Reducer, ReducersMapObject, UnknownAction,
 } from '@reduxjs/toolkit';
-import { CombinedState } from '@reduxjs/toolkit/query';
 import { rtkApi } from 'shared/api/rtkApi';
+import { CombinedState } from '@reduxjs/toolkit/query';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
-    loginForm: LoginSchema;
+
+    // Async reducers
+    loginForm?: LoginSchema;
+
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 }
 
@@ -37,6 +40,6 @@ export interface ThunkExtraArg {
 
 export interface ThunkConfig<T> {
     rejectValue: T;
-    extra:ThunkExtraArg;
+    extra: ThunkExtraArg;
     state: StateSchema;
 }

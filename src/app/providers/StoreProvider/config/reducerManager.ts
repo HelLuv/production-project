@@ -3,7 +3,7 @@ import {
 } from '@reduxjs/toolkit';
 import type {
     MountedReducers, ReducerManager, StateSchema, StateSchemaKey,
-} from '../StateSchema';
+} from './StateSchema';
 
 export function createReducerManager(initialReducers: ReducersMapObject<StateSchema>): ReducerManager {
     const reducers = { ...initialReducers };
@@ -24,6 +24,9 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
                 });
                 keysToRemove = [];
             }
+
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             return combinedReducer(state, action);
         },
         add: (key: StateSchemaKey, reducer: Reducer) => {

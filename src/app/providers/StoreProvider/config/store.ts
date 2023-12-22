@@ -1,10 +1,9 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { rtkApi } from 'shared/api/rtkApi';
-import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager/reducerManager';
 import { $api } from 'shared/api/api';
+import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 type StoreConfig = {
@@ -19,7 +18,6 @@ export function createReduxStore({ initialState, asyncReducers }: StoreConfig) {
         ...ensuredAsyncReducers,
         counter: counterReducer,
         user: userReducer,
-        loginForm: loginReducer,
 
         [rtkApi.reducerPath]: rtkApi.reducer,
     };
@@ -31,7 +29,6 @@ export function createReduxStore({ initialState, asyncReducers }: StoreConfig) {
     };
 
     const store = configureStore({
-        // @ts-ignore
         reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
         preloadedState: initialState,
@@ -44,7 +41,7 @@ export function createReduxStore({ initialState, asyncReducers }: StoreConfig) {
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    store.replaceReducer = reducerManager;
+    store.reducerManager = reducerManager;
 
     return store;
 }
