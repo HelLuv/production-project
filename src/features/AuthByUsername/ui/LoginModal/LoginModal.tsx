@@ -25,7 +25,7 @@ export const LoginModal = (props: LoginModalProps) => {
                 </div>
             )}
             >
-                <LoginFormAsync />
+                <LoginFormAsync onSuccess={onClose} />
             </Suspense>
         </Modal>
     );

@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { FC, ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import cls from './AppLink.module.scss';
@@ -18,7 +18,7 @@ interface AppLinkProps extends LinkProps {
   theme?: AppLinkTheme;
 }
 
-export const AppLink: FC<AppLinkProps> = (props) => {
+export const AppLink = memo((props: AppLinkProps) => {
     const { t } = useTranslation();
     const {
         className,
@@ -38,4 +38,4 @@ export const AppLink: FC<AppLinkProps> = (props) => {
             {children || content || t('AppLink')}
         </Link>
     );
-};
+});

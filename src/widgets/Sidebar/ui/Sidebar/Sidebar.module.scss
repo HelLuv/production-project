@@ -26,11 +26,6 @@
     bottom: 40px;
 }
 
-.link {
-    margin-left: 10px;
-    opacity: 1;
-}
-
 .collapsed {
     width: var(--sidebar-width-collapsed);
 
@@ -42,30 +37,10 @@
     .lang {
         margin-left: 0;
     }
-
-    .link {
-        opacity: 0;
-        transition: opacity 0.3s;
-        width: 0;
-    }
 }
 
 .items {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-}
-
-.item {
-    margin-top: 10px;
-    display: flex;
-    align-self: center;
-    justify-content: center;
-}
-
-.icon {
-    fill: var(--secondary-color);
-    width: 20px;
-    height: 20px;
-    background-size: 30px;
 }

@@ -2,6 +2,7 @@ import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
     PropsWithChildren, PropsWithClassName, PropsWithDataAttributes, ValuesOf,
 } from 'shared/types';
+import { memo } from 'react';
 import cls from './Text.module.scss';
 
 export const TextTheme = {
@@ -26,7 +27,7 @@ type TextProps = PropsWithClassName & PropsWithChildren & PropsWithDataAttribute
     size?: ValuesOf<typeof TextSize>;
 }
 
-export const Text = (props: TextProps) => {
+export const Text = memo((props: TextProps) => {
     const {
         className,
         children,
@@ -54,4 +55,4 @@ export const Text = (props: TextProps) => {
             {children}
         </div>
     );
-};
+});

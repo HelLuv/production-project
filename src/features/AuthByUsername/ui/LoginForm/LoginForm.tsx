@@ -24,7 +24,7 @@ const dynamicReducers = {
 };
 
 export type LoginFormProps = PropsWithClassName & {
-  onSuccess?: ()=> void;
+    onSuccess?: () => void;
 }
 
 export const LoginForm = memo((props: LoginFormProps) => {
@@ -49,7 +49,6 @@ export const LoginForm = memo((props: LoginFormProps) => {
     }, [dispatch]);
 
     const onFormSubmit = useCallback(async () => {
-        // @ts-ignore
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess?.();
@@ -57,7 +56,7 @@ export const LoginForm = memo((props: LoginFormProps) => {
     }, [dispatch, onSuccess, password, username]);
 
     return (
-        <form className={classNames(cls.loginForm, {}, [className])}>
+        <form className={classNames(cls.loginForm, {}, [className])} {...otherProps}>
             {error && (
                 <Text
                     variant={TextVariant.Text}
