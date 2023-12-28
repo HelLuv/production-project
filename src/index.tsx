@@ -14,15 +14,15 @@ if (rootElement) {
     const root = createRoot(rootElement);
 
     root.render(
-        <StoreProvider>
-            <BrowserRouter>
+        <BrowserRouter>
+            <StoreProvider>
                 <ErrorBoundary>
                     <ThemeProvider initialTheme={Theme.DARK}>
                         <App />
                     </ThemeProvider>
                 </ErrorBoundary>
-            </BrowserRouter>
-        </StoreProvider>,
+            </StoreProvider>
+        </BrowserRouter>,
     );
 } else {
     console.log('There is no root element in your HTML!');
