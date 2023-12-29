@@ -13,5 +13,9 @@
   "Throw error": "Throw error",
   "Short Lang": "Eng",
   "Auth modal": "Auth modal",
-  "Logout": "Logout"
+  "Logout": "Logout",
+  "Profile": "Profile",
+  "Edit profile info": "Edit profile info",
+  "Your firstname": "Your firstname",
+  "Your lastname": "Your lastname"
 }
