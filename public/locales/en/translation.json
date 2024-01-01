@@ -17,5 +17,12 @@
   "Profile": "Profile",
   "Edit profile info": "Edit profile info",
   "Your firstname": "Your firstname",
-  "Your lastname": "Your lastname"
+  "Your lastname": "Your lastname",
+  "profile": {
+    "actions": {
+      "edit": "profile.actions.edit",
+      "cancel": "profile.actions.cancel",
+      "save": "profile.actions.save"
+    }
+  }
 }

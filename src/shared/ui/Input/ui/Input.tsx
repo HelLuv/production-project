@@ -9,7 +9,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | '
 interface InputProps extends HTMLInputProps {
     className?: string
     onChange?: (value: string) => void;
-    value?: string;
+    value?: string | number;
     autofocus?: boolean
     type?: string
     placeholder?: string

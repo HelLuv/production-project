@@ -18,3 +18,20 @@
 .input {
     margin-top: 10px;
 }
+
+.loading {
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatarWrapper {
+    display: flex;
+    margin-left: 75px;
+    margin-bottom: 20px;
+}
+
+.editing {
+    border: 2px dashed var(--secondary-color);
+}

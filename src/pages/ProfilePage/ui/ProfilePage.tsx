@@ -1,30 +1,30 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ReducersList, useDynamicReducers } from 'shared/hooks/useDynamicReducers';
-import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-const dynamicReducers: ReducersList = {
-    profile: profileReducer,
-};
+import type { ID } from 'shared/types';
+import { VStack } from 'shared/ui/Stack';
+import { Text } from 'shared/ui/Text';
 
-interface ProfilePageProps {
-  className?: string;
-}
+import { EditableProfileCard } from 'features/EditableProfileCard';
 
-export const ProfilePage = (props: ProfilePageProps) => {
-    const { className } = props;
-    const dispatch = useAppDispatch();
+import { Page } from 'widgets/Page';
 
-    useEffect(() => {
-        dispatch(fetchProfileData());
-    }, [dispatch]);
+import styles from './ProfilePage.module.scss';
 
-    useDynamicReducers(dynamicReducers);
+export const ProfilePage = () => {
+    const { id = '1' } = useParams<{ id: ID }>();
+
+    const { t } = useTranslation();
+
+    if (!id) {
+        return <Text>{t('profile-page.error')}</Text>;
+    }
 
     return (
-        <div className={classNames('', {}, [className])}>
-            <ProfileCard />
-        </div>
+        <Page data-testid="profile-page">
+            <VStack gap={16} max>
+                <EditableProfileCard className={styles.profileCard} id={id} />
+            </VStack>
+        </Page>
     );
 };

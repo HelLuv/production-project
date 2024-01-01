@@ -19,3 +19,5 @@ export const isAxiosError = (error: unknown): error is AxiosError => {
 
     return false;
 };
+
+export const isFunction = (f: unknown): f is Function => typeof f === 'function';

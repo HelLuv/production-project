@@ -1,22 +1,6 @@
-import { ID, ValuesOf } from 'shared/types';
-
-export const Currency = {
-    Rub: 'RUB',
-    Usd: 'USD',
-    Eur: 'EUR',
-} as const;
-export type ValuesOfCurrency = ValuesOf<typeof Currency>;
-
-export const Country = {
-    Russia: 'Russia',
-    Ukraine: 'Ukraine',
-    Belarus: 'Belarus',
-    Kazakhstan: 'Kazakhstan',
-    Armenia: 'Armenia',
-    Mongolia: 'Mongolia',
-} as const;
-
-export type ValuesOfCountry = ValuesOf<typeof Country>;
+import { ID } from 'shared/types';
+import { ValuesOfCountry } from 'entities/Country';
+import { ValuesOfCurrency } from 'entities/Currency';
 
 export type Profile = {
     id?: ID;
@@ -29,10 +13,3 @@ export type Profile = {
     username?: string;
     avatar?: string;
 };
-
-export interface ProfileSchema {
-    data?: Profile[];
-    isLoading: boolean;
-    error?: string;
-    readonly?: boolean;
-}

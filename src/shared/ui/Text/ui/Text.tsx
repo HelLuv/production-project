@@ -19,12 +19,19 @@ export const TextSize = {
     Small: 'smallSize',
     Medium: 'mediumSize',
     Large: 'largeSize',
-};
+} as const;
+
+export const TextAlign = {
+    Right: 'right',
+    Left: 'left',
+    Center: 'center',
+} as const;
 
 type TextProps = PropsWithClassName & PropsWithChildren & PropsWithDataAttributes & {
     theme?: ValuesOf<typeof TextTheme>;
     variant?: ValuesOf<typeof TextVariant>;
     size?: ValuesOf<typeof TextSize>;
+    align?: ValuesOf<typeof TextAlign>;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -34,6 +41,7 @@ export const Text = memo((props: TextProps) => {
         theme = TextTheme.Primary,
         variant = TextVariant.Text,
         size = TextSize.Medium,
+        align = TextAlign.Left,
         'data-testid': dataTestId,
         ...otherProps
     } = props;
@@ -44,6 +52,7 @@ export const Text = memo((props: TextProps) => {
         [cls[size]]: true,
         [cls[theme]]: true,
         [cls[variant]]: true,
+        [cls[align]]: true,
     };
 
     return (

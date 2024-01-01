@@ -16,5 +16,16 @@
   "TOGGLE": "",
   "Throw error": "Throw error",
   "Your firstname": "",
-  "Your lastname": ""
+  "Your lastname": "",
+  "profile": {
+    "actions": {
+      "cancel": "profile.actions.cancel",
+      "edit": "profile.actions.edit",
+      "save": "profile.actions.save"
+    },
+    "title": "title"
+  },
+  "profile-page": {
+    "error": ""
+  }
 }

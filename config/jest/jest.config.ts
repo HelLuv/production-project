@@ -1,10 +1,6 @@
-/**
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
-
 import type { Config } from 'jest';
 import path from 'path';
+import { Project } from '../build/types/config';
 
 const config: Config = {
     clearMocks: true,
@@ -12,6 +8,7 @@ const config: Config = {
     globals: {
         __IS_DEV__: true,
         __API_URL__: '',
+        __PROJECT__: JSON.stringify(Project.Jest),
     },
     coveragePathIgnorePatterns: [
         '\\\\node_modules\\\\',

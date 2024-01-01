@@ -7,8 +7,9 @@ import {
 } from '@reduxjs/toolkit';
 import { rtkApi } from 'shared/api/rtkApi';
 import { CombinedState } from '@reduxjs/toolkit/query';
-import { ProfileSchema } from 'entities/Profile';
 import { NavigateOptions, To } from 'react-router-dom';
+import { ScrollPositionSchema } from 'features/keepScrollPosition';
+import { EditableProfileCardSchema } from 'features/EditableProfileCard';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -16,8 +17,8 @@ export interface StateSchema {
 
     // Async reducers
     loginForm?: LoginSchema;
-    profile?: ProfileSchema;
-
+    editableProfile?: EditableProfileCardSchema;
+    scrollPosition?: ScrollPositionSchema;
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 }
 
