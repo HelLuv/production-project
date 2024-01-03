@@ -16,16 +16,18 @@ export function useTheme(): UseThemeResult {
             newTheme = Theme.LIGHT;
             break;
         case Theme.LIGHT:
+            newTheme = Theme.HYPERWAVE;
+            break;
+        case Theme.HYPERWAVE:
             newTheme = Theme.DARK;
             break;
         default:
-            newTheme = Theme.LIGHT;
+            newTheme = Theme.DARK;
         }
-
         setTheme?.(newTheme);
         document.body.className = newTheme;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     }
 
-    return { theme: theme || Theme.LIGHT, toggleTheme } as UseThemeResult;
+    return { theme, toggleTheme } as UseThemeResult;
 }

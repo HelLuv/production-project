@@ -42,7 +42,8 @@
 .red {
     background-color: var(--error-color);
     color: white;
-    border: none;
+    border: 1px solid var(--error-color);
+    padding: 10px 15px;
 }
 
 .square {
