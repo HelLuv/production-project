@@ -1,36 +1,52 @@
 {
-  "Test key": "Это тестовый ключ для русского перевода",
-  "Translate": "Translate",
-  "Main page": "Главная страница",
-  "About page": "О сайте",
-  "Language": "English",
-  "Page not found": "Страница не найдена",
-  "Something went wrong!": "Произошла непредвиденная ошибка!",
-  "Reload page": "Обновить страницу",
-  "Quit": "ВЫЙТИ!",
-  "TOGGLE": "Переключить",
-  "AppLink": "AppLink",
-  "Throw error": "Выбросить ошибку",
-  "Short Lang": "Eng",
-  "Auth modal": "Модалка авторизации",
-  "Logout": "Выйти",
-  "Profile": "Профиль",
-  "Edit profile info": "Редактировать профиль",
-  "Your firstname": "Ваше имя",
-  "Your lastname": "Ваша фамилия",
-  "profile": {
-    "actions": {
-      "edit": "Редактировать",
-      "cancel": "Отменить",
-      "save": "Сохранить"
+  "sidebar": {
+    "toggle": "Toggle",
+    "language": "English",
+    "short-language": "En"
+  },
+  "navbar": {
+    "main": "Главная",
+    "about": "О нас",
+    "profile": "Профиль",
+    "articles": "Статьи",
+    "sign-in": "Войти",
+    "logout": "Выйти"
+  },
+  "login-form": {
+    "name": {
+      "placeholder": "Введите имя"
     },
-    "title": "Ваш профиль",
-    "errors": {
-      "incorrect_user_data": "Некорректные данные пользователя",
-      "no_data": "Нет данных",
-      "incorrect_age": "Некорректный возраст",
-      "incorrect_country": "Некорректная страна",
-      "server_error": "Ошибка сервера"
+    "password": {
+      "placeholder": "Введите пароль"
+    },
+    "error": {
+      "403": "Неверное имя или пароль",
+      "unknown": "Неизвестная ошибка"
+    },
+    "submit": "Войти"
+  },
+  "main": {
+    "title": "Главная",
+    "content": "Контент главной страницы"
+  },
+  "about": {
+    "title": "О нас",
+    "content": "Контент страницы о нас"
+  },
+  "profile": {
+    "title": "Профиль",
+    "content": "Контент страницы профиля",
+    "actions": {
+      "cancel": "Отмена",
+      "save": "Сохранить изменения",
+      "edit": "Редактировать профиль"
     }
+  },
+  "not_found": {
+    "title": "Страница не найдена"
+  },
+  "page_error": {
+    "title": "Произошла непредвиденная ошибка",
+    "refresh": "Обновить страницу"
   }
 }

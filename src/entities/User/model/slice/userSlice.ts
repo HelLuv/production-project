@@ -3,7 +3,8 @@ import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { User, UserSchema } from '../types/user';
 
 const initialState: UserSchema = {
-    __inited: false,
+    __initialized__: false,
+    authData: null,
 };
 
 export const userSlice = createSlice({
@@ -18,7 +19,7 @@ export const userSlice = createSlice({
             if (user) {
                 state.authData = JSON.parse(user);
             }
-            state.__inited = true;
+            state.__initialized__ = true;
         },
         logout: (state) => {
             localStorage.removeItem(USER_LOCALSTORAGE_KEY);

@@ -15,7 +15,6 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
     const { setTheme } = useContext(ThemeContext);
 
     useEffect(() => {
-        console.log(setTheme);
         setTheme?.(Theme.DARK);
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, []);
