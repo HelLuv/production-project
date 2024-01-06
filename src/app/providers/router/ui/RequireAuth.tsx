@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User/model/selectors';
 import { Navigate, useLocation } from 'react-router-dom';
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import { PropsWithChildren } from 'shared/types';
+import { AppRoute } from 'app/providers/router';
 
 type RequireAuthProps = PropsWithChildren & {
     roles?: any;
@@ -14,7 +14,7 @@ export const RequireAuth = (props: RequireAuthProps) => {
     const location = useLocation();
 
     if (!authData) {
-        return <Navigate to={AppRoutes.MAIN} state={{ from: location }} replace />;
+        return <Navigate to={AppRoute.Main()} state={{ from: location }} replace />;
     }
 
     return children;

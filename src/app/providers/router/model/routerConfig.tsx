@@ -3,6 +3,8 @@ import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { NotFoundPage } from 'pages/NotFoundPage';
+import { ArticlesPage } from 'pages/ArticlesPage';
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 import { AppRoute } from './router';
 
 export type AppRouteProps = RouteProps & {
@@ -20,6 +22,16 @@ export const routerConfig: Record<keyof typeof AppRoute, AppRouteProps> = {
     Profile: {
         path: AppRoute.Profile(),
         element: <ProfilePage />,
+        authOnly: true,
+    },
+    Articles: {
+        path: AppRoute.Articles(),
+        element: <ArticlesPage />,
+        authOnly: true,
+    },
+    ArticleDetails: {
+        path: AppRoute.Articles(),
+        element: <ArticleDetailsPage />,
         authOnly: true,
     },
     NotFound: {
