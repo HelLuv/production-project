@@ -24,5 +24,10 @@
       "cancel": "profile.actions.cancel",
       "save": "profile.actions.save"
     }
+  },
+  "article-details": {
+    "error": {
+      "not-found": "Article is not found"
+    }
   }
 }

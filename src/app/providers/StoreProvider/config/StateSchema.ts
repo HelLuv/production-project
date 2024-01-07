@@ -10,6 +10,7 @@ import { CombinedState } from '@reduxjs/toolkit/query';
 import { NavigateOptions, To } from 'react-router-dom';
 import { ScrollPositionSchema } from 'features/keepScrollPosition';
 import { EditableProfileCardSchema } from 'features/EditableProfileCard';
+import { ArticleDetailsSchema } from 'entities/Article';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -19,6 +20,7 @@ export interface StateSchema {
     loginForm?: LoginSchema;
     editableProfile?: EditableProfileCardSchema;
     scrollPosition?: ScrollPositionSchema;
+    articleDetails?: ArticleDetailsSchema;
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 }
 

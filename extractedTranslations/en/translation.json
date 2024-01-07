@@ -3,6 +3,7 @@
   "AppLink": "AppLink",
   "Auth modal": "Auth modal",
   "Edit profile info": "Edit profile info",
+  "Error": "Error",
   "Language": "Language",
   "Language_1": "Language_1",
   "Login": "Login",
@@ -17,6 +18,11 @@
   "Throw error": "Throw error",
   "Your firstname": "",
   "Your lastname": "",
+  "article-details": {
+    "error": {
+      "not-found": "Article is not found"
+    }
+  },
   "profile": {
     "actions": {
       "cancel": "profile.actions.cancel",

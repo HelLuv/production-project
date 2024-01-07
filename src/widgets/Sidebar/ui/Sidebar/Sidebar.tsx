@@ -8,7 +8,7 @@ import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
-import styles from './SideBar.module.scss';
+import styles from './Sidebar.module.scss';
 
 type SideBarProps = {
     className?: string;

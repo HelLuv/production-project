@@ -30,7 +30,7 @@ export const routerConfig: Record<keyof typeof AppRoute, AppRouteProps> = {
         authOnly: true,
     },
     ArticleDetails: {
-        path: AppRoute.Articles(),
+        path: AppRoute.ArticleDetails(),
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
