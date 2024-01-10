@@ -11,11 +11,12 @@ import {
 } from 'shared/ui/Text';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { Skeleton } from 'shared/ui/Skeleton';
-import {
-    getArticleDetailsIsLoading,
-} from 'entities/Article/model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
-import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
-import { fetchArticleDetailsData } from '../../model/services/fetchArticleDetailsData/fetchArticleDetailsData';
+import { Icon } from 'shared/ui/Icon';
+import EyeIcon from 'shared/assets/icons/eye.svg';
+import CalendarIcon from 'shared/assets/icons/calendar.svg';
+import { ArticleBlockComponent } from 'entities/Article/ui/ArticleBlockComponent/ArticleBlockComponent';
+import { getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors';
+import { fetchArticleDetailsData } from '../../model/services';
 import cls from './ArticleDetails.module.scss';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 
@@ -67,38 +68,47 @@ export const ArticleDetails = ({ className, id }: ArticleDetailsProps) => {
         );
     }
 
+    const {
+        createdAt,
+        title,
+        subtitle,
+        img,
+        views,
+        blocks = [],
+    } = articleDetailsData || {};
+
     return (
         <VStack gap={16} className={className}>
-            {articleDetailsData?.img && (
+            {img && (
                 <div className={cls.avatarWrapper}>
-                    <Avatar size={200} src={articleDetailsData?.img} alt="" className={cls.avatar} />
+                    <Avatar size={200} src={img} alt="" className={cls.avatar} />
                 </div>
             )}
 
             <VStack gap={8}>
                 <Text variant={TextVariant.Title} size={TextSize.Large}>
-                    {articleDetailsData?.title}
+                    {title}
                 </Text>
-                <Text size={TextSize.Large}>{articleDetailsData?.subtitle}</Text>
+                <Text size={TextSize.Large}>{subtitle}</Text>
             </VStack>
 
             <VStack gap={4}>
                 <HStack gap={4}>
-                    {/* <Icon icon={EyeIcon} className={cls.metaIcon} /> */}
-                    <Text>{articleDetailsData?.views}</Text>
+                    <Icon icon={EyeIcon} className={cls.metaIcon} />
+                    <Text>{views}</Text>
                 </HStack>
 
                 <HStack gap={4}>
-                    {/* <Icon icon={CalendarIcon} className={cls.metaIcon} /> */}
-                    <Text>{articleDetailsData?.createdAt}</Text>
+                    <Icon icon={CalendarIcon} className={cls.metaIcon} />
+                    <Text>{createdAt}</Text>
                 </HStack>
             </VStack>
 
-            {/* <VStack gap={8}> */}
-            {/*    {articleDetailsData?.blocks.map((block) => ( */}
-            {/*        <ArticleBlockComponent key={block.id} block={block} /> */}
-            {/*    ))} */}
-            {/* </VStack> */}
+            <VStack gap={8}>
+                {blocks.map((block) => (
+                    <ArticleBlockComponent key={block.id} block={block} />
+                ))}
+            </VStack>
         </VStack>
     );
 };

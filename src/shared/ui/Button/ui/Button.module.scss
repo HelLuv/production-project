@@ -1,6 +1,17 @@
 .button {
     cursor: pointer;
     color: var(--inverted-primary-color);
+    transition: all 0.3s linear;
+
+    &:hover {
+        opacity: 0.75;
+        scale: 1.03;
+    }
+
+    &:disabled {
+        cursor: initial;
+        opacity: 0.75;
+    }
 }
 
 .clear, .clearInverted {

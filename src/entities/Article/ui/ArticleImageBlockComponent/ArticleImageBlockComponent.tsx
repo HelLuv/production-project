@@ -1,20 +1,31 @@
-import { ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { ArticleImageBlock } from 'entities/Article/model/types/article';
+import { PropsWithClassName } from 'shared/types';
+import { Text } from 'shared/ui/Text';
 import cls from './ArticleImageBlockComponent.module.scss';
 
-interface ArticleImageBlockComponentProps {
-  className?: string;
-  children?: ReactNode;
+type ArticleImageBlockComponentProps = PropsWithClassName & {
+  block: ArticleImageBlock;
 }
 
 export const ArticleImageBlockComponent = (props: ArticleImageBlockComponentProps) => {
-    const { className, children } = props;
-    const { t } = useTranslation();
+    const {
+        className,
+        block: {
+            src, title,
+        },
+    } = props;
 
     return (
         <div className={classNames(cls.articleImageBlockComponent, {}, [className])}>
-            {children}
+            <figure className={cls.figure}>
+                <img className={cls.image} src={src} alt={title} />
+                {title && (
+                    <figcaption>
+                        <Text>{title}</Text>
+                    </figcaption>
+                )}
+            </figure>
         </div>
     );
 };

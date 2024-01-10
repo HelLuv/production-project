@@ -1,20 +1,28 @@
-import { ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ArticleBlockComponent.module.scss';
+import { PropsWithClassName } from 'shared/types';
+import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/article';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 
-interface ArticleBlockComponentProps {
-  className?: string;
-  children?: ReactNode;
+type ArticleBlockComponentProps = PropsWithClassName & {
+  block: ArticleBlock;
 }
 
 export const ArticleBlockComponent = (props: ArticleBlockComponentProps) => {
-    const { className, children } = props;
-    const { t } = useTranslation();
+    const { className, block } = props;
+    const { type } = block;
+    switch (type) {
+    case ArticleBlockType.Text:
+        return <ArticleTextBlockComponent className={className} block={block} />;
 
-    return (
-        <div className={classNames(cls.articleBlockComponent, {}, [className])}>
-            {children}
-        </div>
-    );
+    case ArticleBlockType.Code:
+        return <ArticleCodeBlockComponent className={className} block={block} />;
+    case ArticleBlockType.Image:
+        return <ArticleImageBlockComponent className={className} block={block} />;
+
+    default: {
+        const exhaustiveCheck: never = type;
+        return null;
+    }
+    }
 };

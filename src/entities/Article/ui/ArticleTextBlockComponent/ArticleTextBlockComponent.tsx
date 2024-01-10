@@ -1,20 +1,31 @@
-import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { ArticleTextBlock } from 'entities/Article/model/types/article';
+import { PropsWithClassName } from 'shared/types';
+import { VStack } from 'shared/ui/Stack';
+import { Text, TextSize, TextVariant } from 'shared/ui/Text';
 import cls from './ArticleTextBlockComponent.module.scss';
 
-interface ArticleTextBlockComponentProps {
-  className?: string;
-  children?: ReactNode;
+type ArticleTextBlockComponentProps = PropsWithClassName & {
+  block: ArticleTextBlock;
 }
 
 export const ArticleTextBlockComponent = (props: ArticleTextBlockComponentProps) => {
-    const { className, children } = props;
+    const { className, block: { title, paragraphs } } = props;
     const { t } = useTranslation();
 
     return (
-        <div className={classNames(cls.articleTextBlockComponent, {}, [className])}>
-            {children}
-        </div>
+        <VStack gap={8} className={className} align="stretch">
+            {title && (
+                <Text variant={TextVariant.Title} size={TextSize.Large} className={cls.title}>
+                    {title}
+                </Text>
+            )}
+
+            {paragraphs.map((paragraph) => (
+                <Text key={paragraph} className={cls.paragraph}>
+                    {paragraph}
+                </Text>
+            ))}
+        </VStack>
     );
 };
