@@ -52,6 +52,12 @@
   "article-details": {
     "error": {
       "not-found": "Статья не найдена"
+    },
+    "comments": "Комментарии к статье"
+  },
+  "comments": {
+    "list": {
+      "empty-state": "Для этой статьи пока что нет комментариев"
     }
   }
 }

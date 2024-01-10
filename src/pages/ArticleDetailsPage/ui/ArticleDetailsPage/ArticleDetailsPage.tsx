@@ -5,8 +5,16 @@ import { VStack } from 'shared/ui/Stack';
 import { ID } from 'shared/types';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { ReducersList, useDynamicReducers } from 'shared/hooks/useDynamicReducers';
+import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
+import { articleDetailPageReducer } from '../../model/slices/articleDetailPageSlice/articleDetailPageSlice';
+
+const dynamicReducers: ReducersList = {
+    articleDetailsPage: articleDetailPageReducer,
+};
 
 export const ArticleDetailsPage = memo(() => {
+    useDynamicReducers(dynamicReducers);
     const { id } = useParams<{ id: ID }>();
     const { t } = useTranslation();
 
@@ -21,7 +29,7 @@ export const ArticleDetailsPage = memo(() => {
                 <ArticleDetails id={id} />
                 {/* <ArticleRating articleId={id} /> */}
                 {/* <ArticleRecommendationsList /> */}
-                {/* <ArticleDetailsComments id={id} /> */}
+                <ArticleDetailsComments id={id} />
             </VStack>
         </Page>
     );

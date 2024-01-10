@@ -28,6 +28,12 @@
   "article-details": {
     "error": {
       "not-found": "Article is not found"
+    },
+    "comments": "Comments for this article"
+  },
+  "comments": {
+    "list": {
+      "empty-state": "There are no comments for this article"
     }
   }
 }

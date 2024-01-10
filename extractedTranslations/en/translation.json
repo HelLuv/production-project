@@ -19,8 +19,14 @@
   "Your firstname": "",
   "Your lastname": "",
   "article-details": {
+    "comments": "article-details.comments",
     "error": {
       "not-found": "Article is not found"
+    }
+  },
+  "comments": {
+    "list": {
+      "empty-state": "comments.list.empty-state"
     }
   },
   "profile": {

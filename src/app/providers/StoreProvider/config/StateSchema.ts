@@ -11,6 +11,7 @@ import { NavigateOptions, To } from 'react-router-dom';
 import { ScrollPositionSchema } from 'features/keepScrollPosition';
 import { EditableProfileCardSchema } from 'features/EditableProfileCard';
 import { ArticleDetailsSchema } from 'entities/Article';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -21,6 +22,7 @@ export interface StateSchema {
     editableProfile?: EditableProfileCardSchema;
     scrollPosition?: ScrollPositionSchema;
     articleDetails?: ArticleDetailsSchema;
+    articleDetailsPage?: ArticleDetailsPageSchema;
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 }
 
