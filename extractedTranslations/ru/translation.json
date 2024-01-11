@@ -25,6 +25,9 @@
     }
   },
   "comments": {
+    "form": {
+      "submit": "comments.form.submit"
+    },
     "list": {
       "empty-state": "comments.list.empty-state"
     }

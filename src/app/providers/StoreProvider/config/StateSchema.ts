@@ -12,6 +12,7 @@ import { ScrollPositionSchema } from 'features/keepScrollPosition';
 import { EditableProfileCardSchema } from 'features/EditableProfileCard';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
+import { AddCommentFormSchema } from 'features/AddCommentForm';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -23,6 +24,7 @@ export interface StateSchema {
     scrollPosition?: ScrollPositionSchema;
     articleDetails?: ArticleDetailsSchema;
     articleDetailsPage?: ArticleDetailsPageSchema;
+    addCommentForm?: AddCommentFormSchema;
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 }
 

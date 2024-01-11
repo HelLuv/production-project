@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { VStack } from 'shared/ui/Stack';
 import { ID, PropsWithClassName } from 'shared/types';
@@ -10,6 +10,8 @@ import {
     fetchArticleDetailsComments,
 } from 'pages/ArticleDetailsPage/model/services/fetchArticleDetailsComments/fetchArticleDetailsComments';
 import { CommentList } from 'entities/Comment';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice/articleDetailsCommentsSlice';
 import {
     getArticleDetailsCommentsIsLoading,
@@ -27,6 +29,10 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
 
+    const sendComment = useCallback(async (text: string) => {
+        await dispatch(addCommentForArticle(text));
+    }, [dispatch]);
+
     useProjectEffect(() => {
         dispatch(fetchArticleDetailsComments(id));
     }, [dispatch, id]);
@@ -34,6 +40,8 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     return (
         <VStack gap={16} className={className}>
             <Text variant={TextVariant.Title}>{t('article-details.comments')}</Text>
+
+            <AddCommentForm onSendComment={sendComment} className="fullwidth" />
 
             <CommentList isLoading={commentsIsLoading} comments={comments} className="fullwidth" />
         </VStack>

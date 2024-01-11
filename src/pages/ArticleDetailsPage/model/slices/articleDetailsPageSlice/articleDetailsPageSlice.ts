@@ -4,7 +4,7 @@ import {
     articleDetailsRecommendationsReducer,
 } from '../articleDetailsRecommendationsSlice/articleDetailsRecommendationsSlice';
 
-export const articleDetailPageReducer = combineReducers({
+export const articleDetailsPageReducer = combineReducers({
     comments: articleDetailsCommentsReducer,
     recommendations: articleDetailsRecommendationsReducer,
 });

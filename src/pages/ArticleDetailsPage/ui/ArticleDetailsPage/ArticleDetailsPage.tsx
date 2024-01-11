@@ -7,10 +7,10 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ReducersList, useDynamicReducers } from 'shared/hooks/useDynamicReducers';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
-import { articleDetailPageReducer } from '../../model/slices/articleDetailPageSlice/articleDetailPageSlice';
+import { articleDetailsPageReducer } from '../../model/slices/articleDetailsPageSlice/articleDetailsPageSlice';
 
 const dynamicReducers: ReducersList = {
-    articleDetailsPage: articleDetailPageReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 export const ArticleDetailsPage = memo(() => {

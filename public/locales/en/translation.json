@@ -34,6 +34,9 @@
   "comments": {
     "list": {
       "empty-state": "There are no comments for this article"
+    },
+    "form": {
+      "submit": "Submit your comment"
     }
   }
 }

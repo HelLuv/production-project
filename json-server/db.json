@@ -543,58 +543,16 @@
       "id": "4Cljjzl"
     },
     {
-      "articleId": "1",
+      "text": "test comment ",
       "userId": "1",
-      "text": "123asfasf",
-      "id": "AEM4Dvc"
-    },
-    {
       "articleId": "1",
-      "userId": "2",
-      "text": "123asfasf",
-      "id": "IFEOWl0"
+      "id": "SasZnlr"
     },
     {
-      "articleId": "1",
-      "userId": "2",
-      "text": "привет мир",
-      "id": "dBacYRZ"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "хехехехе",
-      "id": "rBX_C-e"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "фыафыа",
-      "id": "5k0ApX-"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "sdfsdfsd",
-      "id": "w-HDIRq"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "asdasdasd",
-      "id": "MVvGQoZ"
-    },
-    {
-      "articleId": "3",
+      "text": "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и чита",
       "userId": "1",
-      "text": "comment 1",
-      "id": "bAs7YBE"
-    },
-    {
-      "articleId": "2",
-      "userId": "1",
-      "text": "python!!!",
-      "id": "p5rMadd"
+      "articleId": "1",
+      "id": "rwm_--S"
     }
   ],
   "users": [
@@ -602,13 +560,17 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"]
+      "roles": [
+        "ADMIN"
+      ]
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"]
+      "roles": [
+        "USER"
+      ]
     }
   ],
   "profile": [
