@@ -38,5 +38,13 @@
     "form": {
       "submit": "Submit your comment"
     }
+  },
+  "article": {
+    "read-more": "article.read-more"
+  },
+  "articles": {
+    "list": {
+      "empty": "articles.list.empty"
+    }
   }
 }

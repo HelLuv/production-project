@@ -1,4 +1,5 @@
 {
+  "": "",
   "About page": "About page",
   "AppLink": "AppLink",
   "Auth modal": "Auth modal",
@@ -18,11 +19,21 @@
   "Throw error": "Throw error",
   "Your firstname": "Your firstname",
   "Your lastname": "Your lastname",
+  "article": {
+    "read-more": "article.read-more"
+  },
   "article-details": {
     "comments": "",
     "error": {
       "not-found": "Статья не найдена"
     }
+  },
+  "articles": {
+    "content": "content",
+    "list": {
+      "empty": "empty"
+    },
+    "title": "title"
   },
   "comments": {
     "form": {
