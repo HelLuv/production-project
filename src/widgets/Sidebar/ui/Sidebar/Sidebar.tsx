@@ -24,7 +24,7 @@ export function Sidebar({ className }: SideBarProps) {
     const toggleLabel = collapsed ? 'Expand sidebar' : 'Collapse sidebar';
 
     return (
-        <aside
+        <menu
             id="sidebar"
             data-testid="sidebar"
             className={classNames(className, {
@@ -58,6 +58,6 @@ export function Sidebar({ className }: SideBarProps) {
             >
                 <span aria-hidden="true">{collapsed ? '>' : '<'}</span>
             </Button>
-        </aside>
+        </menu>
     );
 }
