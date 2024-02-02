@@ -1,0 +1,12 @@
+.Tabs {
+    display: flex;
+    gap: 16px;
+}
+
+.tab {
+    cursor: pointer;
+}
+
+.active {
+    cursor: initial;
+}

@@ -4,8 +4,8 @@ import { ValuesOf } from 'shared/types';
 import { ArticleType } from 'entities/Article';
 import type { ThunkConfig } from 'app/providers/StoreProvider';
 
-import { ArticleSortField } from 'features/ArticleSortSelector/model/constants';
 import { SortOrder } from 'shared/const/queryParams';
+import { ArticleSortField } from 'features/ArticleSortSelector';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 import { getArticlesPagePage } from '../../selectors/getArticlesPagePage/getArticlesPagePage';
 import { getArticlesPageInitialized } from '../../selectors/getArticlesPageInitialized/getArticlesPageInitialized';

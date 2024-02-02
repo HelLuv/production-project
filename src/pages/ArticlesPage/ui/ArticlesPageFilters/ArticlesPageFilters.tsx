@@ -16,6 +16,8 @@ import { ArticleTypeTab } from 'features/ArticleTypeTabs/model/constants';
 import { Card } from 'shared/ui/Card';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { Input } from 'shared/ui/Input';
+import { ArticleSortField, ArticleSortSelector } from 'features/ArticleSortSelector';
+import { ArticleTypeTabs } from 'features/ArticleTypeTabs';
 import cls from './ArticlesPageFilters.module.scss';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice/articlesPageSlice';
 
@@ -48,6 +50,11 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
         refetchData();
     }, [dispatch, refetchData]);
 
+    const onSortSelect = useCallback((newSort: ValuesOf<typeof ArticleSortField>) => {
+        dispatch(articlesPageActions.setSort(newSort));
+        refetchData();
+    }, [dispatch, refetchData]);
+
     const onSearchChange = useCallback((newSearch: string) => {
         dispatch(articlesPageActions.setSearch(newSearch));
         refetchData();
@@ -61,6 +68,12 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     return (
         <div className={classNames(cls.articlesPageFilters, {}, [className])}>
             <Card className={cls.filters}>
+                <ArticleSortSelector
+                    sort={sort}
+                    order={order}
+                    onOrderSelect={onOrderSelect}
+                    onSortSelect={onSortSelect}
+                />
                 <ArticleViewSelector
                     className={cls.viewSelector}
                     view={view}
@@ -71,6 +84,8 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
             <Card>
                 <Input placeholder="Search articles" value={search} onChange={onSearchChange} />
             </Card>
+
+            <ArticleTypeTabs value={type} onTabClick={onTypeTabClick} className={cls.tabs} />
         </div>
     );
 };

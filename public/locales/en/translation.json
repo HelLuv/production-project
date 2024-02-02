@@ -29,7 +29,8 @@
     "error": {
       "not-found": "Article is not found"
     },
-    "comments": "Comments for this article"
+    "comments": "Comments for this article",
+    "back": "Return back to article list"
   },
   "comments": {
     "list": {
@@ -46,5 +47,16 @@
     "list": {
       "empty": "articles.list.empty"
     }
+  },
+  "sort-order": {
+    "asc": "Ascend",
+    "desc": "Descend",
+    "order-label": "Sort by"
+  },
+  "article-sort-field": {
+    "views": "views",
+    "title": "title",
+    "created-at": "creation date",
+    "field-label": "Sort by"
   }
 }

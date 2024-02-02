@@ -4,7 +4,7 @@ import type { ValuesOf } from 'shared/types';
 import { Article, ArticleType, ArticleView } from 'entities/Article';
 import type { StateSchema } from 'app/providers/StoreProvider';
 import { SortOrder } from 'shared/const/queryParams';
-import { ArticleSortField } from 'features/ArticleSortSelector/model/constants';
+import { ArticleSortField } from 'features/ArticleSortSelector';
 import { initialArticlesPageState } from './initialArticlesPageState';
 import { fetchArticles } from '../../services/fetchArticles/fetchArticles';
 

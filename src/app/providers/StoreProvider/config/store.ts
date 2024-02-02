@@ -3,24 +3,23 @@ import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { rtkApi } from 'shared/api/rtkApi';
 import { $api } from 'shared/api/api';
-import { NavigateOptions, To } from 'react-router-dom';
+import { scrollPositionSliceReducer } from 'features/keepScrollPosition';
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 type StoreConfig = {
     initialState?: StateSchema;
     asyncReducers?: ReducersMapObject<StateSchema>;
-    navigate?: (to: To, options?: NavigateOptions) => void;
 };
 
-export function createReduxStore({ initialState, asyncReducers, navigate }: StoreConfig) {
+export function createReduxStore({ initialState, asyncReducers }: StoreConfig) {
     const ensuredAsyncReducers = asyncReducers || {};
 
     const rootReducer: ReducersMapObject<StateSchema> = {
         ...ensuredAsyncReducers,
         counter: counterReducer,
         user: userReducer,
-
+        scrollPosition: scrollPositionSliceReducer,
         [rtkApi.reducerPath]: rtkApi.reducer,
     };
 
@@ -28,7 +27,6 @@ export function createReduxStore({ initialState, asyncReducers, navigate }: Stor
 
     const extraArgument: ThunkExtraArg = {
         api: $api,
-        navigate,
     };
 
     const store = configureStore({

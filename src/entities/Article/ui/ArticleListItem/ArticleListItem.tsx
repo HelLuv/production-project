@@ -6,7 +6,7 @@ import { AppLink, AppLinkProps } from 'shared/ui/AppLink/ui/AppLink';
 import { AppRoute } from 'app/providers/router';
 import { Card } from 'shared/ui/Card';
 import { Avatar } from 'shared/ui/Avatar';
-import { Text, TextVariant } from 'shared/ui/Text';
+import { Text, TextSize, TextVariant } from 'shared/ui/Text';
 import { Button } from 'shared/ui/Button';
 import { Icon } from 'shared/ui/Icon';
 import EyeIcon from 'shared/assets/icons/eye.svg';
@@ -46,7 +46,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                     <Text className={cls.date}>{article.createdAt}</Text>
                 </div>
 
-                <Text variant={TextVariant.Title} className={cls.title}>
+                <Text variant={TextVariant.Title} size={TextSize.Large} className={cls.title}>
                     {article.title}
                 </Text>
 

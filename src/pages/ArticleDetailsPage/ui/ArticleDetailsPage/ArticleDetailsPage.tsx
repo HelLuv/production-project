@@ -6,6 +6,7 @@ import { ID } from 'shared/types';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ReducersList, useDynamicReducers } from 'shared/hooks/useDynamicReducers';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { articleDetailsPageReducer } from '../../model/slices/articleDetailsPageSlice/articleDetailsPageSlice';
 
@@ -25,7 +26,7 @@ export const ArticleDetailsPage = memo(() => {
     return (
         <Page>
             <VStack gap={16} align="stretch">
-                {/* <ArticleDetailsPageHeader /> */}
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 {/* <ArticleRating articleId={id} /> */}
                 {/* <ArticleRecommendationsList /> */}

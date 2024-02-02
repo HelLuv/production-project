@@ -1,6 +1,6 @@
 import { ArticleView } from 'entities/Article';
 import { SortOrder } from 'shared/const/queryParams';
-import { ArticleSortField } from 'features/ArticleSortSelector/model/constants';
+import { ArticleSortField } from 'features/ArticleSortSelector';
 import { ArticlesPageSchema } from '../../types/articlesPageSchema';
 
 export const initialArticlesPageState: ArticlesPageSchema = {

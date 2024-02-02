@@ -7,7 +7,6 @@ import {
 } from '@reduxjs/toolkit';
 import { rtkApi } from 'shared/api/rtkApi';
 import { CombinedState } from '@reduxjs/toolkit/query';
-import { NavigateOptions, To } from 'react-router-dom';
 import { ScrollPositionSchema } from 'features/keepScrollPosition';
 import { EditableProfileCardSchema } from 'features/EditableProfileCard';
 import { ArticleDetailsSchema } from 'entities/Article';
@@ -22,7 +21,7 @@ export interface StateSchema {
     // Async reducers
     loginForm?: LoginSchema;
     editableProfile?: EditableProfileCardSchema;
-    scrollPosition?: ScrollPositionSchema;
+    scrollPosition: ScrollPositionSchema;
     articleDetails?: ArticleDetailsSchema;
     articleDetailsPage?: ArticleDetailsPageSchema;
     articlesPage?: ArticlesPageSchema;
@@ -48,7 +47,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 }
 export interface ThunkExtraArg {
     api: AxiosInstance;
-    navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 export interface ThunkConfig<T> {

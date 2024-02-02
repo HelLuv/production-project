@@ -23,10 +23,17 @@
     "read-more": "article.read-more"
   },
   "article-details": {
+    "back": "article-details.back",
     "comments": "",
     "error": {
       "not-found": "Статья не найдена"
     }
+  },
+  "article-sort-field": {
+    "created-at": "article-sort-field.created-at",
+    "field-label": "article-sort-field.field-label",
+    "title": "article-sort-field.title",
+    "views": "article-sort-field.views"
   },
   "articles": {
     "content": "content",
@@ -53,5 +60,10 @@
   },
   "profile-page": {
     "error": "error"
+  },
+  "sort-order": {
+    "asc": "sort-order.asc",
+    "desc": "sort-order.desc",
+    "order-label": "sort-order.order-label"
   }
 }
