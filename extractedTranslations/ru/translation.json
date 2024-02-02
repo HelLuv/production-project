@@ -27,7 +27,8 @@
     "comments": "",
     "error": {
       "not-found": "Статья не найдена"
-    }
+    },
+    "recommendations": "article-details.recommendations"
   },
   "article-sort-field": {
     "created-at": "article-sort-field.created-at",

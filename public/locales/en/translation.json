@@ -30,7 +30,8 @@
       "not-found": "Article is not found"
     },
     "comments": "Comments for this article",
-    "back": "Return back to article list"
+    "back": "Return back to article list",
+    "recommendations": "Recommended articles"
   },
   "comments": {
     "list": {

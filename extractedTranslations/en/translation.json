@@ -27,7 +27,8 @@
     "comments": "article-details.comments",
     "error": {
       "not-found": "Article is not found"
-    }
+    },
+    "recommendations": "article-details.recommendations"
   },
   "article-sort-field": {
     "created-at": "article-sort-field.created-at",
