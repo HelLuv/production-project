@@ -25,6 +25,7 @@
   "article-details": {
     "back": "article-details.back",
     "comments": "",
+    "edit": "edit",
     "error": {
       "not-found": "Статья не найдена"
     },

@@ -1,6 +1,5 @@
 import { lazy } from 'react';
+import { makeModuleDefault } from 'shared/helpers';
 
-export const MainPageAsync = lazy(() => new Promise((resolve) => {
-    // @ts-ignore
-    setTimeout(() => resolve(import('./MainPage')), 1500);
-}));
+export const MainPageAsync = lazy(async () => import('./MainPage')
+    .then(({ MainPage }) => makeModuleDefault(MainPage)));

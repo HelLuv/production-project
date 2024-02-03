@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { BugButton } from 'app/providers/ErrorBoundary';
 import { Input } from 'shared/ui/Input';
 
-const MainPage = () => {
+export const MainPage = () => {
     const { t } = useTranslation();
     const [value, setValue] = useState('');
     const onChange = (val: string) => {
@@ -17,5 +17,3 @@ const MainPage = () => {
         </div>
     );
 };
-
-export default MainPage;

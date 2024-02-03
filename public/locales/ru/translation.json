@@ -1,16 +1,44 @@
 {
-  "sidebar": {
-    "toggle": "Toggle",
-    "language": "English",
-    "short-language": "En"
+  "about": {
+    "title": "О нас",
+    "content": "Контент страницы о нас"
   },
-  "navbar": {
-    "main": "Главная",
-    "about": "О нас",
-    "profile": "Профиль",
-    "articles": "Статьи",
-    "sign-in": "Войти",
-    "logout": "Выйти"
+  "article": {
+    "read-more": "Читать больше"
+  },
+  "article-form": {
+    "edit-title": "Редактировать статью",
+    "new-title": "Создать новую статью"
+  },
+  "article-details": {
+    "error": {
+      "not-found": "Статья не найдена"
+    },
+    "comments": "Комментарии к статье",
+    "back": "Вернуться назад к списку статей",
+    "recommendations": "Рекомендованные статьи",
+    "edit": "Редактировать статью"
+  },
+  "article-sort-field": {
+    "views": "по просмотрам",
+    "title": "по заголовку",
+    "created-at": "по дате создания",
+    "field-label": "Сортировать"
+  },
+  "articles": {
+    "list": {
+      "empty": "Нет статей в этом списке"
+    },
+    "title": "Список статей",
+    "content": "Дополнительная информация"
+  },
+  "comments": {
+    "list": {
+      "empty-state": "Для этой статьи пока что нет комментариев"
+    },
+    "form": {
+      "submit": "Отправить ваш комментарий"
+    }
   },
   "login-form": {
     "name": {
@@ -29,9 +57,20 @@
     "title": "Главная",
     "content": "Контент главной страницы"
   },
-  "about": {
-    "title": "О нас",
-    "content": "Контент страницы о нас"
+  "navbar": {
+    "main": "Главная",
+    "about": "О нас",
+    "profile": "Профиль",
+    "articles": "Статьи",
+    "sign-in": "Войти",
+    "logout": "Выйти"
+  },
+  "not_found": {
+    "title": "Страница не найдена"
+  },
+  "page_error": {
+    "title": "Произошла непредвиденная ошибка",
+    "refresh": "Обновить страницу"
   },
   "profile": {
     "title": "Профиль",
@@ -42,48 +81,14 @@
       "edit": "Редактировать профиль"
     }
   },
-  "not_found": {
-    "title": "Страница не найдена"
-  },
-  "page_error": {
-    "title": "Произошла непредвиденная ошибка",
-    "refresh": "Обновить страницу"
-  },
-  "article-details": {
-    "error": {
-      "not-found": "Статья не найдена"
-    },
-    "comments": "Комментарии к статье",
-    "back": "Вернуться назад к списку статей",
-    "recommendations": "Рекомендованные статьи"
-  },
-  "comments": {
-    "list": {
-      "empty-state": "Для этой статьи пока что нет комментариев"
-    },
-    "form": {
-      "submit": "Отправить ваш комментарий"
-    }
-  },
-  "article": {
-    "read-more": "Читать больше"
-  },
-  "articles": {
-    "list": {
-      "empty": "Нет статей в этом списке"
-    },
-    "title": "Список статей",
-    "content": "Дополнительная информация"
+  "sidebar": {
+    "toggle": "Toggle",
+    "language": "English",
+    "short-language": "En"
   },
   "sort-order": {
     "asc": "по возрастанию",
     "desc": "по убыванию",
     "order-label": "Сортировать"
-  },
-  "article-sort-field": {
-    "views": "по просмотрам",
-    "title": "по заголовку",
-    "created-at": "по дате создания",
-    "field-label": "Сортировать"
   }
 }

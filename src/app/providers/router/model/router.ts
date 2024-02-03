@@ -2,6 +2,8 @@ const Path = {
     About: 'about',
     Profile: 'profile',
     Articles: 'articles',
+    New: 'new',
+    Edit: 'edit',
 } as const;
 
 const getRoutePath = (...paths: string[]) => `/${paths.join('/')}`;
@@ -14,5 +16,7 @@ export const AppRoute = {
     Profile: (id = ID_PLACEHOLDER) => getRoutePath(Path.Profile, id),
     Articles: () => getRoutePath(Path.Articles),
     ArticleDetails: (id = ID_PLACEHOLDER) => getRoutePath(Path.Articles, id),
+    ArticleCreate: () => getRoutePath(Path.Articles, Path.New),
+    ArticleEdit: (id = ID_PLACEHOLDER) => getRoutePath(Path.Articles, id, Path.Edit),
     NotFound: () => '*',
 } as const;

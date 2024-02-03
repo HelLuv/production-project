@@ -5,6 +5,7 @@ import { ProfilePage } from 'pages/ProfilePage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ArticlesPage } from 'pages/ArticlesPage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { ArticleEditPage } from 'pages/ArticleEditPage';
 import { AppRoute } from './router';
 
 export type AppRouteProps = RouteProps & {
@@ -32,6 +33,16 @@ export const routerConfig: Record<keyof typeof AppRoute, AppRouteProps> = {
     ArticleDetails: {
         path: AppRoute.ArticleDetails(),
         element: <ArticleDetailsPage />,
+        authOnly: true,
+    },
+    ArticleCreate: {
+        path: AppRoute.ArticleCreate(),
+        element: <ArticleEditPage />,
+        authOnly: true,
+    },
+    ArticleEdit: {
+        path: AppRoute.ArticleEdit(),
+        element: <ArticleEditPage />,
         authOnly: true,
     },
     NotFound: {

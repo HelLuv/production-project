@@ -25,6 +25,7 @@
   "article-details": {
     "back": "article-details.back",
     "comments": "article-details.comments",
+    "edit": "edit",
     "error": {
       "not-found": "Article is not found"
     },
