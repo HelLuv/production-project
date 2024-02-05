@@ -1,48 +1,105 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { PropsWithClassName } from 'shared/types';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { AppLink } from 'shared/ui/AppLink';
-import { AppRoute } from 'app/providers/router';
-import { Avatar } from 'shared/ui/Avatar';
-import { Text } from 'shared/ui/Text';
-import { Comment } from '../../model/types/comment';
-import cls from './CommentCard.module.scss';
+import { memo } from 'react';
 
-type CommentCardProps = PropsWithClassName & {
+import { getRouteProfile } from 'shared/const/router';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { ToggleFeatures, toggleFeatures } from 'shared/lib/features';
+import { AppLink as AppLinkDeprecated } from 'shared/ui/deprecated/AppLink';
+import { Avatar as AvatarDeprecated } from 'shared/ui/deprecated/Avatar';
+import { Skeleton as SkeletonDeprecated } from 'shared/ui/deprecated/Skeleton';
+import { Text as TextDeprecated } from 'shared/ui/deprecated/Text';
+import { AppLink } from 'shared/ui/redesigned/AppLink';
+import { Avatar } from 'shared/ui/redesigned/Avatar';
+import { Card } from 'shared/ui/redesigned/Card';
+import { Skeleton as SkeletonRedesigned } from 'shared/ui/redesigned/Skeleton';
+import { HStack, VStack } from 'shared/ui/redesigned/Stack';
+import { Text } from 'shared/ui/redesigned/Text';
+
+import classes from './CommentCard.module.scss';
+import { Comment } from '../../model/types/comment';
+
+interface CommentCardProps {
+  className?: string;
   comment?: Comment;
   isLoading?: boolean;
 }
 
-export const CommentCard = (props: CommentCardProps) => {
+export const CommentCard = memo((props: CommentCardProps) => {
     const { className, comment, isLoading } = props;
+    const mods: Mods = {};
 
-    if (isLoading || !comment) {
+    const Skeleton = toggleFeatures({
+        name: 'isSiteRedesigned',
+        on: () => SkeletonRedesigned,
+        off: () => SkeletonDeprecated,
+    });
+
+    if (isLoading) {
         return (
-            <VStack gap={12} className={classNames(cls.commentCard, {}, [className])}>
-                <HStack gap={12} className={cls.header}>
-                    <Skeleton width={30} height={30} borderRadius="50%" />
-                    <Skeleton width={100} height={16} />
-                </HStack>
-                <Skeleton height={50} />
+            <VStack
+                data-test-id="CommentCard.loading"
+                maxWidth
+                gap="8"
+                className={classNames(classes.CommentCard, mods, [
+                    classes.loading,
+                    className,
+                ])}
+            >
+                <div className={classes.header}>
+                    <Skeleton width={30} height={30} border="50%" />
+                    <Skeleton height={16} width={100} className={classes.username} />
+                </div>
+                <Skeleton width="100%" height={50} className={classes.text} />
             </VStack>
         );
     }
-    const {
-        user: { username, avatar, id: userId },
-        text,
-    } = comment;
 
     return (
-        <VStack gap={12} className={classNames(cls.commentCard, {}, [className])}>
-            <AppLink to={AppRoute.Profile(userId)}>
-                <HStack>
-                    <Avatar size={30} src={avatar} alt={username} />
-                    <Text>{username}</Text>
-                </HStack>
-            </AppLink>
-
-            <Text>{text}</Text>
-        </VStack>
+        <ToggleFeatures
+            featureName="isSiteRedesigned"
+            on={(
+                <Card paddings="24" border="semi" maxWidth>
+                    <VStack
+                        gap="8"
+                        maxWidth
+                        className={classNames(classes.CommentCardRedesigned, mods, [
+                            className,
+                        ])}
+                        data-testid="CommentCard.content"
+                    >
+                        <AppLink to={getRouteProfile(comment?.user.id || '')}>
+                            <HStack gap="8">
+                                {comment?.user.avatar && (
+                                    <Avatar size={30} src={comment?.user.avatar} />
+                                )}
+                                <Text text={comment?.user.username} bold />
+                            </HStack>
+                        </AppLink>
+                        <Text text={comment?.text} />
+                    </VStack>
+                </Card>
+            )}
+            off={(
+                <VStack
+                    gap="8"
+                    maxWidth
+                    className={classNames(classes.CommentCard, mods, [className])}
+                    data-testid="CommentCard.content"
+                >
+                    <AppLinkDeprecated
+                        to={getRouteProfile(comment?.user.id || '')}
+                        className={classes.header}
+                    >
+                        {comment?.user.avatar && (
+                            <AvatarDeprecated size={30} src={comment?.user.avatar} />
+                        )}
+                        <TextDeprecated
+                            title={comment?.user.username}
+                            className={classes.username}
+                        />
+                    </AppLinkDeprecated>
+                    <TextDeprecated text={comment?.text} className={classes.text} />
+                </VStack>
+            )}
+        />
     );
-};
+});

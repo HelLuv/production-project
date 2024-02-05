@@ -1,53 +1,51 @@
-import React, {
-    FC, ReactNode, useMemo, useState,
-} from 'react';
 import {
-    LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext, ThemeContextProps,
-} from '../lib/ThemeContext';
+    FC, ReactNode, useEffect, useMemo, useState,
+} from 'react';
 
-let DEFAULT_THEME = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme | '';
+import { LOCAL_STORAGE_THEME_KEY } from 'shared/const/localStorage';
+import { Theme } from 'shared/const/theme';
 
-export interface ThemeProviderProps {
-    children: ReactNode;
-    initialTheme?: Theme;
+import { ThemeContext } from '../../../../shared/lib/context/ThemeContext';
+
+interface ThemeProviderProps {
+  initialTheme?: Theme;
+  children: ReactNode;
 }
 
+const fallbackTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme;
+
 const ThemeProvider: FC<ThemeProviderProps> = (props) => {
-    const { children, initialTheme } = props;
-    const [theme, setTheme] = useState<Theme>(initialTheme || DEFAULT_THEME as Theme);
+    const { initialTheme, children } = props;
 
-    function toggleTheme() {
-        let newTheme: Theme;
-        if (DEFAULT_THEME) {
-            newTheme = DEFAULT_THEME;
-        } else {
-            switch (theme) {
-            case Theme.DARK:
-                newTheme = Theme.LIGHT;
-                break;
-            case Theme.LIGHT:
-                newTheme = Theme.HYPERWAVE;
-                break;
-            case Theme.HYPERWAVE:
-                newTheme = Theme.DARK;
-                break;
-            default:
-                newTheme = Theme.DARK;
-            }
+    // const { theme: defaultTheme } = useUserSettings();
+
+    const [isThemeInitiated, setIsThemeInitiated] = useState(false);
+    const [theme, setTheme] = useState<Theme>(
+        initialTheme || fallbackTheme || Theme.LIGHT,
+    );
+
+    useEffect(() => {
+        if (!isThemeInitiated && initialTheme) {
+            setTheme(initialTheme);
+            setIsThemeInitiated(true);
         }
+    }, [initialTheme, isThemeInitiated]);
 
-        setTheme?.(newTheme);
-        document.body.className = newTheme;
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
-        DEFAULT_THEME = '';
-    }
+    useEffect(() => {
+        document.body.className = theme;
+        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
+    }, [theme]);
 
-    const defaultValue = useMemo<ThemeContextProps>(() => ({
-        theme, setTheme: toggleTheme,
-    }), [theme, toggleTheme]);
+    const defaultProps = useMemo(
+        () => ({
+            theme,
+            setTheme,
+        }),
+        [theme],
+    );
 
     return (
-        <ThemeContext.Provider value={defaultValue}>
+        <ThemeContext.Provider value={defaultProps}>
             {children}
         </ThemeContext.Provider>
     );

@@ -1,9 +1,26 @@
-.avatarWrapper {
-    align-self: center;
+.ArticleDetails {
+  display: block;
+  margin-bottom: 32px;
 }
 
-.metaIcon {
-    [fill] {
-        fill: var(--secondary-color);
-    }
+.avatar {
+  margin: 0 auto;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.block {
+  margin-bottom: 16px;
+}
+
+.image {
+  width: 100%;
+  max-height: 420px;
 }

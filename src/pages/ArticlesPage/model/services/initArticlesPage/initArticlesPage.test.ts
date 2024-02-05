@@ -1,46 +1,53 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
-import { fetchArticles } from '../fetchArticles/fetchArticles';
 import { initArticlesPage } from './initArticlesPage';
-import { articlesPageActions } from '../../slices/articlesPageSlice/articlesPageSlice';
+import { articlesPageActions } from '../../slices/articlesPageSlice';
+import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
-const mockParams: URLSearchParams = new URLSearchParams();
+jest.mock('../fetchArticlesList/fetchArticlesList');
+jest.mock('../../slices/articlesPageSlice');
 
-jest.mock('../fetchArticles/fetchArticles');
-jest.mock('../../slices/articlePageSlice/articlesPageSlice');
+const searchParamsMock = new URLSearchParams(
+    '?sort=createdAt&order=asc&search=&type=ALL',
+);
 
-describe('initArticlesPage', () => {
-    test('should init articles page', async () => {
-        const thunk = new TestAsyncThunk(initArticlesPage);
-
-        const { dispatch } = thunk;
-
-        const result = await thunk.callThunk(mockParams);
-
-        expect(result.meta.requestStatus).toBe('fulfilled');
-
-        expect(articlesPageActions.initState).toHaveBeenCalled();
-        expect(fetchArticles).toHaveBeenCalledWith({ page: 1 });
-
-        expect(dispatch).toHaveBeenCalledTimes(4);
-    });
-
-    test('should not init articles page', async () => {
+describe('initArticlesPage.test', () => {
+    test('success asyncThunk call', async () => {
         const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {
-                __initialized__: true,
+                page: 2,
+                ids: [],
+                entities: {},
+                isLoading: false,
+                hasMore: true,
+                limit: 5,
+                _isInitiated: false,
             },
         });
 
-        const { dispatch } = thunk;
+        await thunk.callThunk(searchParamsMock);
 
-        const result = await thunk.callThunk(mockParams);
+        expect(thunk.dispatch).toBeCalledTimes(8);
+        expect(fetchArticlesList).toBeCalledWith({});
+    });
 
-        expect(result.meta.requestStatus).toBe('fulfilled');
+    test('initState n fetchArticleList should not be called because isInitiated true', async () => {
+        const thunk = new TestAsyncThunk(initArticlesPage, {
+            articlesPage: {
+                page: 2,
+                ids: [],
+                entities: {},
+                isLoading: false,
+                hasMore: false,
+                limit: 5,
+                _isInitiated: true,
+            },
+        });
 
-        expect(articlesPageActions.initState).not.toHaveBeenCalled();
-        expect(fetchArticles).not.toHaveBeenCalled();
+        await thunk.callThunk(searchParamsMock);
 
-        expect(dispatch).toHaveBeenCalledTimes(2);
+        expect(thunk.dispatch).toBeCalledTimes(2);
+        expect(articlesPageActions.initState).not.toBeCalled();
+        expect(fetchArticlesList).not.toBeCalled();
     });
 });

@@ -1,47 +1,57 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { getUserAuthData } from 'entities/User/model/selectors';
 import { getArticleDetailsData } from 'entities/Article';
-import { isAxiosError } from 'shared/helpers';
-import {
-    fetchArticleDetailsComments,
-} from 'pages/ArticleDetailsPage/model/services/fetchArticleDetailsComments/fetchArticleDetailsComments';
+import { Comment } from 'entities/Comment';
+import { getUserAuthData } from 'entities/User';
 
-export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
-    'articleDetailsComments/addCommentForArticle',
-    async (text, thunkAPI) => {
-        const {
-            dispatch, rejectWithValue, extra, getState,
-        } = thunkAPI;
+import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
-        const userData = getUserAuthData(getState());
-        const userId = userData?.id;
+export const addCommentForArticle = createAsyncThunk<
+  Comment,
+  string,
+  ThunkConfig<string>
+>('articleDetails/addCommentForArticle', async (text, thunkAPI) => {
+    const {
+        rejectWithValue,
+        getState,
+        dispatch,
+        extra: { api },
+    } = thunkAPI;
 
-        const articleDetailsData = getArticleDetailsData(getState());
-        const articleId = articleDetailsData?.id;
+    const userData = getUserAuthData(getState());
+    const article = getArticleDetailsData(getState());
 
-        if (!userId || !articleId) {
-            return rejectWithValue('no data');
-        }
+    if (!userData || !text || !article) {
+        rejectWithValue('SendNewCommentError.DATA_ERROR');
+    }
 
-        try {
-            const response = await extra.api.post<Comment>('/comments', {
+    try {
+        const response = await api.post<Comment>(
+            '/comments',
+            {
+                articleId: article?.id,
+                userId: userData?.id,
                 text,
-                userId,
-                articleId,
-            });
+            },
+            {},
+        );
 
-            if (!response.data) {
-                throw new Error('User is undefined');
-            }
-
-            dispatch(fetchArticleDetailsComments(articleId));
-
-            return response.data;
-        } catch (error) {
-            const code = isAxiosError(error) && error.response ? `${error.response.status}` : 'unknown';
-
-            return rejectWithValue(code);
+        if (!response.data) {
+            return rejectWithValue('SendNewCommentError.DATA_ERROR');
         }
-    },
-);
+
+        dispatch(fetchCommentsByArticleId(article?.id));
+
+        return response.data;
+    } catch (e: unknown) {
+        if (axios.isAxiosError(e)) {
+            if (e.response && e.response.status === 403) {
+                return rejectWithValue('SendNewCommentError.INCORRECT_DATA');
+            }
+            return rejectWithValue('SendNewCommentError.SERVER_ERROR');
+        }
+        return rejectWithValue('SendNewCommentError.UNKNOWN_ERROR');
+    }
+});

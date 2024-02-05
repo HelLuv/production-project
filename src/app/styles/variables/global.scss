@@ -1,29 +1,46 @@
 :root {
-    --font-family-main: consolas, "Times New Roman", serif;
-    --font-size-s: 12px;
-    --font-line-s: 20px;
-    --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
-    --font-size-m: 16px;
-    --font-line-m: 24px;
-    --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
-    --font-size-l: 24px;
-    --font-line-l: 32px;
-    --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
-    --font-size-xl: 32px;
-    --font-line-xl: 40px;
-    --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+  --font-family-main: consolas, roboto, "Arial", serif;
+  --font-family-text-redesigned: "Nunito Sans", sans-serif;
+  --font-family-h-redesigned: "Roboto", sans-serif;
+  --font-size-s: 12px;
+  --font-line-s: 20px;
+  --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+  --font-line-m: 24px;
+  --font-size-m: 16px;
+  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+  --font-line-l: 32px;
+  --font-size-l: 24px;
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+  --font-line-xl: 40px;
+  --font-size-xl: 32px;
+  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
-    // Sizes
-    --navbar-height: 50px;
-    --sidebar-width: 300px;
-    --sidebar-width-collapsed: 80px;
-    --page-padding: 20px;
-    --loader-size: 32px;
+  // base variables
+  // --bg-color: #e8e8ea;
+  // --inverted-bg-color: #292d32;
+  // --primary-color: #111;
+  // --secondary-color: #0449e8;
+  // --inverted-primary-color: #ccc;
+  // --inverted-secondary-color: #84ff04;
 
-    // z-Indices
-    --modal-z-index: 10;
+  // Sizes
+  --navbar-height: 50px;
+  --sidebar-width: 300px;
+  --sidebar-width-collapsed: -250px;
+  --sidebar-translate-width: calc(var(--sidebar-width-collapsed) - var(--sidebar-width));
 
-    // Colors
-    --overlay-color:  rgba(0 0 0 / 60%);
-    --error-color: #e52907;
+  // Colors
+  --overlay-color: rgba(0 0 0 / 60%);
+  --red-light: #f00;
+  --red-dark: #c00b0b;
+
+  // Z-indexes
+  --modal-z-index: 1000;
+  --overlay-z-index: 100;
+
+  // Redesigned
+  --font-s-redesigned: var(--font-size-s) / var(--font-line-s) var(--font-family-text-redesigned);
+  --font-m-redesigned: var(--font-size-m) / var(--font-line-m) var(--font-family-text-redesigned);
+  --font-l-redesigned: var(--font-size-l) / var(--font-line-l) var(--font-family-h-redesigned);
+  --font-xl-redesigned: var(--font-size-xl) / var(--font-line-xl) var(--font-family-h-redesigned);
 }

@@ -1,37 +1,31 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Country } from 'entities/Country/testing';
-import { Currency } from 'entities/Currency/testing';
-import { DeepPartial } from 'shared/lib/types/DeepPartial';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+
 import { getProfileForm } from './getProfileForm';
 
-describe('getProfileForm', () => {
-    test('should return profile form', () => {
-        const state: DeepPartial<StateSchema> = {
-            editableProfile: {
-                form: {
-                    username: 'username',
-                    lastname: 'lastname',
-                    age: 30,
-                    city: 'city',
-                    country: Country.Armenia,
-                    currency: Currency.Eur,
-                    avatar: '',
-                },
-            },
+describe('getProfileForm.test', () => {
+    test('should return form', () => {
+        const form = {
+            username: 'admin',
+            birthYear: 1988,
+            country: Country.RU,
+            lastname: 'Brown',
+            first: 'James',
+            city: 'Moscow',
+            currency: Currency.RUB,
         };
 
-        expect(getProfileForm(state as StateSchema)).toEqual({
-            username: 'username',
-            lastname: 'lastname',
-            age: 30,
-            city: 'city',
-            country: Country.Armenia,
-            currency: Currency.Eur,
-            avatar: '',
-        });
+        const state: DeepPartial<StateSchema> = {
+            profile: {
+                form,
+            },
+        };
+        expect(getProfileForm(state as StateSchema)).toEqual(form);
     });
 
-    test('should handle empty state profile', () => {
-        expect(getProfileForm({} as StateSchema)).toBeUndefined();
+    test('should work with empty state', () => {
+        const state: DeepPartial<StateSchema> = {};
+        expect(getProfileForm(state as StateSchema)).toEqual(undefined);
     });
 });

@@ -1,62 +1,174 @@
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { PropsWithClassName, ValuesOf } from 'shared/types';
-import { Article, ArticleView } from 'entities/Article';
-import { AppLinkProps } from 'shared/ui/AppLink/ui/AppLink';
-import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import cls from './ArticleList.module.scss';
+import {
+    HTMLAttributeAnchorTarget, memo, useCallback, useMemo,
+} from 'react';
 
-type ArticleListProps = PropsWithClassName & {
-    articles?: Article[];
-    isLoading?: boolean;
-    view?: ValuesOf<typeof ArticleView>;
-    linksTarget?: AppLinkProps['target'];
+import { useTranslation } from 'react-i18next';
+import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
+
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { ToggleFeatures } from 'shared/lib/features';
+import { Text } from 'shared/ui/deprecated/Text';
+import { HStack } from 'shared/ui/redesigned/Stack';
+
+import classes from './ArticleList.module.scss';
+import { Article, ArticleView } from '../../model/types/article';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+
+interface ArticleListProps {
+  className?: string;
+  articles: Article[];
+  isLoading?: boolean;
+  view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
+  onScrollEnd?: () => void;
+  virtualized?: boolean;
+}
+
+const getSkeletons = (view: ArticleView) => {
+    const skeletons = new Array(view === 'TABLE' ? 9 : 3)
+        .fill(0)
+        .map((_, index) => (
+            <ArticleListItemSkeleton
+                className={classes.card}
+                view={view}
+                key={index}
+            />
+        ));
+    return <>{skeletons}</>;
 };
 
-const getSkeletons = (
-    count: number,
-    view: ValuesOf<typeof ArticleView>,
-) => new Array(count)
-    .fill(null)
-    // eslint-disable-next-line react/no-array-index-key
-    .map((_, index) => <ArticleListItemSkeleton view={view} key={index} />);
-
-export const ArticleList = (props: ArticleListProps) => {
+export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className,
-        view = ArticleView.Grid,
         articles,
-        linksTarget,
         isLoading,
+        view = 'TABLE',
+        target,
+        onScrollEnd,
+        virtualized = false,
     } = props;
-    const { t } = useTranslation();
-    const isEmpty = !articles?.length;
 
-    if (isEmpty && !isLoading) {
+    const { t } = useTranslation();
+
+    const mods: Mods = useMemo(() => ({}), []);
+
+    const renderItems = useCallback(
+        (index: number, article: Article) => (
+            <ArticleListItem
+                target={target}
+                article={article}
+                view={view}
+                key={article.id}
+                className={classes.card}
+            />
+        ),
+        [target, view],
+    );
+
+    const Footer = useCallback(
+        () => (
+            <div
+                className={classNames(classes.ArticleList, mods, [
+                    className,
+                    classes[view],
+                ])}
+            >
+                {isLoading && getSkeletons(view)}
+            </div>
+        ),
+        [className, isLoading, mods, view],
+    );
+
+    if (!isLoading && articles.length === 0) {
         return (
             <div
-                className={classNames(cls.ArticleList, {}, [className, cls.empty])}
+                className={classNames(classes.ArticleList, mods, [
+                    className,
+                    classes[view],
+                ])}
             >
-                {t('articles.list.empty')}
+                <Text title={t('Articles not found') ?? ''} />
             </div>
         );
     }
 
-    const skeletonsCount = view === ArticleView.Grid ? 9 : 3;
+    if (!virtualized) {
+        return (
+            <ToggleFeatures
+                featureName="isSiteRedesigned"
+                on={(
+                    <HStack
+                        gap="16"
+                        className={classNames(classes.ArticleListRedesigned, mods, [])}
+                        data-testid="ArticlesList"
+                        wrap="wrap"
+                    >
+                        {articles.length > 0
+                            ? articles.map((article, index) => renderItems(index, article))
+                            : null}
+                        {isLoading && getSkeletons(view)}
+                    </HStack>
+                )}
+                off={(
+                    <HStack
+                        gap="32"
+                        className={classNames(classes.ArticleList, mods, [
+                            className,
+                            classes[view],
+                        ])}
+                        data-testid="ArticlesList"
+                    >
+                        {articles.length > 0
+                            ? articles.map((article, index) => renderItems(index, article))
+                            : null}
+                        {isLoading && getSkeletons(view)}
+                    </HStack>
+                )}
+            />
+        );
+    }
 
-    return (
-        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {articles?.map((article) => (
-                <ArticleListItem
-                    key={article.id}
-                    article={article}
-                    view={view}
-                    className={cls.card}
-                    linksTarget={linksTarget}
-                />
-            ))}
-            {isLoading && getSkeletons(skeletonsCount, view)}
-        </div>
-    );
-};
+    if (view === 'LIST') {
+        return (
+            <Virtuoso
+                // useWindowScroll
+                style={{ margin: 0 }}
+                data={articles}
+                // overscan={200}
+                itemContent={renderItems}
+                className={classNames(classes.ArticleList, mods, [
+                    className,
+                    classes[view],
+                ])}
+                components={{ Footer }}
+                endReached={onScrollEnd}
+                data-testid="ArticlesList"
+            />
+        );
+    }
+
+    if (articles) {
+        return (
+            <VirtuosoGrid
+                // useWindowScroll
+                style={{
+                    margin: '10px 0 0 0',
+                    // overflowY: 'hidden',
+                }}
+                data={articles}
+                // overscan={200}
+                itemContent={renderItems}
+                listClassName={classNames(classes.ArticleList, mods, [
+                    className,
+                    classes[view],
+                ])}
+                components={{ Footer }}
+                endReached={onScrollEnd}
+                data-testid="ArticlesList"
+            />
+        );
+    }
+
+    return null;
+});

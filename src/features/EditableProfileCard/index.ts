@@ -1,7 +1,2 @@
-import { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
-import { EditableProfileCardSchema } from './model/types/editableProfileCardSchema';
-
-export {
-    EditableProfileCard,
-    EditableProfileCardSchema,
-};
+export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
+export type { ProfileSchema } from './model/types/EditableProfileCardSchema';

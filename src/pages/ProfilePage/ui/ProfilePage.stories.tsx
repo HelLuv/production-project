@@ -1,27 +1,60 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ProfilePage } from './ProfilePage';
+import React from 'react';
 
-const meta: Meta<typeof ProfilePage> = {
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'shared/const/theme';
+
+import ProfilePage from './ProfilePage';
+
+export default {
+    title: 'pages/ProfilePage',
     component: ProfilePage,
-    title: 'page/ProfilePage',
-};
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof ProfilePage>;
 
-export default meta;
+const Template: ComponentStory<typeof ProfilePage> = (args) => (
+    <ProfilePage {...args} />
+);
 
-type Story = StoryObj<typeof ProfilePage>;
+export const Light = Template.bind({});
+Light.args = {};
+Light.decorators = [
+    StoreDecorator({
+        profile: {
+            form: {
+                username: 'admin',
+                birthYear: 1988,
+                country: Country.RU,
+                lastname: 'Brown',
+                first: 'James',
+                city: 'Moscow',
+                currency: Currency.RUB,
+            },
+        },
+    }),
+];
 
-export const Light: Story = {
-    decorators: [ThemeDecorator(Theme.LIGHT)],
-    render: () => (
-        <ProfilePage />
-    ),
-};
-
-export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
-    render: () => (
-        <ProfilePage />
-    ),
-};
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+        profile: {
+            form: {
+                username: 'admin',
+                birthYear: 1988,
+                country: Country.RU,
+                lastname: 'Brown',
+                first: 'James',
+                city: 'Moscow',
+                currency: Currency.RUB,
+            },
+        },
+    }),
+];

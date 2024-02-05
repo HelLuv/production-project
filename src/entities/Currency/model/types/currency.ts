@@ -1,5 +1,5 @@
-export const Currency = {
-    Rub: 'RUB',
-    Usd: 'USD',
-    Eur: 'EUR',
-} as const;
+export enum Currency {
+  'RUB' = 'RUB',
+  'USD' = 'USD',
+  'EUR' = 'EUR',
+}

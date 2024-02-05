@@ -1,16 +1,18 @@
-
-.articlesPageFilters {
-    display: flex;
-    flex-flow: column;
-    gap: 8px;
+.ArticlesPageFilters {
+    display: block;
+    margin-bottom: 16px;
 }
 
-.filters {
+.sortWrapper {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+}
+
+.search {
+    margin-top: 16px;
 }
 
 .tabs {
-    margin-bottom: 16px;
+    margin-top: 16px;
 }

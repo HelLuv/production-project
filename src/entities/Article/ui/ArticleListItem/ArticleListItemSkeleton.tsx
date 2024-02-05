@@ -1,53 +1,113 @@
-import { PropsWithClassName, ValuesOf } from 'shared/types';
-import { Card } from 'shared/ui/Card';
-import { classNames } from 'shared/lib/classNames';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { ArticleView } from '../../model/types/article';
-import cls from './ArticleListItem.module.scss';
+import { memo } from 'react';
 
-type ArticleListItemSkeletonProps = PropsWithClassName & {
-    view: ValuesOf<typeof ArticleView>;
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { ToggleFeatures, toggleFeatures } from 'shared/lib/features';
+import { Card as CardDeprecated } from 'shared/ui/deprecated/Card';
+import { Skeleton as SkeletonDeprecated } from 'shared/ui/deprecated/Skeleton';
+import { Card as CardRedesigned } from 'shared/ui/redesigned/Card';
+import { Skeleton as SkeletonRedesigned } from 'shared/ui/redesigned/Skeleton';
+
+import classes from './ArticleListItem.module.scss';
+import { ArticleView } from '../../model/types/article';
+
+interface ArticleListItemSkeletonProps {
+  className?: string;
+  view: ArticleView;
 }
 
-export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => {
-    const { className, view } = props;
+export const ArticleListItemSkeleton = memo(
+    ({ className, view }: ArticleListItemSkeletonProps) => {
+        const mods: Mods = {};
 
-    if (view === ArticleView.List) {
-        return (
-            <Card className={classNames(className, {}, [cls.list])}>
-                <div className={cls.header}>
-                    <Skeleton width={30} height={30} borderRadius="50%" />
-                    <Skeleton width={150} height={16} className={cls.username} />
-                    <Skeleton width={100} height={16} className={cls.date} />
+        const mainClass = toggleFeatures({
+            name: 'isSiteRedesigned',
+            on: () => classes.ArticleListItemRedesigned,
+            off: () => classes.ArticleListItem,
+        });
+
+        const Skeleton = toggleFeatures({
+            name: 'isSiteRedesigned',
+            on: () => SkeletonRedesigned,
+            off: () => SkeletonDeprecated,
+        });
+
+        if (view === 'LIST') {
+            const cardContent = (
+                <>
+                    <div className={classes.header}>
+                        <Skeleton border="50%" height={30} width={30} />
+                        <Skeleton width={150} height={16} className={classes.username} />
+                        <Skeleton width={150} height={16} className={classes.date} />
+                    </div>
+                    <Skeleton width={250} height={24} className={classes.title} />
+                    <Skeleton height={200} className={classes.image} />
+                    <div className={classes.footer}>
+                        <Skeleton height={36} width={200} />
+                    </div>
+                </>
+            );
+            return (
+                <div
+                    className={classNames(mainClass, mods, [className, classes[view]])}
+                >
+                    <ToggleFeatures
+                        featureName="isSiteRedesigned"
+                        on={(
+                            <CardRedesigned border="round" className={classes.card}>
+                                {cardContent}
+                            </CardRedesigned>
+                        )}
+                        off={(
+                            <CardDeprecated className={classes.card}>
+                                {cardContent}
+                            </CardDeprecated>
+                        )}
+                    />
                 </div>
+            );
+        }
 
-                <Skeleton width={250} height={25} className={cls.title} />
-
-                <Skeleton width={150} height={16} className={cls.types} />
-
-                <div className={cls.imageWrapper}>
-                    <Skeleton className={cls.image} />
+        const cardContent = (
+            <>
+                <ToggleFeatures
+                    featureName="isSiteRedesigned"
+                    on={(
+                        <Skeleton
+                            width="100%"
+                            height={150}
+                            border="32px"
+                            className={classes.img}
+                        />
+                    )}
+                    off={(
+                        <div className={classes.imageWrapper}>
+                            <Skeleton width={200} height={200} className={classes.img} />
+                        </div>
+                    )}
+                />
+                <div className={classes.infoWrapper}>
+                    <Skeleton width={130} height={16} />
                 </div>
-
-                <Skeleton height={150} />
-
-                <div className={cls.footer}>
-                    <Skeleton width={150} height={38} className={cls.button} />
-                    <Skeleton width={100} height={16} className={cls.views} />
-                </div>
-            </Card>
+                <Skeleton width={150} height={16} className={classes.title} />
+            </>
         );
-    }
 
-    return (
-        <Card className={classNames(className, {}, [cls.grid])}>
-            <div className={cls.imageWrapper}>
-                <Skeleton className={cls.image} />
+        return (
+            <div className={classNames(mainClass, mods, [className, classes[view]])}>
+                <ToggleFeatures
+                    featureName="isSiteRedesigned"
+                    on={(
+                        <CardRedesigned border="round" className={classes.card}>
+                            {cardContent}
+                        </CardRedesigned>
+                    )}
+                    off={(
+                        <CardDeprecated className={classes.card}>
+                            {cardContent}
+                        </CardDeprecated>
+                    )}
+                />
             </div>
-            <div className={cls.infoWrapper}>
-                <Skeleton width={130} height={16} />
-            </div>
-            <Skeleton width={150} height={16} className={cls.title} />
-        </Card>
-    );
-};
+        );
+    },
+);

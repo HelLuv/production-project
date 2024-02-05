@@ -1,18 +1,22 @@
-import { DeepPartial } from 'shared/lib/types/DeepPartial';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { getLoginError } from './getLoginError';
 
-describe('getLoginError', () => {
+import { getLoginError } from './getLoginError';
+import { LoginErrors } from '../../types/loginSchema';
+
+describe('getLoginError.test', () => {
     test('should return error', () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: {
-                error: 'Error',
+                error: LoginErrors.INCORRECT_DATA,
             },
         };
-        expect(getLoginError(state as StateSchema)).toBe('Error');
+        expect(getLoginError(state as StateSchema)).toEqual(
+            'ErrorInvalidNameOrPassword!',
+        );
     });
 
-    test('should handle empty state', () => {
-        expect(getLoginError({} as StateSchema)).toBe('');
+    test('should work with empty state', () => {
+        const state: DeepPartial<StateSchema> = {};
+        expect(getLoginError(state as StateSchema)).toEqual(undefined);
     });
 });

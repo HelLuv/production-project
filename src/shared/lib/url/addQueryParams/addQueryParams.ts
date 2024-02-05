@@ -1,15 +1,18 @@
-type Params = Partial<Record<string, string>>;
+export function getQueryParamsString(params: OptionalRecord<string, string>) {
+  const searchParams = new URLSearchParams(window.location.search);
+  Object.entries(params).forEach(([key, value]) => {
+    if (value !== undefined) {
+      searchParams.set(key, value);
+    }
+  });
+  return `?${searchParams.toString()}`;
+}
 
-export const addQueryParams = (params: Params) => {
-    const currentParams = new URLSearchParams(window.location.search);
+/**
+ * Add query params to the URL
+ * @param params
+ */
 
-    Object.entries(params).forEach(([name, value]) => {
-        if (value !== undefined) {
-            currentParams.set(name, value);
-        }
-    });
-
-    const formattedQuery = `?${currentParams.toString()}`;
-
-    window.history.pushState(null, '', formattedQuery);
-};
+export function addQueryParams(params: OptionalRecord<string, string>) {
+  window.history.pushState({}, '', getQueryParamsString(params));
+}

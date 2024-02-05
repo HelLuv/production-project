@@ -1,8 +1,7 @@
-.pageLoader {
-    padding: var(--page-padding) var(--page-padding) var(--page-padding) calc(2 * var(--page-padding));
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    min-height: calc(100vh - var(--navbar-height));
+.PageLoader {
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }

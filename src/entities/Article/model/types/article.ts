@@ -1,54 +1,53 @@
 import { User } from 'entities/User';
-import { ValuesOf } from 'shared/types';
 
-export const ArticleBlockType = {
-    Code: 'CODE',
-    Text: 'TEXT',
-    Image: 'IMAGE',
-} as const;
+import { ArticleBlockType, ArticleType } from '../consts/ArticleConsts';
 
-export type ArticleCommonBlock<T extends ValuesOf<typeof ArticleBlockType>> = {
-    id: string;
-    type: T;
-};
+export type ArticleSortField = 'createdAt' | 'views' | 'title';
 
-export type ArticleCodeBlock = ArticleCommonBlock<typeof ArticleBlockType.Code> & {
-    code: string;
+type Row = string[];
+
+export interface ArticleBlockBase {
+  id: string;
+  type: ArticleBlockType;
+  title?: string;
 }
 
-export type ArticleTextBlock = ArticleCommonBlock<typeof ArticleBlockType.Text> & {
-    title?: string;
-    paragraphs: string[];
-};
+export interface ArticleTextBlock extends ArticleBlockBase {
+  type: ArticleBlockType.TEXT;
+  paragraphs: string[];
+}
 
-export type ArticleImageBlock = ArticleCommonBlock<typeof ArticleBlockType.Image> & {
-    title: string;
-    src: string;
-};
+export interface ArticleTableBlock extends ArticleBlockBase {
+  type: ArticleBlockType.TABLE;
+  rows: Row[];
+}
 
-export type ArticleBlock = ArticleCodeBlock | ArticleTextBlock | ArticleImageBlock;
+export interface ArticleImageBlock extends ArticleBlockBase {
+  type: ArticleBlockType.IMAGE;
+  src: string;
+}
 
-export const ArticleType = {
-    IT: 'IT',
-    Science: 'SCIENCE',
-    Economics: 'ECONOMICS',
-} as const;
+export interface ArticleCodeBlock extends ArticleBlockBase {
+  type: ArticleBlockType.CODE;
+  code: string;
+}
 
-export type ValuesOfArticleType = ValuesOf<typeof ArticleType>;
+export type ArticleBlock =
+  | ArticleTextBlock
+  | ArticleImageBlock
+  | ArticleCodeBlock
+  | ArticleTableBlock;
 
-export type Article = {
-    id: string;
-    title: string;
-    subtitle: string;
-    img: string;
-    views: number;
-    createdAt: number;
-    types: ValuesOfArticleType[];
-    blocks: ArticleBlock[];
-    user: User;
-};
+export type ArticleView = 'LIST' | 'TABLE';
 
-export const ArticleView = {
-    List: 'list',
-    Grid: 'grid',
-};
+export interface Article {
+  id: string;
+  title: string;
+  subtitle: string;
+  img: string;
+  views: number;
+  createdAt: string;
+  user: User;
+  type: ArticleType[];
+  blocks: ArticleBlock[];
+}

@@ -1,8 +1,5 @@
-export const Country = {
-    Russia: 'Russia',
-    Ukraine: 'Ukraine',
-    Belarus: 'Belarus',
-    Kazakhstan: 'Kazakhstan',
-    Armenia: 'Armenia',
-    Mongolia: 'Mongolia',
-} as const;
+export enum Country {
+  RU = 'Russia',
+  BEL = 'Belarus',
+  KAZ = 'Kazahstan',
+}

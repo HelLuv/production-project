@@ -1,32 +1,17 @@
-.articleViewSelector {
-    display: flex;
-    gap: 4px;
+.ArticleViewSelector {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .active {
+    path {
+      fill: var(--secondary-color);
+    }
+  }
 }
 
-.button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.icon {
-    [fill] {
-        fill: var(--primary-color);
-    }
-
-    [stroke] {
-        stroke: var(--primary-color);
-    }
-}
-
-.button.active {
-    .icon {
-        [fill] {
-            fill: var(--secondary-color);
-        }
-
-        [stroke] {
-            stroke: var(--secondary-color);
-        }
-    }
+.ArticleViewSelectorRedesigned {
+  .notActive {
+    color: var(--light-bg-redesigned);
+  }
 }

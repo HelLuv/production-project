@@ -1,30 +1,37 @@
-import { useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 
-import type { ID } from 'shared/types';
-import { VStack } from 'shared/ui/Stack';
-import { Text } from 'shared/ui/Text';
+import { useParams } from 'react-router-dom';
 
 import { EditableProfileCard } from 'features/EditableProfileCard';
-
+import { ProfileRating } from 'features/ProfileRating';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { ToggleFeatures } from 'shared/lib/features';
+import { VStack } from 'shared/ui/redesigned/Stack';
 import { Page } from 'widgets/Page';
 
-import styles from './ProfilePage.module.scss';
+interface ProfilePageProps {
+  className?: string;
+}
 
-export const ProfilePage = () => {
-    const { id = '1' } = useParams<{ id: ID }>();
-
-    const { t } = useTranslation();
+const ProfilePage = memo(({ className }: ProfilePageProps) => {
+    const { id } = useParams<{ id: string }>();
 
     if (!id) {
-        return <Text>{t('profile-page.error')}</Text>;
+        return null;
     }
 
     return (
-        <Page data-testid="profile-page">
-            <VStack gap={16} max>
-                <EditableProfileCard className={styles.profileCard} id={id} />
+        <Page data-testid="ProfilePage" className={classNames('', {}, [className])}>
+            <VStack gap="16" maxWidth>
+                <EditableProfileCard id={id} />
+                <ToggleFeatures
+                    featureName="isSiteRedesigned"
+                    on={<div />}
+                    off={<ProfileRating profileId={id} />}
+                />
             </VStack>
         </Page>
     );
-};
+});
+
+export default ProfilePage;

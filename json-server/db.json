@@ -15,10 +15,10 @@
     {
       "id": "1",
       "title": "Javascript news СВЕЖАЯ",
-      "subtitle": "Что нового в JS за 2023 год?",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 234,
-      "createdAt": "26.12.2023",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://www.patterns.dev/img/reactjs/react-logo@3x.svg",
+      "views": 1022,
+      "createdAt": "26.04.2022",
       "userId": "1",
       "types": [
         "IT"
@@ -51,7 +51,7 @@
         {
           "id": "2",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://www.patterns.dev/img/reactjs/react-logo@3x.svg",
           "title": "Рисунок 1 - скриншот сайта"
         },
         {
@@ -71,7 +71,7 @@
         {
           "id": "8",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://www.patterns.dev/img/reactjs/react-logo@3x.svg",
           "title": "Рисунок 1 - скриншот сайта"
         },
         {
@@ -88,7 +88,7 @@
       "id": "2",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
+      "img": "https://www.patterns.dev/img/reactjs/react-logo@3x.svg",
       "views": 5204,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -112,7 +112,7 @@
       "id": "3",
       "title": "Kotlin news 2019",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
+      "img": "https://www.patterns.dev/img/reactjs/react-logo@3x.svg",
       "views": 94002,
       "createdAt": "26.02.2019",
       "userId": "1",
@@ -136,9 +136,9 @@
       "id": "4",
       "title": "Scala news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYxorE_49GAz1KQzI4yePpfyM313mCxtbcafh7eqHe5ljlhtQjxPDLH7rPJUfRhRCXX20&usqp=CAU",
-      "views": 4566,
-      "createdAt": "12.02.2023",
+      "img": "https://www.patterns.dev/img/reactjs/react-logo@3x.svg",
+      "views": 10222,
+      "createdAt": "24.01.2022",
       "userId": "1",
       "types": [
         "IT"
@@ -160,8 +160,8 @@
       "id": "5",
       "title": "Golang news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://www.freecodecamp.org/news/content/images/size/w2000/2021/10/golang.png",
-      "views": 24521,
+      "img": "https://play-lh.googleusercontent.com/edQ8_8or0qX3JymcLz5jrHskKXLGjj7b7lGYuBW-oUMmK75vspumKniy6gukdOuzbcNl",
+      "views": 10222,
       "createdAt": "26.02.2020",
       "userId": "1",
       "types": [
@@ -185,8 +185,8 @@
       "title": "Java news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://andreyex.ru/wp-content/uploads/2018/05/Kak-ustanovit-Java-s-apt-na-Ubuntu-18.04.jpg",
-      "views": 8965,
-      "createdAt": "12.02.2023",
+      "views": 1022,
+      "createdAt": "26.02.2022",
       "userId": "1",
       "types": [
         "IT"
@@ -208,8 +208,8 @@
       "id": "7",
       "title": "Ruby news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--oqV3akcU--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/pgnw91fs7tpxn0wyeqh2.jpg",
-      "views": 23452,
+      "img": "https://www.patterns.dev/img/reactjs/react-logo@3x.svg",
+      "views": 100,
       "createdAt": "21.02.2022",
       "userId": "1",
       "types": [
@@ -232,9 +232,9 @@
       "id": "8",
       "title": "TypeScript news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://miro.medium.com/max/1400/1*aTCN2ctKNoZupUCMP0hQuw.png",
-      "views": 2456,
-      "createdAt": "12.02.2023",
+      "img": "https://www.patterns.dev/img/reactjs/react-logo@3x.svg",
+      "views": 102222,
+      "createdAt": "26.02.2022",
       "userId": "1",
       "types": [
         "IT"
@@ -257,7 +257,7 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
-      "views": 2345,
+      "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
       "types": [
@@ -280,9 +280,9 @@
       "id": "10",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://habrastorage.org/getpro/habr/upload_files/0fb/ba1/439/0fbba14397ec67a983fa130766c651b4.JPG",
-      "views": 6542,
-      "createdAt": "12.02.2023",
+      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
+      "views": 1022,
+      "createdAt": "26.02.2022",
       "userId": "1",
       "types": [
         "IT"
@@ -305,7 +305,7 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
-      "views": 123,
+      "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
       "types": [
@@ -328,9 +328,9 @@
       "id": "12",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://habrastorage.org/getpro/habr/upload_files/0fb/ba1/439/0fbba14397ec67a983fa130766c651b4.JPG",
-      "views": 65432,
-      "createdAt": "12.02.2023",
+      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
+      "views": 1022,
+      "createdAt": "26.02.2022",
       "userId": "1",
       "types": [
         "IT"
@@ -353,8 +353,8 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
-      "views": 53675,
-      "createdAt": "22.02.2023",
+      "views": 1022,
+      "createdAt": "26.02.2022",
       "userId": "1",
       "types": [
         "IT"
@@ -375,10 +375,10 @@
     {
       "id": "14",
       "title": "Python news",
-      "subti56tle": "Что нового в JS за 2022 год?",
-      "img": "https://habrastorage.org/getpro/habr/upload_files/0fb/ba1/439/0fbba14397ec67a983fa130766c651b4.JPG",
-      "views": 687,
-      "createdAt": "01.12.2021",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
+      "views": 1022,
+      "createdAt": "26.02.2022",
       "userId": "1",
       "types": [
         "IT"
@@ -401,8 +401,8 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
-      "views": 24365,
-      "createdAt": "26.01.2024",
+      "views": 1022,
+      "createdAt": "26.02.2022",
       "userId": "1",
       "types": [
         "IT"
@@ -424,9 +424,9 @@
       "id": "16",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://habrastorage.org/getpro/habr/upload_files/0fb/ba1/439/0fbba14397ec67a983fa130766c651b4.JPG",
-      "views": 75632,
-      "createdAt": "21.02.2021",
+      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
+      "views": 1022,
+      "createdAt": "26.02.2022",
       "userId": "1",
       "types": [
         "IT"
@@ -449,8 +449,8 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
-      "views": 63457,
-      "createdAt": "16.02.2023",
+      "views": 1022,
+      "createdAt": "26.02.2022",
       "userId": "1",
       "types": [
         "IT"
@@ -473,8 +473,8 @@
       "title": "Экономическая статья - ИНФЛЯЦИЯ!",
       "subtitle": "Экономика",
       "img": "https://www.mirea.ru/upload/iblock/7cf/vvp_rf2018_1.jpg",
-      "views": 75484,
-      "createdAt": "22.05.2023",
+      "views": 1022,
+      "createdAt": "26.02.2022",
       "userId": "1",
       "types": [
         "ECONOMICS"
@@ -497,8 +497,8 @@
       "title": "Научная статья - Биология",
       "subtitle": "БиологиЯ",
       "img": "https://thumbs.dreamstime.com/b/science-lab-chemicals-14262437.jpg",
-      "views": 4234,
-      "createdAt": "26.02.2023",
+      "views": 1022,
+      "createdAt": "26.02.2022",
       "userId": "1",
       "types": [
         "SCIENCE"
@@ -543,22 +543,64 @@
       "id": "4Cljjzl"
     },
     {
-      "text": "test comment ",
-      "userId": "1",
       "articleId": "1",
-      "id": "SasZnlr"
+      "userId": "1",
+      "text": "123asfasf",
+      "id": "AEM4Dvc"
     },
     {
-      "text": "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и чита",
-      "userId": "1",
       "articleId": "1",
-      "id": "rwm_--S"
-    },
-    {
-      "text": "gdfgdfgd",
       "userId": "2",
-      "articleId": "11",
-      "id": "pLDbOR_"
+      "text": "123asfasf",
+      "id": "IFEOWl0"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "привет мир",
+      "id": "dBacYRZ"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "хехехехе",
+      "id": "rBX_C-e"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "фыафыа",
+      "id": "5k0ApX-"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "sdfsdfsd",
+      "id": "w-HDIRq"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "asdasdasd",
+      "id": "MVvGQoZ"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "comment 1",
+      "id": "bAs7YBE"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "python!!!",
+      "id": "p5rMadd"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "hi, its me, get lost btw",
+      "id": "b2XgMMA"
     }
   ],
   "users": [
@@ -568,7 +610,10 @@
       "password": "123",
       "roles": [
         "ADMIN"
-      ]
+      ],
+      "jsonSettings": {
+        "isArticlesPageWasOpened": true
+      }
     },
     {
       "id": "2",

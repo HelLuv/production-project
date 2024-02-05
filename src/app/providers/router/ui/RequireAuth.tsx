@@ -1,21 +1,41 @@
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User/model/selectors';
-import { Navigate, useLocation } from 'react-router-dom';
-import { PropsWithChildren } from 'shared/types';
-import { AppRoute } from 'app/providers/router';
+import { useMemo } from 'react';
 
-type RequireAuthProps = PropsWithChildren & {
-    roles?: any;
+import { useSelector } from 'react-redux';
+import { Navigate, useLocation } from 'react-router-dom';
+
+import { getUserAuthData, getUserRoles, UserRoles } from 'entities/User';
+import { getRouteForbidden, getRouteMain } from 'shared/const/router';
+
+interface RequireAuthProps {
+  children: JSX.Element;
+  roles?: UserRoles[];
 }
 
-export const RequireAuth = (props: RequireAuthProps) => {
-    const { roles, children } = props;
-    const authData = useSelector(getUserAuthData);
+export function RequireAuth({ children, roles }: RequireAuthProps) {
+    const auth = useSelector(getUserAuthData);
     const location = useLocation();
+    const userRoles = useSelector(getUserRoles);
 
-    if (!authData) {
-        return <Navigate to={AppRoute.Main()} state={{ from: location }} replace />;
+    const hasRequieredRoles = useMemo(() => {
+        if (!roles) {
+            return true;
+        }
+        return roles.some((role) => userRoles?.includes(role));
+    }, [roles, userRoles]);
+
+    if (!auth) {
+    // Redirect them to the /login page, but save the current location they were
+    // trying to go to when they were redirected. This allows us to send them
+    // along to that page after they login, which is a nicer user experience
+    // than dropping them off on the home page.
+        return <Navigate to={getRouteMain()} state={{ from: location }} replace />;
+    }
+
+    if (!hasRequieredRoles) {
+        return (
+            <Navigate to={getRouteForbidden()} state={{ from: location }} replace />
+        );
     }
 
     return children;
-};
+}

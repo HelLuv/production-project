@@ -1,27 +1,36 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ArticlesPage } from './ArticlesPage';
+import React from 'react';
 
-const meta: Meta<typeof ArticlesPage> = {
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { articleMock } from 'entities/Article/testing';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+
+import ArticlesPage from './ArticlesPage';
+
+export default {
+    title: 'pages/ArticlesPage/ArticlesPage',
     component: ArticlesPage,
-    title: 'shared/ArticlesPage',
-};
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof ArticlesPage>;
 
-export default meta;
+const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+    <ArticlesPage {...args} />
+);
 
-type Story = StoryObj<typeof ArticlesPage>;
-
-export const Light: Story = {
-    decorators: [ThemeDecorator(Theme.LIGHT)],
-    render: () => (
-        <ArticlesPage />
-    ),
-};
-
-export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
-    render: () => (
-        <ArticlesPage />
-    ),
-};
+export const Primary = Template.bind({});
+Primary.args = {};
+Primary.decorators = [
+    StoreDecorator({
+        articlesPage: {
+            isLoading: false,
+            view: 'LIST',
+            ids: ['1', '2'],
+            entities: {
+                1: articleMock,
+                2: articleMock,
+            },
+        },
+    }),
+];

@@ -1,9 +1,14 @@
-export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 
-export { ArticleType, ArticleView } from './model/types/article';
-export { articleDetailsReducer } from './model/slice/articleDetailsSlice';
-export { getArticleDetailsData } from './model/selectors/getArticleDetailsData/getArticleDetailsData';
+export { ArticleList } from './ui/ArticleList/ArticleList';
 
-export type { Article } from './model/types/article';
+export { getArticleDetailsData } from './model/selectors/getArticleDetails';
+
+export type {
+  Article,
+  ArticleView,
+  ArticleSortField,
+} from './model/types/article';
+
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
+export { ArticleType, ArticleBlockType } from './model/consts/ArticleConsts';

@@ -1,3 +1,15 @@
 .ArticleDetailsPage {
+  display: flex;
+  gap: 16px;
+  min-height: 100%;
+}
 
+.commentTitle,
+.recommendationsTitle {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.header {
+  margin-bottom: 16px;
 }

@@ -1,27 +1,19 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { DeepPartial } from 'shared/lib/types/DeepPartial';
+
 import { getProfileError } from './getProfileError';
 
-describe('getProfileData', () => {
-    test('should return profile error', () => {
+describe('getProfileError.test', () => {
+    test('should return error', () => {
         const state: DeepPartial<StateSchema> = {
-            editableProfile: {
+            profile: {
                 error: 'error',
             },
         };
-
-        expect(getProfileError(state as StateSchema)).toBe('error');
+        expect(getProfileError(state as StateSchema)).toEqual('error');
     });
 
-    test('should handle empty profile error', () => {
-        const state: DeepPartial<StateSchema> = {
-            editableProfile: {},
-        };
-
-        expect(getProfileError(state as StateSchema)).toBeUndefined();
-    });
-
-    test('should handle empty state profile', () => {
-        expect(getProfileError({} as StateSchema)).toBeUndefined();
+    test('should work with empty state', () => {
+        const state: DeepPartial<StateSchema> = {};
+        expect(getProfileError(state as StateSchema)).toEqual(undefined);
     });
 });

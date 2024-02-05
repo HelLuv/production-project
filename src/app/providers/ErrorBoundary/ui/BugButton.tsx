@@ -1,12 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+
+import { Button } from 'shared/ui/deprecated/Button';
 
 export const BugButton = () => {
-    const { t } = useTranslation();
     const [error, setError] = useState(false);
-
     const onThrow = () => setError(true);
 
     useEffect(() => {
@@ -14,14 +11,8 @@ export const BugButton = () => {
             throw new Error();
         }
     }, [error]);
-
     return (
-        <Button
-            theme={ButtonTheme.PRIMARY}
-            className={classNames('', {}, [])}
-            onClick={onThrow}
-        >
-            {t('Throw error')}
-        </Button>
+    /* eslint-disable-next-line i18next/no-literal-string */
+        <Button onClick={onThrow}>Throw error</Button>
     );
 };

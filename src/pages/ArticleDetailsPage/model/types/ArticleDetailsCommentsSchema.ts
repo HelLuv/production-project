@@ -1,8 +1,8 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { Comment } from 'entities/Comment';
-import { ID } from 'shared/types';
 
-export type ArticleDetailsCommentsSchema = EntityState<Comment, ID> & {
-    isLoading: boolean;
-    error?: string;
+import { Comment } from 'entities/Comment';
+
+export interface ArticleDetailsCommentsSchema extends EntityState<Comment> {
+  isLoading?: boolean;
+  error?: string;
 }

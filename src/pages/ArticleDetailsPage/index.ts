@@ -1,2 +1,4 @@
-export { ArticleDetailsPageSchema } from './model/types/ArticleDetailsPageSchema';
-export { ArticleDetailsPageAsync as ArticleDetailsPage } from './ui/ArticleDetailsPage/ArticleDetailsPage.async';
+export { ArticleDetailsPageLazy as ArticleDetailsPage } from './ui/ArticleDetailsPage/ArticleDetailsPage.lazy';
+export type { ArticleDetailsCommentsSchema } from './model/types/ArticleDetailsCommentsSchema';
+export type { ArticleDetailsPageRecommendationsSchema } from './model/types/ArticleDetailsPageRecommendationsSchema';
+export type { ArticleDetailsPageSchema } from './model/types';

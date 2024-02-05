@@ -1,18 +1,19 @@
-import { DeepPartial } from 'shared/lib/types/DeepPartial';
 import { StateSchema } from 'app/providers/StoreProvider';
+
 import { getLoginUsername } from './getLoginUsername';
 
-describe('getLoginUsername', () => {
+describe('getLoginUsername.test', () => {
     test('should return username', () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: {
-                username: 'username',
+                username: 'user',
             },
         };
-        expect(getLoginUsername(state as StateSchema)).toBe('username');
+        expect(getLoginUsername(state as StateSchema)).toBe('user');
     });
 
-    test('should handle empty state', () => {
-        expect(getLoginUsername({} as StateSchema)).toBe('');
+    test('should work with empty state', () => {
+        const state: DeepPartial<StateSchema> = {};
+        expect(getLoginUsername(state as StateSchema)).toBe('');
     });
 });

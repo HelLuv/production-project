@@ -1,32 +1,45 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { ArticleDetailsSchema } from 'entities/Article';
-import { fetchArticleDetailsData } from '../services/fetchArticleDetailsData/fetchArticleDetailsData';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { fetchArticleById } from '../service/fetchArticleById/fetchArticleById';
+import { Article } from '../types/article';
+import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
 const initialState: ArticleDetailsSchema = {
-    data: undefined,
-    isLoading: false,
-    error: undefined,
+  isLoading: false,
+  error: undefined,
+  data: undefined,
 };
 
 export const articleDetailsSlice = createSlice({
-    name: 'articleDetails',
-    initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder
-            .addCase(fetchArticleDetailsData.pending, (state) => {
-                state.error = undefined;
-                state.isLoading = true;
-            })
-            .addCase(fetchArticleDetailsData.fulfilled, (state, action) => {
-                state.data = action.payload;
-                state.isLoading = false;
-            })
-            .addCase(fetchArticleDetailsData.rejected, (state, action) => {
-                state.error = action.payload;
-                state.isLoading = false;
-            });
-    },
+  name: 'articleDetails',
+  initialState,
+  reducers: {
+    // update: (state, action: PayloadAction<ArticleDetails>) => {
+    //   state.data = { ...state.data, ...action.payload };
+    // },
+    // revert: (state) => {
+    //   state.validateErrors = undefined;
+    // },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchArticleById.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(
+        fetchArticleById.fulfilled,
+        (state, action: PayloadAction<Article>) => {
+          state.isLoading = false;
+          state.data = action.payload;
+          state.error = undefined;
+        },
+      )
+      .addCase(fetchArticleById.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
 });
 
 export const { actions: articleDetailsActions } = articleDetailsSlice;

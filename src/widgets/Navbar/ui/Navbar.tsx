@@ -1,13 +1,27 @@
-import React, { memo, useCallback, useState } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import {
+    memo, useCallback, useMemo, useState,
+} from 'react';
+
 import { useTranslation } from 'react-i18next';
-import { LoginModal } from 'features/AuthByUsername';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User/model/selectors';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { userActions } from 'entities/User';
-import cls from './Navbar.module.scss';
+
+import { getUserAuthData } from 'entities/User';
+import { LoginModal } from 'features/AuthByUsername';
+import { AvatarDropdown } from 'features/AvatarDropdown';
+import { NotificationsButton } from 'features/NotificationsButton';
+import { getRouteArticleCreate } from 'shared/const/router';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { toggleFeatures, ToggleFeatures } from 'shared/lib/features';
+import { AppLink, AppLinkTheme } from 'shared/ui/deprecated/AppLink';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from 'shared/ui/deprecated/Button';
+import { Text, TextTheme } from 'shared/ui/deprecated/Text';
+import { Button } from 'shared/ui/redesigned/Button';
+import { HStack } from 'shared/ui/redesigned/Stack';
+
+import classes from './Navbar.module.scss';
 
 interface NavbarProps {
   className?: string;
@@ -15,42 +29,98 @@ interface NavbarProps {
 
 export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
-    const dispatch = useAppDispatch();
+
+    const [isAuthModal, setIsAuthModal] = useState(false);
+
     const authData = useSelector(getUserAuthData);
-    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
     const onCloseModal = useCallback(() => {
-        setIsAuthModalOpen(false);
+        setIsAuthModal(false);
     }, []);
 
-    const onOpenModal = useCallback(() => {
-        setIsAuthModalOpen(true);
+    const onShowModal = useCallback(() => {
+        setIsAuthModal(true);
     }, []);
 
-    const onLogout = useCallback(() => {
-        dispatch(userActions.logout());
-    }, [dispatch]);
+    const mainClass = toggleFeatures({
+        name: 'isSiteRedesigned',
+        on: () => classes.NavbarRedesigned,
+        off: () => classes.Navbar,
+    });
+
+    const NavbarDeprecated = () => useMemo(
+        () => (
+            <header className={classNames(mainClass, {}, [className])}>
+                <Text
+                    className={classes.appName}
+                    title={t('Blog app')}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    to={getRouteArticleCreate()}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={classes.createButton}
+                >
+                    {t('Create article')}
+                </AppLink>
+                <HStack gap="16" className={classes.actions}>
+                    <NotificationsButton />
+                    <AvatarDropdown />
+                </HStack>
+            </header>
+        ),
+        [],
+    );
+
+    const NavbarRedesigned = () => useMemo(
+        () => (
+            <header className={classNames(mainClass, {}, [className])}>
+                <HStack gap="16" className={classes.actions}>
+                    <NotificationsButton />
+                    <AvatarDropdown />
+                </HStack>
+            </header>
+        ),
+        [],
+    );
+
+    if (authData) {
+        return (
+            <ToggleFeatures
+                featureName="isSiteRedesigned"
+                on={<NavbarRedesigned />}
+                off={<NavbarDeprecated />}
+            />
+        );
+    }
 
     return (
-        <header className={classNames(cls.navbar, {}, [className])}>
-            <div className={cls.links}>
-                {authData ? (
+        <header className={classNames(mainClass, {}, [className])}>
+            <ToggleFeatures
+                featureName="isSiteRedesigned"
+                on={(
                     <Button
-                        theme={ButtonTheme.CLEAR_INVERTED}
-                        onClick={onLogout}
+                        className={classes.links}
+                        variant="clear"
+                        onClick={onShowModal}
                     >
-                        {t('Logout')}
-                    </Button>
-                ) : (
-                    <Button
-                        theme={ButtonTheme.CLEAR_INVERTED}
-                        onClick={onOpenModal}
-                    >
-                        {t('Login')}
+                        {t('Sign in')}
                     </Button>
                 )}
-            </div>
-            <LoginModal isOpen={isAuthModalOpen} onClose={onCloseModal} />
+                off={(
+                    <ButtonDeprecated
+                        className={classes.links}
+                        theme={ButtonTheme.CLEAR_INVERTED}
+                        onClick={onShowModal}
+                    >
+                        {t('Sign in')}
+                    </ButtonDeprecated>
+                )}
+            />
+
+            {isAuthModal && (
+                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+            )}
         </header>
     );
 });

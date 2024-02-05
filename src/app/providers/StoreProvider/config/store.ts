@@ -1,50 +1,55 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import {
+    CombinedState,
+    configureStore,
+    Reducer,
+    ReducersMapObject,
+} from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
+
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
-import { rtkApi } from 'shared/api/rtkApi';
 import { $api } from 'shared/api/api';
-import { scrollPositionSliceReducer } from 'features/keepScrollPosition';
+import { rtkApi } from 'shared/api/rtkApi';
+import { pageReducer } from 'widgets/Page';
+
 import { createReducerManager } from './reducerManager';
-import { StateSchema, ThunkExtraArg } from './StateSchema';
+import { StateSchema, ThunkExtraArguments } from './StateSchema';
 
-type StoreConfig = {
-    initialState?: StateSchema;
-    asyncReducers?: ReducersMapObject<StateSchema>;
-};
-
-export function createReduxStore({ initialState, asyncReducers }: StoreConfig) {
-    const ensuredAsyncReducers = asyncReducers || {};
-
-    const rootReducer: ReducersMapObject<StateSchema> = {
-        ...ensuredAsyncReducers,
+export function createReduxStore(
+    initialState?: StateSchema,
+    asyncReducers?: ReducersMapObject<StateSchema>,
+) {
+    const rootReducers: ReducersMapObject<StateSchema> = {
+        ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        scrollPosition: scrollPositionSliceReducer,
+        page: pageReducer,
         [rtkApi.reducerPath]: rtkApi.reducer,
     };
 
-    const reducerManager = createReducerManager(rootReducer);
+    const reducerManager = createReducerManager(rootReducers);
 
-    const extraArgument: ThunkExtraArg = {
+    const extraArg: ThunkExtraArguments = {
         api: $api,
     };
 
     const store = configureStore({
-        reducer: reducerManager.reduce,
+        reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware({
             thunk: {
-                extraArgument,
+                extraArgument: extraArg,
             },
         }).concat(rtkApi.middleware),
     });
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     store.reducerManager = reducerManager;
+
+    setupListeners(store.dispatch);
 
     return store;
 }
 
-export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

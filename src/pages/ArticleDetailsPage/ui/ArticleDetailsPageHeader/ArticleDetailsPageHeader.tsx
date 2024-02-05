@@ -1,42 +1,53 @@
-import { memo } from 'react';
+import React, { memo, useCallback } from 'react';
+
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { PropsWithClassName } from 'shared/types';
-import { AppRoute } from 'app/providers/router';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import { getArticleDetailsData } from 'entities/Article';
-import { AppLink } from 'shared/ui/AppLink';
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import { getIsArticleAuthorView } from '../../model/selectors/getIsArticleAuthorView/getIsArticleAuthorView';
-import cls from './ArticleDetailsPageHeader.module.scss';
+import { getRouteArticleEdit, getRouteArticles } from 'shared/const/router';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from 'shared/ui/deprecated/Button';
+import { HStack } from 'shared/ui/redesigned/Stack';
 
-type ArticleDetailsPageHeaderProps = PropsWithClassName;
+import { getCanEditArticle } from '../../model/selectors/getArticle';
 
-const BACK_PATH = AppRoute.Articles();
+interface ArticleDetailsPageHeaderProps {
+  className?: string;
+}
 
-export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
-    const isAuthorView = useSelector(getIsArticleAuthorView);
-    const article = useSelector(getArticleDetailsData);
+export const ArticleDetailsPageHeader = memo(
+    ({ className }: ArticleDetailsPageHeaderProps) => {
+        const { t } = useTranslation();
+        const navigate = useNavigate();
+        const article = useSelector(getArticleDetailsData);
+        const canEdit = useSelector(getCanEditArticle);
 
-    const editPath = AppRoute.ArticleEdit(article?.id);
+        const mods: Mods = {};
 
-    return (
-        <div className={classNames(cls.articleDetailsPageHeader, {}, [className])}>
-            <AppLink to={BACK_PATH}>
-                <Button theme={ButtonTheme.OUTLINE}>
-                    {t('article-details.back')}
+        const onBackToListClick = useCallback(() => {
+            navigate(getRouteArticles());
+        }, [navigate]);
+
+        const onEditArticle = useCallback(() => {
+            navigate(getRouteArticleEdit(article?.id || ''));
+        }, [article?.id, navigate]);
+
+        return (
+            <HStack
+                maxWidth
+                justify="between"
+                className={classNames('', mods, [className])}
+            >
+                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToListClick}>
+                    {t('Back to article list')}
                 </Button>
-            </AppLink>
-
-            {isAuthorView && (
-                <AppLink to={editPath}>
-                    <Button theme={ButtonTheme.OUTLINE} className={cls.backButton}>
-                        {t('article-details.edit')}
+                {canEdit && (
+                    <Button theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
+                        {t('Edit')}
                     </Button>
-                </AppLink>
-            )}
-        </div>
-    );
-});
+                )}
+            </HStack>
+        );
+    },
+);

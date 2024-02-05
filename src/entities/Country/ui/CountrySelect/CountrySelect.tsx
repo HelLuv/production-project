@@ -1,54 +1,77 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
+
 import { useTranslation } from 'react-i18next';
 
-import { ExtendableProps, PropsWithClassName, ValuesOf } from 'shared/types';
-import { ListBox, ListBoxProps } from 'shared/ui/ListBox';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { ToggleFeatures } from 'shared/lib/features';
+import { ListBox as ListBoxDeprecated } from 'shared/ui/deprecated/PopUps';
+import { ListBox } from 'shared/ui/redesigned/PopUps';
 
 import { Country } from '../../model/types/country';
 
-export type ValuesOfCountry = ValuesOf<typeof Country>;
+interface CountrySelectProps {
+  className?: string;
+  value?: Country;
+  onChange?: (value: Country) => void;
+  readonly?: boolean;
+}
 
-type OverrideProps = {
-    value?: ValuesOfCountry;
-    onChange?: (value: ValuesOfCountry) => void;
-};
-
-type CountryListBoxProps = ListBoxProps<ValuesOfCountry>;
-
-type CountrySelectProps = PropsWithClassName & ExtendableProps<CountryListBoxProps, OverrideProps>;
-
-const items: CountryListBoxProps['items'] = [
+const options = [
     {
-        value: Country.Armenia,
-        label: 'Армения',
+        value: Country.RU,
+        content: Country.RU,
     },
     {
-        value: Country.Belarus,
-        label: 'Беларусь',
+        value: Country.BEL,
+        content: Country.BEL,
     },
     {
-        value: Country.Kazakhstan,
-        label: 'Казахстан',
-    },
-    {
-        value: Country.Russia,
-        label: 'Россия',
-    },
-    {
-        value: Country.Ukraine,
-        label: 'Украина',
-    },
-    {
-        value: Country.Mongolia,
-        label: 'Монголия',
+        value: Country.KAZ,
+        content: Country.KAZ,
     },
 ];
 
-export const CountrySelect = memo(({ className, onChange, ...restProps }: CountrySelectProps) => {
-    // todo: add translation to label
-    const { t } = useTranslation();
+export const CountrySelect = memo(
+    ({
+        className, value, onChange, readonly,
+    }: CountrySelectProps) => {
+        const { t } = useTranslation();
 
-    return <ListBox className={className} label="Выберите страну" items={items} onChange={onChange} {...restProps} />;
-});
+        const mods: Mods = {};
 
-CountrySelect.displayName = 'CountrySelect';
+        const onChangeHandler = useCallback(
+            (value: string) => {
+                onChange?.(value as Country);
+            },
+            [onChange],
+        );
+
+        const props = {
+            onChange: onChangeHandler,
+            value,
+            className: classNames('', mods, [className]),
+            label: t('Choose country'),
+            defaultValue: t('Country is not selected'),
+            items: options,
+            unavailable: readonly,
+            direction: 'up right' as const,
+        };
+
+        return (
+            <ToggleFeatures
+                featureName="isSiteRedesigned"
+                on={<ListBox {...props} />}
+                off={<ListBoxDeprecated {...props} />}
+            />
+
+        // <Select
+        //   className={classNames(classes.CountrySelect, mods, [className])}
+        //   label={t('Choose country')}
+        //   options={options}
+        //   value={value}
+        //   onChange={onChangeHandler}
+        //   readonly={readonly}
+        // />
+        );
+    },
+);

@@ -1,12 +1,20 @@
 .ArticleList {
-    display: flex;
-    gap: 20px;
+  display: block;
 }
 
-.grid {
-    flex-flow: row wrap;
+.LIST {
+  .card {
+    margin: 0 0 30px;
+    padding: 0;
+  }
 }
 
-.list {
-    flex-flow: column;
+.TABLE {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 10px;
+
+  >div {
+    padding: 15px;
+  }
 }

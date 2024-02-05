@@ -1,12 +1,12 @@
-import React, { type FC, memo } from 'react';
+import { memo } from 'react';
+
 import { useTranslation } from 'react-i18next';
 
-export const AboutPage: FC = memo(() => {
-    const { t } = useTranslation('about');
+import { Page } from 'widgets/Page';
 
-    return (
-        <div>
-            {t('About page')}
-        </div>
-    );
-});
+const AboutPage = () => {
+    const { t } = useTranslation('about');
+    return <Page data-testid="AboutPage">{t('About page')}</Page>;
+};
+
+export default memo(AboutPage);

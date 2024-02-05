@@ -1,93 +1,170 @@
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import { Input } from 'shared/ui/Input';
-import { memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
-import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-import {
-    getLoginError,
-    getLoginIsLoading,
-    getLoginPassword,
-    getLoginUsername,
-} from 'features/AuthByUsername/model/selectors';
-import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername';
-import { Text } from 'shared/ui/Text';
-import { TextTheme, TextVariant } from 'shared/ui/Text/ui/Text';
-import { PropsWithClassName } from 'shared/types';
-import { useDynamicReducers } from 'shared/hooks/useDynamicReducers';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import cls from './LoginForm.module.scss';
+import { memo, useCallback, useEffect } from 'react';
 
-const dynamicReducers = {
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
+import { classNames } from 'shared/lib/classNames/classNames';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeatures } from 'shared/lib/features';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useForceUpdate } from 'shared/lib/render/forceUpdate';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from 'shared/ui/deprecated/Button';
+import { Input as InputDeprecated } from 'shared/ui/deprecated/Input';
+import { Text as TextDeprecated, TextTheme } from 'shared/ui/deprecated/Text';
+import { Button } from 'shared/ui/redesigned/Button';
+import { Input } from 'shared/ui/redesigned/Input';
+import { VStack } from 'shared/ui/redesigned/Stack';
+import { Text } from 'shared/ui/redesigned/Text';
+
+import classes from './LoginForm.module.scss';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
+
+export interface LoginFormProps {
+  className?: string;
+  isFocused?: boolean;
+  onSuccess: () => void;
+}
+
+const initialReducers: ReducersList = {
     loginForm: loginReducer,
 };
 
-export type LoginFormProps = PropsWithClassName & {
-    onSuccess?: () => void;
-}
+const LoginForm = memo(
+    ({ className, isFocused, onSuccess }: LoginFormProps) => {
+        const { t } = useTranslation();
+        const dispatch = useAppDispatch();
 
-export const LoginForm = memo((props: LoginFormProps) => {
-    const { className, onSuccess, ...otherProps } = props;
+        const username = useSelector(getLoginUsername);
+        const password = useSelector(getLoginPassword);
+        const isLoading = useSelector(getLoginIsLoading);
+        const error = useSelector(getLoginError);
 
-    const { t } = useTranslation();
-    const dispatch = useAppDispatch();
+        const forceUpdate = useForceUpdate();
 
-    const username = useSelector(getLoginUsername);
-    const password = useSelector(getLoginPassword);
-    const isLoading = useSelector(getLoginIsLoading);
-    const error = useSelector(getLoginError);
+        const onChangeUsername = useCallback(
+            (value: string) => {
+                dispatch(loginActions.setUsername(value));
+            },
+            [dispatch],
+        );
 
-    useDynamicReducers(dynamicReducers);
+        const onChangePassword = useCallback(
+            (value: string) => {
+                dispatch(loginActions.setPassword(value));
+            },
+            [dispatch],
+        );
 
-    const onChangeUsername = useCallback((value: string) => {
-        dispatch(loginActions.setUsername(value));
-    }, [dispatch]);
+        const onLoginClick = useCallback(async () => {
+            const result = await dispatch(loginByUsername({ username, password }));
+            if (result.meta.requestStatus === 'fulfilled') {
+                onSuccess();
+                forceUpdate();
+            }
+            return result;
+        }, [dispatch, forceUpdate, onSuccess, password, username]);
 
-    const onChangePassword = useCallback((value: string) => {
-        dispatch(loginActions.setPassword(value));
-    }, [dispatch]);
+        const onKeyDown = useCallback(
+            (event: KeyboardEvent) => {
+                if (event.key === 'Enter') {
+                    onLoginClick();
+                }
+            },
+            [onLoginClick],
+        );
 
-    const onFormSubmit = useCallback(async () => {
-        const result = await dispatch(loginByUsername({ username, password }));
-        if (result.meta.requestStatus === 'fulfilled') {
-            onSuccess?.();
-        }
-    }, [dispatch, onSuccess, password, username]);
+        useEffect(() => {
+            window.addEventListener('keydown', onKeyDown);
 
-    return (
-        <form className={classNames(cls.loginForm, {}, [className])} {...otherProps}>
-            {error && (
-                <Text
-                    variant={TextVariant.Text}
-                    theme={TextTheme.Error}
-                >
-                    {error}
-                </Text>
-            )}
-            <Input
-                autofocus
-                type="text"
-                className={cls.input}
-                placeholder="Username"
-                onChange={onChangeUsername}
-                value={username}
-            />
-            <Input
-                type="text"
-                className={cls.input}
-                placeholder="Password"
-                onChange={onChangePassword}
-                value={password}
-            />
-            <Button
-                className={cls.loginBtn}
-                theme={ButtonTheme.OUTLINE}
-                disabled={isLoading}
-                onClick={onFormSubmit}
-            >
-                {t('Login')}
-            </Button>
-        </form>
-    );
-});
+            return () => {
+                window.removeEventListener('keydown', onKeyDown);
+            };
+        }, [onKeyDown]);
+
+        return (
+            <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+                <ToggleFeatures
+                    featureName="isSiteRedesigned"
+                    on={(
+                        <VStack
+                            className={classNames(classes.LoginFormRedesigned, {}, [
+                                className,
+                            ])}
+                            gap="16"
+                        >
+                            <Text title={t('Auth form')} />
+                            {error && <Text text={t(error)} variant="error" />}
+                            <Input
+                                type="text"
+                                className={classes.input}
+                                placeholder={t('Input username') ?? ''}
+                                autofocus={isFocused}
+                                onChange={onChangeUsername}
+                                value={username}
+                            />
+                            <Input
+                                type="text"
+                                className={classes.input}
+                                placeholder={t('Input password') ?? ''}
+                                onChange={onChangePassword}
+                                value={password}
+                            />
+                            <Button
+                                className={classes.loginBtn}
+                                variant="outline"
+                                onClick={onLoginClick}
+                                disabled={isLoading}
+                            >
+                                {t('Log in')}
+                            </Button>
+                        </VStack>
+                    )}
+                    off={(
+                        <div className={classNames(classes.LoginForm, {}, [className])}>
+                            <TextDeprecated title={t('Auth form')} />
+                            {error && (
+                                <TextDeprecated text={t(error)} theme={TextTheme.ERROR} />
+                            )}
+                            <InputDeprecated
+                                type="text"
+                                className={classes.input}
+                                placeholder={t('Input username') ?? ''}
+                                autofocus={isFocused}
+                                onChange={onChangeUsername}
+                                value={username}
+                            />
+                            <InputDeprecated
+                                type="text"
+                                className={classes.input}
+                                placeholder={t('Input password') ?? ''}
+                                onChange={onChangePassword}
+                                value={password}
+                            />
+                            <ButtonDeprecated
+                                className={classes.loginBtn}
+                                theme={ButtonTheme.OUTLINE}
+                                onClick={onLoginClick}
+                                disabled={isLoading}
+                            >
+                                {t('Log in')}
+                            </ButtonDeprecated>
+                        </div>
+                    )}
+                />
+            </DynamicModuleLoader>
+        );
+    },
+);
+
+export default LoginForm;

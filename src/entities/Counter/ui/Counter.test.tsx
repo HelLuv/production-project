@@ -1,24 +1,33 @@
-import { componentRender } from 'shared/lib/tests';
-import { Counter } from 'entities/Counter';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-describe('Counter Component', () => {
-    test('should render', () => {
-        componentRender(<Counter />, { initialState: { counter: { value: 10 } } });
-        expect(screen.getByTestId('value')).toBeInTheDocument();
+import { ComponentRender } from 'shared/lib/tests/ComponentRender/ComponentRender';
+
+import { Counter } from './Counter';
+
+describe('Counter', () => {
+    test('render Counter', () => {
+        ComponentRender(<Counter />, {
+            initialState: { counter: { value: 10 } },
+        });
+        expect(screen.getByTestId('value-title')).toHaveTextContent('10');
     });
 
-    test('should increase value on increment button click', () => {
-        componentRender(<Counter />, { initialState: { counter: { value: 10 } } });
-        const button = screen.getByTestId('inc-btn');
-        fireEvent.click(button);
-        expect(screen.getByTestId('value')).toHaveTextContent('11');
+    test('increment', async () => {
+        ComponentRender(<Counter />, {
+            initialState: { counter: { value: 10 } },
+        });
+        const incrementBtn = screen.getByTestId('increment-btn');
+        await userEvent.click(incrementBtn);
+        expect(screen.getByTestId('value-title')).toHaveTextContent('11');
     });
 
-    test('should decrease value on decrement button click', () => {
-        componentRender(<Counter />, { initialState: { counter: { value: 10 } } });
-        const button = screen.getByTestId('dec-btn');
-        fireEvent.click(button);
-        expect(screen.getByTestId('value')).toHaveTextContent('9');
+    test('decrement', async () => {
+        ComponentRender(<Counter />, {
+            initialState: { counter: { value: 10 } },
+        });
+        const decrementBtn = screen.getByTestId('decrement-btn');
+        await userEvent.click(decrementBtn);
+        expect(screen.getByTestId('value-title')).toHaveTextContent('9');
     });
 });

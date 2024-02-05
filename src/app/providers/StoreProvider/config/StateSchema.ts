@@ -1,56 +1,59 @@
-import { CounterSchema } from 'entities/Counter';
-import { UserSchema } from 'entities/User';
-import { AxiosInstance } from 'axios';
-import { LoginSchema } from 'features/AuthByUsername';
 import {
-    EnhancedStore, Reducer, ReducersMapObject, UnknownAction,
+    AnyAction,
+    CombinedState,
+    Dispatch,
+    EnhancedStore,
+    Reducer,
+    ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { rtkApi } from 'shared/api/rtkApi';
-import { CombinedState } from '@reduxjs/toolkit/query';
-import { ScrollPositionSchema } from 'features/keepScrollPosition';
-import { EditableProfileCardSchema } from 'features/EditableProfileCard';
+import { AxiosInstance } from 'axios';
+
 import { ArticleDetailsSchema } from 'entities/Article';
+import { ICounterSchema } from 'entities/Counter';
+import { UserSchema } from 'entities/User';
+import { AddNewCommentSchema } from 'features/AddNewComment';
+import { LoginSchema } from 'features/AuthByUsername';
+import { ProfileSchema } from 'features/EditableProfileCard';
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
-import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { rtkApi } from 'shared/api/rtkApi';
+import { PageSchema } from 'widgets/Page';
 
 export interface StateSchema {
-    counter: CounterSchema;
-    user: UserSchema;
+  counter: ICounterSchema;
+  user: UserSchema;
+  page: PageSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
-    // Async reducers
-    loginForm?: LoginSchema;
-    editableProfile?: EditableProfileCardSchema;
-    scrollPosition: ScrollPositionSchema;
-    articleDetails?: ArticleDetailsSchema;
-    articleDetailsPage?: ArticleDetailsPageSchema;
-    articlesPage?: ArticlesPageSchema;
-    addCommentForm?: AddCommentFormSchema;
-    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+  loginForm?: LoginSchema;
+  profile?: ProfileSchema;
+  articleDetails?: ArticleDetailsSchema;
+  addNewComment?: AddNewCommentSchema;
+  articlesPage?: ArticlesPageSchema;
+
+  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
-// eslint-disable-next-line no-undef
-export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
 
 export interface ReducerManager {
-    getReducerMap: () => ReducersMapObject<StateSchema>;
-    // @ts-ignore
-    reduce: (state: StateSchema, action: UnknownAction) => CombinedState<StateSchema>;
-    add: (key: StateSchemaKey, reducer: Reducer) => void;
-    remove: (key: StateSchemaKey) => void;
-    getMountedReducers: () => void;
+  getReducerMap: () => ReducersMapObject<StateSchema>;
+  reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
+  add: (key: StateSchemaKey, reducer: Reducer) => void;
+  remove: (key: StateSchemaKey) => void;
 }
 
-export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
-    reducerManager: ReducerManager;
+export interface StoreWithReducerManager extends EnhancedStore<StateSchema> {
+  reducerManager: ReducerManager;
 }
-export interface ThunkExtraArg {
-    api: AxiosInstance;
+
+export interface ThunkExtraArguments {
+  api: AxiosInstance;
 }
 
 export interface ThunkConfig<T> {
-    rejectValue: T;
-    extra: ThunkExtraArg;
-    state: StateSchema;
+  rejectValue: T;
+  extra: ThunkExtraArguments;
+  dispatch?: Dispatch;
+  state: StateSchema;
 }

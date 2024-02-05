@@ -1,19 +1,20 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { Article, ArticleType, ArticleView } from 'entities/Article';
-import { ValuesOf } from 'shared/types';
-import { SortOrder } from 'shared/const/queryParams';
-import { ArticleSortField } from 'features/ArticleSortSelector';
 
-export type ArticlesPageSchema = EntityState<Article, any> & {
-    isLoading: boolean;
-    error?: string;
-    page: number;
-    limit: number;
-    hasMore: boolean;
-    __initialized__?: boolean;
-    view: ValuesOf<typeof ArticleView>;
-    order: ValuesOf<typeof SortOrder>
-    sort: ValuesOf<typeof ArticleSortField>;
-    search: string;
-    type: ValuesOf<typeof ArticleType> | 'ALL';
+import {
+    Article, ArticleSortField, ArticleType, ArticleView,
+} from 'entities/Article';
+import { SortOrder } from 'shared/types/sort';
+
+export interface ArticlesPageSchema extends EntityState<Article> {
+  isLoading?: boolean;
+  error?: string;
+  page: number;
+  limit?: number;
+  hasMore: boolean;
+  view: ArticleView;
+  order: SortOrder;
+  sort: ArticleSortField;
+  search: string;
+  type: ArticleType;
+  _isInitiated?: boolean;
 }

@@ -1,49 +1,55 @@
-import { useTranslation } from 'react-i18next';
-import { PropsWithClassName } from 'shared/types';
-import { Comment } from 'entities/Comment/model/types/comment';
-import { VStack } from 'shared/ui/Stack';
-import { CommentCard } from 'entities/Comment/ui/CommentCard/CommentCard';
-import { Text, TextTheme } from 'shared/ui/Text';
+import { memo } from 'react';
 
-type CommentListProps = PropsWithClassName & {
-    comments?: Comment[];
-    isLoading: boolean;
-    error?: string;
+import { useTranslation } from 'react-i18next';
+
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { ToggleFeatures } from 'shared/lib/features';
+import { Text as TextDeprecated } from 'shared/ui/deprecated/Text';
+import { VStack } from 'shared/ui/redesigned/Stack';
+import { Text } from 'shared/ui/redesigned/Text';
+
+import { Comment } from '../../model/types/comment';
+import { CommentCard } from '../CommentCard/CommentCard';
+
+interface CommentListProps {
+  className?: string;
+  comments?: Comment[];
+  isLoading?: boolean;
 }
 
-export const CommentList = (props: CommentListProps) => {
-    const {
-        className, comments, error, isLoading,
-    } = props;
+export const CommentList = memo((props: CommentListProps) => {
+    const { className, comments, isLoading } = props;
+    const mods: Mods = {};
+
     const { t } = useTranslation();
 
     if (isLoading) {
         return (
-            <VStack gap={12} align="stretch" className={className}>
-                <CommentCard isLoading />
-                <CommentCard isLoading />
-                <CommentCard isLoading />
+            <VStack gap="16" maxWidth className={classNames('', mods, [className])}>
+                <CommentCard isLoading={isLoading} />
+                <CommentCard isLoading={isLoading} />
+                <CommentCard isLoading={isLoading} />
             </VStack>
         );
     }
 
-    if (error) {
-        return (
-            <div className={className}>
-                <Text theme={TextTheme.Error}>{error}</Text>
-            </div>
-        );
-    }
-
-    if (!comments?.length) {
-        return <div className={className}>{t('comments.list.empty-state')}</div>;
-    }
-
     return (
-        <VStack gap={12} align="stretch" className={className}>
-            {comments?.map((comment) => (
-                <CommentCard key={comment.id} comment={comment} />
-            ))}
+        <VStack gap="16" maxWidth className={classNames('', mods, [className])}>
+            {comments?.length ? (
+                comments.map((comment) => (
+                    <CommentCard
+                        comment={comment}
+                        key={comment.id}
+                        isLoading={isLoading}
+                    />
+                ))
+            ) : (
+                <ToggleFeatures
+                    featureName="isSiteRedesigned"
+                    on={<Text text={t('There is no comments')} />}
+                    off={<TextDeprecated text={t('There is no comments')} />}
+                />
+            )}
         </VStack>
     );
-};
+});

@@ -1,19 +1,19 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { DeepPartial } from 'shared/lib/types/DeepPartial';
+
 import { getProfileReadonly } from './getProfileReadonly';
 
-describe('getProfileReadonly', () => {
-    test('should return profile readonly state', () => {
+describe('getProfileReadonly.test', () => {
+    test('should return readonly attribute', () => {
         const state: DeepPartial<StateSchema> = {
-            editableProfile: {
-                readonly: false,
+            profile: {
+                readonly: true,
             },
         };
-
-        expect(getProfileReadonly(state as StateSchema)).toBe(false);
+        expect(getProfileReadonly(state as StateSchema)).toEqual(true);
     });
 
-    test('should handle empty state profile', () => {
-        expect(getProfileReadonly({} as StateSchema)).toBe(true);
+    test('should work with empty state', () => {
+        const state: DeepPartial<StateSchema> = {};
+        expect(getProfileReadonly(state as StateSchema)).toEqual(undefined);
     });
 });
