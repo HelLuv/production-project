@@ -1,11 +1,11 @@
 export function getQueryParamsString(params: OptionalRecord<string, string>) {
-  const searchParams = new URLSearchParams(window.location.search);
-  Object.entries(params).forEach(([key, value]) => {
-    if (value !== undefined) {
-      searchParams.set(key, value);
-    }
-  });
-  return `?${searchParams.toString()}`;
+    const searchParams = new URLSearchParams(window.location.search);
+    Object.entries(params).forEach(([key, value]) => {
+        if (value !== undefined) {
+            searchParams.set(key, value);
+        }
+    });
+    return `?${searchParams.toString()}`;
 }
 
 /**
@@ -14,5 +14,5 @@ export function getQueryParamsString(params: OptionalRecord<string, string>) {
  */
 
 export function addQueryParams(params: OptionalRecord<string, string>) {
-  window.history.pushState({}, '', getQueryParamsString(params));
+    window.history.pushState({}, '', getQueryParamsString(params));
 }

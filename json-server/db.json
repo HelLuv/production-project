@@ -612,7 +612,11 @@
         "ADMIN"
       ],
       "jsonSettings": {
-        "isArticlesPageWasOpened": true
+        "isArticlesPageWasOpened": true,
+        "theme": "app_dark_theme"
+      },
+      "features": {
+        "isSiteRedesigned": true
       }
     },
     {
