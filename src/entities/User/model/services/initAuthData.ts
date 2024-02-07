@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 import {
     LOCAL_STORAGE_LAST_DESIGN_KEY,
     USER_LOCALSTORAGE_KEY,
-} from 'shared/const/localStorage';
+} from '@/shared/const/localStorage';
 
 import { getUserDataByIdQuery } from '../../api/userApi';
 import { User } from '../types/user';

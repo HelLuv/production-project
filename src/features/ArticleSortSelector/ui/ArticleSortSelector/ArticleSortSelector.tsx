@@ -2,14 +2,14 @@ import { memo, useMemo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { ArticleSortField } from 'entities/Article';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { ToggleFeatures } from 'shared/lib/features';
-import { SortOrder } from 'shared/types/sort';
-import { Select, SelectOptions } from 'shared/ui/deprecated/Select';
-import { ListBox } from 'shared/ui/redesigned/PopUps';
-import { VStack } from 'shared/ui/redesigned/Stack';
-import { Text } from 'shared/ui/redesigned/Text';
+import { ArticleSortField } from '@/entities/Article';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { SortOrder } from '@/shared/types/sort';
+import { Select, SelectOptions } from '@/shared/ui/deprecated/Select';
+import { ListBox } from '@/shared/ui/redesigned/PopUps';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import classes from './ArticleSortSelector.module.scss';
 

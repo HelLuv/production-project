@@ -2,14 +2,14 @@ import { memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { CountrySelect } from 'entities/Country';
-import { CurrencySelect } from 'entities/Currency';
-import { Avatar } from 'shared/ui/redesigned/Avatar';
-import { Card } from 'shared/ui/redesigned/Card';
-import { Input } from 'shared/ui/redesigned/Input';
-import { Skeleton } from 'shared/ui/redesigned/Skeleton';
-import { HStack, VStack } from 'shared/ui/redesigned/Stack';
-import { Text } from 'shared/ui/redesigned/Text';
+import { CountrySelect } from '@/entities/Country';
+import { CurrencySelect } from '@/entities/Currency';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import { ProfileCardProps } from '../ProfileCard/ProfileCard';
 

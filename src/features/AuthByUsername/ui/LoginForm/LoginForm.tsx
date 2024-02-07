@@ -3,24 +3,24 @@ import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ToggleFeatures } from 'shared/lib/features';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useForceUpdate } from 'shared/lib/render/forceUpdate';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 import {
     Button as ButtonDeprecated,
     ButtonTheme,
-} from 'shared/ui/deprecated/Button';
-import { Input as InputDeprecated } from 'shared/ui/deprecated/Input';
-import { Text as TextDeprecated, TextTheme } from 'shared/ui/deprecated/Text';
-import { Button } from 'shared/ui/redesigned/Button';
-import { Input } from 'shared/ui/redesigned/Input';
-import { VStack } from 'shared/ui/redesigned/Stack';
-import { Text } from 'shared/ui/redesigned/Text';
+} from '@/shared/ui/deprecated/Button';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import classes from './LoginForm.module.scss';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';

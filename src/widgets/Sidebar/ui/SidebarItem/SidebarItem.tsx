@@ -3,15 +3,15 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { getUserAuthData } from 'entities/User';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ToggleFeatures } from 'shared/lib/features';
+import { getUserAuthData } from '@/entities/User';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import {
     AppLink as AppLinkDepricated,
     AppLinkTheme,
-} from 'shared/ui/deprecated/AppLink';
-import { AppLink } from 'shared/ui/redesigned/AppLink';
-import { Icon } from 'shared/ui/redesigned/Icon';
+} from '@/shared/ui/deprecated/AppLink';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 import classes from './SidebarItem.module.scss';
 import { SidebarItemType } from '../../model/types/sidebar';

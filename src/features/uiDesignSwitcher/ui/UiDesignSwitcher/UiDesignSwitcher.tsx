@@ -3,14 +3,14 @@ import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { getUserAuthData } from 'entities/User';
-import { getFeatureFlags, updateFeatureFlags } from 'shared/lib/features';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useForceUpdate } from 'shared/lib/render/forceUpdate';
-import { ListBox } from 'shared/ui/redesigned/PopUps';
-import { Skeleton } from 'shared/ui/redesigned/Skeleton';
-import { HStack } from 'shared/ui/redesigned/Stack';
-import { Text } from 'shared/ui/redesigned/Text';
+import { getUserAuthData } from '@/entities/User';
+import { getFeatureFlags, updateFeatureFlags } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
+import { ListBox } from '@/shared/ui/redesigned/PopUps';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface UiDesignSwitcherProps {
   className?: string;

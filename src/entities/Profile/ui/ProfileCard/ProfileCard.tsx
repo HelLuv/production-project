@@ -1,6 +1,6 @@
-import type { Country } from 'entities/Country';
-import type { Currency } from 'entities/Currency';
-import { ToggleFeatures } from 'shared/lib/features';
+import type { Country } from '@/entities/Country';
+import type { Currency } from '@/entities/Currency';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 import { Profile } from '../../model/types/profile';
 import {

@@ -2,15 +2,15 @@ import {
     Dispatch, memo, SetStateAction, useCallback, useMemo,
 } from 'react';
 
-import { LanguageSwitcher } from 'features/LanguageSwitcher';
-import { ThemeSwitcher } from 'features/ThemeSwitcher';
-import ArrowIcon from 'shared/assets/icons/import/arrow-bottom.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ToggleFeatures } from 'shared/lib/features';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/deprecated/Button';
-import { AppLogo } from 'shared/ui/redesigned/AppLogo';
-import { Icon } from 'shared/ui/redesigned/Icon';
-import { VStack } from 'shared/ui/redesigned/Stack';
+import { LanguageSwitcher } from '@/features/LanguageSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import ArrowIcon from '@/shared/assets/icons/import/arrow-bottom.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import classes from './Sidebar.module.scss';
 import { useSidebarItems } from '../../model/selectors/getSidebarItems';

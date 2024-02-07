@@ -2,12 +2,12 @@ import { memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { ArticleSortSelector } from 'features/ArticleSortSelector';
-import { ArticleTypeTabs } from 'features/ArticleTypeTabs';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Card } from 'shared/ui/deprecated/Card';
-import { Input } from 'shared/ui/deprecated/Input';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Input } from '@/shared/ui/deprecated/Input';
 
 import classes from './ArticlesPageFilters.module.scss';
 import { useArticleFilters } from '../../lib/hooks/useArticleFilters';

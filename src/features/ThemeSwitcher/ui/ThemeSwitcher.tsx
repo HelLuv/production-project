@@ -1,17 +1,17 @@
 import { memo, useCallback } from 'react';
 
-import { saveJsonSettings } from 'entities/User';
-import ThemeIcon from 'shared/assets/icons/import/theme.svg';
-import BrownIconDeprecated from 'shared/assets/icons/theme-brown.svg';
-import DarkIconDeprecated from 'shared/assets/icons/theme-dark.svg';
-import LightIconDeprecated from 'shared/assets/icons/theme-light.svg';
-import { Theme } from 'shared/const/theme';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ToggleFeatures } from 'shared/lib/features';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useTheme } from 'shared/lib/hooks/useTheme/useTheme';
-import { Button, ButtonTheme } from 'shared/ui/deprecated/Button';
-import { Icon } from 'shared/ui/redesigned/Icon';
+import { saveJsonSettings } from '@/entities/User';
+import ThemeIcon from '@/shared/assets/icons/import/theme.svg';
+import BrownIconDeprecated from '@/shared/assets/icons/theme-brown.svg';
+import DarkIconDeprecated from '@/shared/assets/icons/theme-dark.svg';
+import LightIconDeprecated from '@/shared/assets/icons/theme-light.svg';
+import { Theme } from '@/shared/const/theme';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 import classes from './ThemeSwitcher.module.scss';
 

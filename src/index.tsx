@@ -1,12 +1,12 @@
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
-import { ErrorBoundary } from 'app/providers/ErrorBoundary';
-import { StoreProvider } from 'app/providers/StoreProvider';
-import { ThemeProvider } from 'app/providers/ThemeProvider';
-import 'shared/config/i18n/i18n';
-import 'app/styles/index.scss';
-import { ForceUpdateProvider } from 'shared/lib/render/forceUpdate';
+import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
+import { StoreProvider } from '@/app/providers/StoreProvider';
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import '@/shared/config/i18n/i18n';
+import '@/app/styles/index.scss';
+import { ForceUpdateProvider } from '@/shared/lib/render/forceUpdate';
 
 import App from './app/App';
 
@@ -36,4 +36,4 @@ if (__PROJECT__ !== 'storybook') {
     root.render(<div />);
 }
 
-export { Theme } from 'shared/const/theme';
+export { Theme } from '@/shared/const/theme';

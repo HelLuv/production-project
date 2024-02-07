@@ -3,20 +3,20 @@ import React, { memo, Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { CommentList } from 'entities/Comment';
-import { AddNewComment } from 'features/AddNewComment';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { ToggleFeatures } from 'shared/lib/features';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { CommentList } from '@/entities/Comment';
+import { AddNewComment } from '@/features/AddNewComment';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
     Text as TextDeprecated,
     TextSize,
     TextTheme,
-} from 'shared/ui/deprecated/Text';
-import { VStack } from 'shared/ui/redesigned/Stack';
-import { Text } from 'shared/ui/redesigned/Text';
-import { PageLoader } from 'widgets/PageLoader';
+} from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { PageLoader } from '@/widgets/PageLoader';
 
 import {
     getArticleCommentsError,

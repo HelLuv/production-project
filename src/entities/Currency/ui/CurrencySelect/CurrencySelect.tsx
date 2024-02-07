@@ -2,10 +2,10 @@ import { memo, useCallback } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { ToggleFeatures } from 'shared/lib/features';
-import { ListBox as ListBoxDeprecated } from 'shared/ui/deprecated/PopUps';
-import { ListBox } from 'shared/ui/redesigned/PopUps';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/PopUps';
+import { ListBox } from '@/shared/ui/redesigned/PopUps';
 
 import { Currency } from '../../model/types/currency';
 

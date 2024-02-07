@@ -5,21 +5,21 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { getUserAuthData } from 'entities/User';
-import { LoginModal } from 'features/AuthByUsername';
-import { AvatarDropdown } from 'features/AvatarDropdown';
-import { NotificationsButton } from 'features/NotificationsButton';
-import { getRouteArticleCreate } from 'shared/const/router';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { toggleFeatures, ToggleFeatures } from 'shared/lib/features';
-import { AppLink, AppLinkTheme } from 'shared/ui/deprecated/AppLink';
+import { getUserAuthData } from '@/entities/User';
+import { LoginModal } from '@/features/AuthByUsername';
+import { AvatarDropdown } from '@/features/AvatarDropdown';
+import { NotificationsButton } from '@/features/NotificationsButton';
+import { getRouteArticleCreate } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
+import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
 import {
     Button as ButtonDeprecated,
     ButtonTheme,
-} from 'shared/ui/deprecated/Button';
-import { Text, TextTheme } from 'shared/ui/deprecated/Text';
-import { Button } from 'shared/ui/redesigned/Button';
-import { HStack } from 'shared/ui/redesigned/Stack';
+} from '@/shared/ui/deprecated/Button';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import classes from './Navbar.module.scss';
 

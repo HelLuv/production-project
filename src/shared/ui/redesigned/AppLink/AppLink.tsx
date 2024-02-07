@@ -2,7 +2,7 @@ import { memo, ReactNode } from 'react';
 
 import { LinkProps, NavLink } from 'react-router-dom';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import classes from './AppLink.module.scss';
 

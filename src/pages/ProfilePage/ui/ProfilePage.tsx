@@ -2,12 +2,12 @@ import { memo } from 'react';
 
 import { useParams } from 'react-router-dom';
 
-import { EditableProfileCard } from 'features/EditableProfileCard';
-import { ProfileRating } from 'features/ProfileRating';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ToggleFeatures } from 'shared/lib/features';
-import { VStack } from 'shared/ui/redesigned/Stack';
-import { Page } from 'widgets/Page';
+import { EditableProfileCard } from '@/features/EditableProfileCard';
+import { ProfileRating } from '@/features/ProfileRating';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Page } from '@/widgets/Page';
 
 interface ProfilePageProps {
   className?: string;

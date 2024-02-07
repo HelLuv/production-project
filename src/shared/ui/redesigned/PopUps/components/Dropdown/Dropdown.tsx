@@ -2,9 +2,9 @@ import { Fragment, ReactNode } from 'react';
 
 import { Menu } from '@headlessui/react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DropdownDirection } from 'shared/types/ui';
-import { AppLink } from 'shared/ui/deprecated/AppLink';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DropdownDirection } from '@/shared/types/ui';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
 
 import classes from './Dropdown.module.scss';
 import { mapDirectionClasses } from '../../styles/consts';

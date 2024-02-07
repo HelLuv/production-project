@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import classes from './MainLayout.module.scss';
 

@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
 
-import { AppRoutes } from 'shared/const/router';
-import { useRouteChange } from 'shared/lib/router/useRouteChange';
-import { ScrollToolbar } from 'widgets/ScrollToolbar';
+import { AppRoutes } from '@/shared/const/router';
+import { useRouteChange } from '@/shared/lib/router/useRouteChange';
+import { ScrollToolbar } from '@/widgets/ScrollToolbar';
 
 export function useToolbar() {
     const appRoute = useRouteChange();

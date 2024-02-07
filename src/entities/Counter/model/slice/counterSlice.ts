@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 
-import { buildSlice } from 'shared/lib/store';
+import { buildSlice } from '@/shared/lib/store';
 
 import { CounterSchema } from '../types/counterSchema';
 

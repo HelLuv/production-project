@@ -1,13 +1,13 @@
-import { AboutPage } from 'pages/AboutPage';
-import { AdminPanelPage } from 'pages/AdminPanelPage';
-import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
-import { ArticleEditPage } from 'pages/ArticleEditPage';
-import { ArticlesPage } from 'pages/ArticlesPage';
-import { ForbiddenPage } from 'pages/ForbiddenPage';
-import { MainPage } from 'pages/MainPage';
-import { Page404 } from 'pages/Page404';
-import { ProfilePage } from 'pages/ProfilePage';
-import { SettingsPage } from 'pages/SettingsPage';
+import { AboutPage } from '@/pages/AboutPage';
+import { AdminPanelPage } from '@/pages/AdminPanelPage';
+import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
+import { ArticleEditPage } from '@/pages/ArticleEditPage';
+import { ArticlesPage } from '@/pages/ArticlesPage';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import { MainPage } from '@/pages/MainPage';
+import { Page404 } from '@/pages/Page404';
+import { ProfilePage } from '@/pages/ProfilePage';
+import { SettingsPage } from '@/pages/SettingsPage';
 import {
     AppRoutes,
     getRouteAbout,
@@ -21,8 +21,8 @@ import {
     getRoutePage404,
     getRouteProfile,
     getRouteSettings,
-} from 'shared/const/router';
-import { AppRoutesProps } from 'shared/types/router';
+} from '@/shared/const/router';
+import { AppRoutesProps } from '@/shared/types/router';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {

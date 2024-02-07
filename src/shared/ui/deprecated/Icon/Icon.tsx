@@ -1,6 +1,6 @@
 import { FC, memo, SVGProps } from 'react';
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 import classes from './Icon.module.scss';
 

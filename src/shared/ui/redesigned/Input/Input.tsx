@@ -7,9 +7,9 @@ import React, {
     useState,
 } from 'react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { HStack } from 'shared/ui/redesigned/Stack';
-import { Text } from 'shared/ui/redesigned/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import classes from './Input.module.scss';
 

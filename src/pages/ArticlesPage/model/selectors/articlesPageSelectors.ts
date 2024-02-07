@@ -1,6 +1,6 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticleType } from 'entities/Article';
-import { buildSelector } from 'shared/lib/store';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ArticleType } from '@/entities/Article';
+import { buildSelector } from '@/shared/lib/store';
 
 export const getArticlesPageError = (state: StateSchema) => state.articlesPage?.error || false;
 export const getArticlesPageIsLoading = (state: StateSchema) => state.articlesPage?.isLoading;

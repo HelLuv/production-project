@@ -5,14 +5,14 @@ import {
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import { StateSchema } from 'app/providers/StoreProvider';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { toggleFeatures } from 'shared/lib/features';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
-import { TestProps } from 'shared/types/tests';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
+import { TestProps } from '@/shared/types/tests';
 
 import classes from './Page.module.scss';
 import { getPageScrollByPath } from '../../model/selectors/pageSelectors';

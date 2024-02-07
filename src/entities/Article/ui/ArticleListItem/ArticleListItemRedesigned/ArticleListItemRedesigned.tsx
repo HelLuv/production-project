@@ -2,18 +2,18 @@ import { memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import EyeIcon from 'shared/assets/icons/import/eye.svg';
-import { getRouteArticleDetails } from 'shared/const/router';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { AppImage } from 'shared/ui/redesigned/AppImage/AppImage';
-import { AppLink } from 'shared/ui/redesigned/AppLink';
-import { Avatar } from 'shared/ui/redesigned/Avatar';
-import { Button } from 'shared/ui/redesigned/Button';
-import { Card } from 'shared/ui/redesigned/Card';
-import { Icon } from 'shared/ui/redesigned/Icon';
-import { Skeleton } from 'shared/ui/redesigned/Skeleton';
-import { HStack, VStack } from 'shared/ui/redesigned/Stack';
-import { Text } from 'shared/ui/redesigned/Text';
+import EyeIcon from '@/shared/assets/icons/import/eye.svg';
+import { getRouteArticleDetails } from '@/shared/const/router';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { AppImage } from '@/shared/ui/redesigned/AppImage/AppImage';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import classes from './ArticleListItemRedesigned.module.scss';
 import { ArticleBlockType } from '../../../model/consts/ArticleConsts';

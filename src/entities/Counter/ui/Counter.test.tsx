@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { ComponentRender } from 'shared/lib/tests/ComponentRender/ComponentRender';
+import { ComponentRender } from '@/shared/lib/tests/ComponentRender/ComponentRender';
 
 import { Counter } from './Counter';
 

@@ -1,15 +1,15 @@
 import { memo } from 'react';
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { ToggleFeatures } from 'shared/lib/features';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import {
     AppLink as AppLinkDeprecated,
     AppLinkTheme,
-} from 'shared/ui/deprecated/AppLink';
-import { Card as CardDeprecated, CardTheme } from 'shared/ui/deprecated/Card';
-import { Text as TextDeprecated } from 'shared/ui/deprecated/Text';
-import { Card } from 'shared/ui/redesigned/Card';
-import { Text } from 'shared/ui/redesigned/Text';
+} from '@/shared/ui/deprecated/AppLink';
+import { Card as CardDeprecated, CardTheme } from '@/shared/ui/deprecated/Card';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import classes from './NotificationItem.module.scss';
 import { Notification } from '../../model/types/notification';

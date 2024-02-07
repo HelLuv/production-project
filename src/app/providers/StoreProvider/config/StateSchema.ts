@@ -8,16 +8,16 @@ import {
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 
-import { ArticleDetailsSchema } from 'entities/Article';
-import { ICounterSchema } from 'entities/Counter';
-import { UserSchema } from 'entities/User';
-import { AddNewCommentSchema } from 'features/AddNewComment';
-import { LoginSchema } from 'features/AuthByUsername';
-import { ProfileSchema } from 'features/EditableProfileCard';
-import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { rtkApi } from 'shared/api/rtkApi';
-import { PageSchema } from 'widgets/Page';
+import { ArticleDetailsSchema } from '@/entities/Article';
+import { ICounterSchema } from '@/entities/Counter';
+import { UserSchema } from '@/entities/User';
+import { AddNewCommentSchema } from '@/features/AddNewComment';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { ProfileSchema } from '@/features/EditableProfileCard';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { PageSchema } from '@/widgets/Page';
 
 export interface StateSchema {
   counter: ICounterSchema;

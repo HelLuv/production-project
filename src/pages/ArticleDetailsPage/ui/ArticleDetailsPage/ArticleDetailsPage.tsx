@@ -3,19 +3,19 @@ import React, { memo, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
-import { ArticleDetails } from 'entities/Article';
-import { ArticleRating } from 'features/ArticleRating';
-import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
-import { StickyContentLayout } from 'shared/layouts/StickyContentLayout';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { ArticleDetails } from '@/entities/Article';
+import { ArticleRating } from '@/features/ArticleRating';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ToggleFeatures } from 'shared/lib/features';
-import { Card } from 'shared/ui/deprecated/Card';
-import { Page } from 'widgets/Page';
-import { PageLoader } from 'widgets/PageLoader';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Page } from '@/widgets/Page';
+import { PageLoader } from '@/widgets/PageLoader';
 
 import classes from './ArticleDetailsPage.module.scss';
 import { articleDetailsPageReducer } from '../../model/slices';

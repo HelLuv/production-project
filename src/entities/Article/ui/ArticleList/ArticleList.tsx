@@ -5,10 +5,10 @@ import {
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { ToggleFeatures } from 'shared/lib/features';
-import { Text } from 'shared/ui/deprecated/Text';
-import { HStack } from 'shared/ui/redesigned/Stack';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import classes from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';

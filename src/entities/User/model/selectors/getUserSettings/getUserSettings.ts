@@ -1,4 +1,4 @@
-import { buildSelector } from 'shared/lib/store';
+import { buildSelector } from '@/shared/lib/store';
 
 import { JsonSettings } from '../../types/jsonSettings';
 

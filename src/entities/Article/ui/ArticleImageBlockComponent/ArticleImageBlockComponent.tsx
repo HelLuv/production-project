@@ -1,9 +1,9 @@
 import { memo } from 'react';
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { ToggleFeatures } from 'shared/lib/features';
-import { TextAlign, Text as TextDeprecated } from 'shared/ui/deprecated/Text';
-import { Text } from 'shared/ui/redesigned/Text';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { TextAlign, Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import classes from './ArticleImageBlockComponent.module.scss';
 import { ArticleImageBlock } from '../../model/types/article';

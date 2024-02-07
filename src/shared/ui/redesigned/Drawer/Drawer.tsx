@@ -2,14 +2,12 @@ import {
     memo, ReactNode, useCallback, useEffect,
 } from 'react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import {
-    AnimationProvider,
-    useAnimationLibs,
-} from 'shared/lib/components/AnimationProvider';
-import { toggleFeatures } from 'shared/lib/features';
-import { useTheme } from 'shared/lib/hooks/useTheme/useTheme';
-import { Portal } from 'shared/ui/redesigned/Portal';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import { toggleFeatures } from '@/shared/lib/features';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+// eslint-disable-next-line import-path-checker/path-checker
+import { Portal } from '@/shared/ui/redesigned/Portal';
 
 import classes from './Drawer.module.scss';
 import { Overlay } from '../Overlay/Overlay';

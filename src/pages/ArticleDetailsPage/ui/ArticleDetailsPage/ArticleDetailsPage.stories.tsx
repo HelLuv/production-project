@@ -2,9 +2,9 @@ import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Article } from 'entities/Article';
-import { articleMock } from 'entities/Article/testing';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Article } from '@/entities/Article';
+import { articleMock } from '@/entities/Article/testing';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 import ArticleDetailsPage from './ArticleDetailsPage';
 

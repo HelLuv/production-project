@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 // import { useHover } from 'shared/lib/hooks/useHover/useHover';
 
-import { ToggleFeatures } from 'shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 import { ArticleListItemDeprecated } from './ArticleListItemDeprecated/ArticleListItemDeprecated';
 import { ArticleListItemProps } from './ArticleListItemProps';

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { ArticlesFilter } from 'widgets/ArticlesFilter';
+import { ArticlesFilter } from '@/widgets/ArticlesFilter';
 
 import { useArticleFilters } from '../../lib/hooks/useArticleFilters';
 

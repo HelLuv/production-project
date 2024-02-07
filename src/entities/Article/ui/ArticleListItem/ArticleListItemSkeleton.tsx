@@ -1,11 +1,11 @@
 import { memo } from 'react';
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { ToggleFeatures, toggleFeatures } from 'shared/lib/features';
-import { Card as CardDeprecated } from 'shared/ui/deprecated/Card';
-import { Skeleton as SkeletonDeprecated } from 'shared/ui/deprecated/Skeleton';
-import { Card as CardRedesigned } from 'shared/ui/redesigned/Card';
-import { Skeleton as SkeletonRedesigned } from 'shared/ui/redesigned/Skeleton';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 
 import classes from './ArticleListItem.module.scss';
 import { ArticleView } from '../../model/types/article';

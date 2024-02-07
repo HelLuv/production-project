@@ -3,22 +3,22 @@ import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import CalendarIcon from 'shared/assets/icons/calendar-icon.svg';
-import EyeIcon from 'shared/assets/icons/eye-icon.svg';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { toggleFeatures, ToggleFeatures } from 'shared/lib/features';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from 'shared/ui/deprecated/Avatar';
-import { Icon } from 'shared/ui/deprecated/Icon';
-import { Skeleton as SkeletonDeprecated } from 'shared/ui/deprecated/Skeleton';
+import CalendarIcon from '@/shared/assets/icons/calendar-icon.svg';
+import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import {
     Text as TextDeprecated, TextAlign, TextSize, TextTheme,
-} from 'shared/ui/deprecated/Text';
-import { AppImage } from 'shared/ui/redesigned/AppImage/AppImage';
-import { Skeleton as SkeletonRedesigned } from 'shared/ui/redesigned/Skeleton';
-import { HStack, VStack } from 'shared/ui/redesigned/Stack';
-import { Text } from 'shared/ui/redesigned/Text';
+} from '@/shared/ui/deprecated/Text';
+import { AppImage } from '@/shared/ui/redesigned/AppImage/AppImage';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import classes from './ArticleDetails.module.scss';
 import { renderBlock } from './renderBlock';

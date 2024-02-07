@@ -2,10 +2,10 @@ import { useCallback } from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { SortOrder } from 'shared/types/sort';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { SortOrder } from '@/shared/types/sort';
 
 import {
     getArticlesPageOrder,

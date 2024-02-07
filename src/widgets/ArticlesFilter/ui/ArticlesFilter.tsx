@@ -2,16 +2,16 @@ import { memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { ArticleSortField, ArticleType } from 'entities/Article';
-import { ArticleSortSelector } from 'features/ArticleSortSelector';
-import { ArticleTypeTabs } from 'features/ArticleTypeTabs';
-import SearchIcon from 'shared/assets/icons/import/search.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { SortOrder } from 'shared/types/sort';
-import { Card } from 'shared/ui/redesigned/Card';
-import { Icon } from 'shared/ui/redesigned/Icon';
-import { Input } from 'shared/ui/redesigned/Input';
-import { VStack } from 'shared/ui/redesigned/Stack';
+import { ArticleSortField, ArticleType } from '@/entities/Article';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import SearchIcon from '@/shared/assets/icons/import/search.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { SortOrder } from '@/shared/types/sort';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import classes from './ArticlesFilter.module.scss';
 

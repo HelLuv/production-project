@@ -4,8 +4,8 @@ import {
     getRouteAbout,
     getRouteAdminPanel,
     getRouteProfile,
-} from 'shared/const/router';
-import { ComponentRender } from 'shared/lib/tests/ComponentRender/ComponentRender';
+} from '@/shared/const/router';
+import { ComponentRender } from '@/shared/lib/tests/ComponentRender/ComponentRender';
 
 import AppRouter from './AppRouter';
 

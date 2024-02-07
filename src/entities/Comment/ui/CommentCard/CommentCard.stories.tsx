@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { RedesignDecorator } from 'shared/config/storybook/RedesingDecorator/RedesignDecorator';
+import { RedesignDecorator } from '@/shared/config/storybook/RedesingDecorator/RedesignDecorator';
 
 import { CommentCard } from './CommentCard';
 

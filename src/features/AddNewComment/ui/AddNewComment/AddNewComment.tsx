@@ -3,18 +3,18 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ToggleFeatures } from 'shared/lib/features';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button as ButtonDeprecated, ButtonTheme } from 'shared/ui/deprecated/Button';
-import { Input as InputDeprecated } from 'shared/ui/deprecated/Input';
-import { Button } from 'shared/ui/redesigned/Button';
-import { Card } from 'shared/ui/redesigned/Card';
-import { Input } from 'shared/ui/redesigned/Input';
-import { HStack } from 'shared/ui/redesigned/Stack';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
-import { getAddNewCommentText } from 'features/AddNewComment/model/selectors/addNewCommentSelectors';
+import { getAddNewCommentText } from '@/features/AddNewComment/model/selectors/addNewCommentSelectors';
 import classes from './AddNewComment.module.scss';
 import { addNewCommentActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
 

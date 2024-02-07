@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
-import { Skeleton } from 'shared/ui/redesigned/Skeleton';
-import { HStack, VStack } from 'shared/ui/redesigned/Stack';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import classes from './AppLoaderLayout.module.scss';
 import { MainLayout } from '../MainLayout';

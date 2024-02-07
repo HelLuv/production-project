@@ -2,17 +2,17 @@ import { memo, useCallback } from 'react';
 
 import { useSearchParams } from 'react-router-dom';
 
-import { ArticlePageGreeting } from 'features/ArticlePageGreeting';
-import { StickyContentLayout } from 'shared/layouts/StickyContentLayout';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ToggleFeatures } from 'shared/lib/features';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Page } from 'widgets/Page';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from '@/widgets/Page';
 
 import classes from './ArticlesPage.module.scss';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';

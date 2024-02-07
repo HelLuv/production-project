@@ -2,11 +2,11 @@ import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { RedesignDecorator } from 'shared/config/storybook/RedesingDecorator/RedesignDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'shared/const/theme';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { RedesignDecorator } from '@/shared/config/storybook/RedesingDecorator/RedesignDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
 import { ProfileCard } from './ProfileCard';
 

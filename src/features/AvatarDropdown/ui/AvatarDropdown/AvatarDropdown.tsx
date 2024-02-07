@@ -9,21 +9,21 @@ import {
     isUserManager,
     User,
     userActions,
-} from 'entities/User';
+} from '@/entities/User';
 import {
     getRouteAdminPanel,
     getRouteProfile,
     getRouteSettings,
-} from 'shared/const/router';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ToggleFeatures } from 'shared/lib/features';
-import { Avatar as AvatarDeprecated } from 'shared/ui/deprecated/Avatar';
+} from '@/shared/const/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import {
     Dropdown as DropdownDeprecated,
     DropdownItem,
-} from 'shared/ui/deprecated/PopUps';
-import { Avatar } from 'shared/ui/redesigned/Avatar';
-import { Dropdown } from 'shared/ui/redesigned/PopUps';
+} from '@/shared/ui/deprecated/PopUps';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Dropdown } from '@/shared/ui/redesigned/PopUps';
 
 interface AvatarDropdownProps {
   className?: string;

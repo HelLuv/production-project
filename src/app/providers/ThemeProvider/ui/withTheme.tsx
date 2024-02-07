@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useUserSettings } from 'entities/User';
+import { useUserSettings } from '@/entities/User';
 
 import ThemeProvider from './ThemeProvider';
 

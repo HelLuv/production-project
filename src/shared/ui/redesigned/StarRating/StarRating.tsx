@@ -1,9 +1,9 @@
 import { memo, useState } from 'react';
 
-import StarIcon from 'shared/assets/icons/star.svg';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { toggleFeatures, ToggleFeatures } from 'shared/lib/features';
-import { Icon as IconDeprecated } from 'shared/ui/deprecated/Icon';
+import StarIcon from '@/shared/assets/icons/star.svg';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 
 import classes from './StarRating.module.scss';
 import { Icon } from '../Icon';

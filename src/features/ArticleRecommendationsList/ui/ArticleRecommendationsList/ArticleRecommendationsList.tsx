@@ -2,17 +2,17 @@ import React, { memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { ArticleList } from 'entities/Article';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { ToggleFeatures } from 'shared/lib/features';
-import { Loader } from 'shared/ui/deprecated/Loader';
+import { ArticleList } from '@/entities/Article';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 import {
     Text as TextDeprecated,
     TextSize,
     TextTheme,
-} from 'shared/ui/deprecated/Text';
-import { VStack } from 'shared/ui/redesigned/Stack';
-import { Text } from 'shared/ui/redesigned/Text';
+} from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import { useGetArticlesRecommendationsListQuery } from '../../api/ArticleRecommendationsListApi';
 
