@@ -3,8 +3,8 @@ import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import CalendarIcon from '@/shared/assets/icons/calendar-icon.svg';
-import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar-icon.svg?react';
+import EyeIcon from '@/shared/assets/icons/eye-icon.svg?react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';

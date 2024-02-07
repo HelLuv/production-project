@@ -5,8 +5,10 @@
   "main": "index.ts",
   "scripts": {
     "start": "webpack serve --env port=3000",
+    "start:vite": "vite --port 3000",
     "start:dev:server": "node ./json-server/index.js",
     "start:dev": "concurrently -n Client, Server \"npm start\" \"npm run start:dev:server\"",
+    "start:dev:vite": "concurrently \"npm run start:vite\" \"npm run start:dev:server\"",
     "build:prod": "webpack --env mode=production url=https://project-prod-server.vercel.app/",
     "build:dev": "webpack --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",

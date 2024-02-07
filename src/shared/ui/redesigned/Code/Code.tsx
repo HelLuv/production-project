@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 
-import CopyIcon from '@/shared/assets/icons/copy-icon.svg';
-import CopyIconRedesigned from '@/shared/assets/icons/import/copy.svg';
+import CopyIcon from '@/shared/assets/icons/copy-icon.svg?react';
+import CopyIconRedesigned from '@/shared/assets/icons/import/copy.svg?react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';

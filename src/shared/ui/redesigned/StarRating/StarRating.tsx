@@ -1,6 +1,6 @@
 import { memo, useState } from 'react';
 
-import StarIcon from '@/shared/assets/icons/star.svg';
+import StarIcon from '@/shared/assets/icons/star.svg?react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';

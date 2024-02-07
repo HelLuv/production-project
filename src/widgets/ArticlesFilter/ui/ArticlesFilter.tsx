@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
-import SearchIcon from '@/shared/assets/icons/import/search.svg';
+import SearchIcon from '@/shared/assets/icons/import/search.svg?react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { SortOrder } from '@/shared/types/sort';
 import { Card } from '@/shared/ui/redesigned/Card';

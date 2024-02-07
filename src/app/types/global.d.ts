@@ -6,7 +6,7 @@ declare module '*.scss' {
   export = classNames;
 }
 
-declare module '*.svg' {
+declare module '*.svg?react' {
     // eslint-disable-next-line no-undef
     const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
     export default content;

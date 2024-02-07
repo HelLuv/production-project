@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import EyeIcon from '@/shared/assets/icons/import/eye.svg';
+import EyeIcon from '@/shared/assets/icons/import/eye.svg?react';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { AppImage } from '@/shared/ui/redesigned/AppImage/AppImage';

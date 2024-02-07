@@ -1,19 +1,16 @@
 import { useSelector } from 'react-redux';
 
 import { getUserAuthData } from '@/entities/User';
-import AboutIconDeprecated from '@/shared/assets/icons/about.svg';
-import ArticlesIconDeprecated from '@/shared/assets/icons/articles.svg';
-import HomeIconDeprecated from '@/shared/assets/icons/home.svg';
-import ArticleIcon from '@/shared/assets/icons/import/article.svg';
-import ProfileIcon from '@/shared/assets/icons/import/avatar.svg';
-import MainIcon from '@/shared/assets/icons/import/home.svg';
-import AboutIcon from '@/shared/assets/icons/import/Info.svg';
-import ProfileIconDeprecated from '@/shared/assets/icons/profile.svg';
+import AboutIconDeprecated from '@/shared/assets/icons/about.svg?react';
+import ArticlesIconDeprecated from '@/shared/assets/icons/articles.svg?react';
+import HomeIconDeprecated from '@/shared/assets/icons/home.svg?react';
+import ArticleIcon from '@/shared/assets/icons/import/article.svg?react';
+import ProfileIcon from '@/shared/assets/icons/import/avatar.svg?react';
+import MainIcon from '@/shared/assets/icons/import/home.svg?react';
+import AboutIcon from '@/shared/assets/icons/import/Info.svg?react';
+import ProfileIconDeprecated from '@/shared/assets/icons/profile.svg?react';
 import {
-    getRouteAbout,
-    getRouteArticles,
-    getRouteMain,
-    getRouteProfile,
+    getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
 } from '@/shared/const/router';
 import { toggleFeatures } from '@/shared/lib/features';
 

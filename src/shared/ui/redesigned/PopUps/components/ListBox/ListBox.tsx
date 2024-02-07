@@ -2,7 +2,7 @@ import { Fragment, ReactNode, useMemo } from 'react';
 
 import { Listbox as HListBox } from '@headlessui/react';
 
-import ArrowIcon from '@/shared/assets/icons/import/arrow-bottom.svg';
+import ArrowIcon from '@/shared/assets/icons/import/arrow-bottom.svg?react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 import { Button } from '@/shared/ui/redesigned/Button';

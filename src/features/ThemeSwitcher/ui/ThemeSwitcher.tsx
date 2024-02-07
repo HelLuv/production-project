@@ -1,10 +1,10 @@
 import { memo, useCallback } from 'react';
 
 import { saveJsonSettings } from '@/entities/User';
-import ThemeIcon from '@/shared/assets/icons/import/theme.svg';
-import BrownIconDeprecated from '@/shared/assets/icons/theme-brown.svg';
-import DarkIconDeprecated from '@/shared/assets/icons/theme-dark.svg';
-import LightIconDeprecated from '@/shared/assets/icons/theme-light.svg';
+import ThemeIcon from '@/shared/assets/icons/import/theme.svg?react';
+import BrownIconDeprecated from '@/shared/assets/icons/theme-brown.svg?react';
+import DarkIconDeprecated from '@/shared/assets/icons/theme-dark.svg?react';
+import LightIconDeprecated from '@/shared/assets/icons/theme-light.svg?react';
 import { Theme } from '@/shared/const/theme';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';

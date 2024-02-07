@@ -1,8 +1,8 @@
 import { memo, useCallback, useState } from 'react';
 
 import { NotificationsList } from '@/entities/Notification';
-import NotificationIcon from '@/shared/assets/icons/import/notification.svg';
-import NotificationIconDeprecated from '@/shared/assets/icons/notifications.svg';
+import NotificationIcon from '@/shared/assets/icons/import/notification.svg?react';
+import NotificationIconDeprecated from '@/shared/assets/icons/notifications.svg?react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';

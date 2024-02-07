@@ -4,7 +4,7 @@ import {
 
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
-import ArrowIcon from '@/shared/assets/icons/import/arrow-bottom.svg';
+import ArrowIcon from '@/shared/assets/icons/import/arrow-bottom.svg?react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
