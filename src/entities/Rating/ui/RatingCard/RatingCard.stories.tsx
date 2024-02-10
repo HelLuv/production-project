@@ -5,19 +5,19 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { RatingCard } from './RatingCard';
 
 export default {
-  title: 'entities/Rating/RatingCard',
-  component: RatingCard,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'entities/Rating/RatingCard',
+    component: RatingCard,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof RatingCard>;
 
 const Template: ComponentStory<typeof RatingCard> = (args) => (
-  <RatingCard {...args} />
+    <RatingCard {...args} />
 );
 
 export const Primary = Template.bind({});
 Primary.args = {
-  title: 'Оценка',
-  hasFeedback: true,
+    title: 'Оценка',
+    hasFeedback: true,
 };

@@ -32,9 +32,11 @@ const getSkeletons = (view: ArticleView) => {
             <ArticleListItemSkeleton
                 className={classes.card}
                 view={view}
-                key={index}
+                // eslint-disable-next-line react/no-array-index-key
+                key={`str_${index}`}
             />
         ));
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     return <>{skeletons}</>;
 };
 

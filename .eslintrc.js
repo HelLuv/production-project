@@ -24,6 +24,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'import-path-checker',
+        'unused-imports',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -46,6 +47,7 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
+        'unused-imports/no-unused-imports': 'error',
         'react/jsx-no-bind': [1, {
             allowArrowFunctions: true,
         }],
@@ -76,7 +78,7 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['**/src/**/*.(test,stories).{ts,tsx}'],
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
             rules: {
                 'i18next/no-literal-string': 'off',
                 'max-len': 'off',

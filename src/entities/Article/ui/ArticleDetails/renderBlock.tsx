@@ -7,40 +7,40 @@ import { ArticleTableBlockComponent } from '../ArticleTableBlockComponent/Articl
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 export const renderBlock = (block: ArticleBlock) => {
-  switch (block.type) {
+    switch (block.type) {
     case ArticleBlockType.CODE:
-      return (
-        <ArticleCodeBlockComponent
-          block={block}
-          className={classes.block}
-          key={block.id}
-        />
-      );
+        return (
+            <ArticleCodeBlockComponent
+                block={block}
+                className={classes.block}
+                key={block.id}
+            />
+        );
     case ArticleBlockType.IMAGE:
-      return (
-        <ArticleImageBlockComponent
-          block={block}
-          className={classes.block}
-          key={block.id}
-        />
-      );
+        return (
+            <ArticleImageBlockComponent
+                block={block}
+                className={classes.block}
+                key={block.id}
+            />
+        );
     case ArticleBlockType.TEXT:
-      return (
-        <ArticleTextBlockComponent
-          block={block}
-          className={classes.block}
-          key={block.id}
-        />
-      );
+        return (
+            <ArticleTextBlockComponent
+                block={block}
+                className={classes.block}
+                key={block.id}
+            />
+        );
     case ArticleBlockType.TABLE:
-      return (
-        <ArticleTableBlockComponent
-          block={block}
-          className={classes.block}
-          key={block.id}
-        />
-      );
+        return (
+            <ArticleTableBlockComponent
+                block={block}
+                className={classes.block}
+                key={block.id}
+            />
+        );
     default:
-      return null;
-  }
+        return null;
+    }
 };

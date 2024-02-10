@@ -2,9 +2,9 @@ import { CSSProperties, memo, useMemo } from 'react';
 
 import UserIcon from '@/shared/assets/icons/user.svg?react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Icon } from '@/shared/ui/deprecated/Icon';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { AppImage } from '@/shared/ui/redesigned/AppImage/AppImage';
+import { Icon } from '../Icon';
+import { Skeleton } from '../Skeleton';
+import { AppImage } from '../../redesigned/AppImage/AppImage';
 
 import classes from './Avatar.module.scss';
 

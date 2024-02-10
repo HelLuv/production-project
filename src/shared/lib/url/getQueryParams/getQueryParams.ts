@@ -3,7 +3,7 @@
  */
 
 export function getQueryParams() {
-  const { search } = window.location;
+    const { search } = window.location;
 
-  return new URLSearchParams(search);
+    return new URLSearchParams(search);
 }

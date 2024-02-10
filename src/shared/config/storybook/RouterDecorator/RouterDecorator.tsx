@@ -1,25 +1,27 @@
 import { Story, StoryContext } from '@storybook/react';
-import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router-dom';
+import {
+    BrowserRouter, MemoryRouter, Route, Routes,
+} from 'react-router-dom';
 
 export const RouterDecorator = (
-  Story: Story,
-  { parameters: { router } }: StoryContext,
+    Story: Story,
+    { parameters: { router } }: StoryContext,
 ) => {
-  if (!router) {
+    if (!router) {
+        return (
+            <BrowserRouter>
+                <Story />
+            </BrowserRouter>
+        );
+    }
+
+    const { path, route } = router;
+
     return (
-      <BrowserRouter>
-        <Story />
-      </BrowserRouter>
+        <MemoryRouter initialEntries={[encodeURI(route)]}>
+            <Routes>
+                <Route path={path} element={<Story />} />
+            </Routes>
+        </MemoryRouter>
     );
-  }
-
-  const { path, route } = router;
-
-  return (
-    <MemoryRouter initialEntries={[encodeURI(route)]}>
-      <Routes>
-        <Route path={path} element={<Story />} />
-      </Routes>
-    </MemoryRouter>
-  );
 };

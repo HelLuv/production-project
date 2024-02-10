@@ -1,8 +1,8 @@
 import { ReactNode, useCallback } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/redesigned/Card';
-import { Flex, FlexDirection } from '@/shared/ui/redesigned/Stack/Flex/Flex';
+import { Card } from '../Card';
+import { Flex, FlexDirection } from '../Stack/Flex/Flex';
 
 import classes from './Tabs.module.scss';
 

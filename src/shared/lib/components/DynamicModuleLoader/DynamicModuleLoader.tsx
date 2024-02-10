@@ -3,11 +3,7 @@ import { FC, ReactNode, useEffect } from 'react';
 import { Reducer } from '@reduxjs/toolkit';
 import { useDispatch, useStore } from 'react-redux';
 
-import {
-    StateSchema,
-    StoreWithReducerManager,
-    StateSchemaKey,
-} from '@/app/providers/StoreProvider';
+import { StateSchema, StateSchemaKey, StoreWithReducerManager } from '@/app/providers/StoreProvider';
 
 export type ReducersList = {
   [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
@@ -50,5 +46,6 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     // eslint-disable-next-line
   }, []);
 
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     return <>{children}</>;
 };

@@ -7,10 +7,7 @@ import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import {
-    Button as ButtonDeprecated,
-    ButtonTheme,
-} from '@/shared/ui/deprecated/Button';
+import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
@@ -61,6 +58,7 @@ export const EditableProfileCardHeader = memo(
                         >
                             <Text title={t('Profile') ?? ''} />
                             {isEditableProfile && (
+                                // eslint-disable-next-line react/jsx-no-useless-fragment
                                 <>
                                     {readonly ? (
                                         <Button
@@ -103,6 +101,7 @@ export const EditableProfileCardHeader = memo(
                     >
                         <TextDeprecated title={t('Profile') ?? ''} />
                         {isEditableProfile && (
+                            // eslint-disable-next-line react/jsx-no-useless-fragment
                             <>
                                 {readonly ? (
                                     <ButtonDeprecated

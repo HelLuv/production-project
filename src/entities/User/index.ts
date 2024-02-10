@@ -4,9 +4,9 @@ export { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthDa
 export { getUserIsInitiated } from './model/selectors/getUserIsInitiated/getUserIsInitiated';
 export { useUserSettings } from './model/selectors/getUserSettings/getUserSettings';
 export {
-  isUserAdmin,
-  isUserManager,
-  getUserRoles,
+    isUserAdmin,
+    isUserManager,
+    getUserRoles,
 } from './model/selectors/getUserRoles/getUserRoles';
 export { saveJsonSettings } from './model/services/saveJsonSettings';
 export { initAuthData } from './model/services/initAuthData';

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import CircleUpImg from '@/shared/assets/icons/import/circle-up.svg';
+import CircleUpImg from '@/shared/assets/icons/import/circle-up.svg?react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 

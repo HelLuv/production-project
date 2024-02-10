@@ -5,9 +5,9 @@ import { Listbox as HListBox } from '@headlessui/react';
 import ArrowIcon from '@/shared/assets/icons/import/arrow-bottom.svg?react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
-import { Button } from '@/shared/ui/redesigned/Button';
-import { Icon } from '@/shared/ui/redesigned/Icon';
-import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Button } from '../../../Button';
+import { Icon } from '../../../Icon';
+import { HStack } from '../../../Stack';
 
 import classes from './ListBox.module.scss';
 import { mapDirectionClasses } from '../../styles/consts';

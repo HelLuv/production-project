@@ -14,7 +14,7 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 
-import { getAddNewCommentText } from '@/features/AddNewComment/model/selectors/addNewCommentSelectors';
+import { getAddNewCommentText } from '../../model/selectors/addNewCommentSelectors';
 import classes from './AddNewComment.module.scss';
 import { addNewCommentActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
 

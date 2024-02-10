@@ -4,9 +4,9 @@ import CopyIcon from '@/shared/assets/icons/copy-icon.svg?react';
 import CopyIconRedesigned from '@/shared/assets/icons/import/copy.svg?react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
-import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Button, ButtonTheme } from '../../deprecated/Button';
+import { Icon as IconDeprecated } from '../../deprecated/Icon';
+import { Icon } from '../Icon';
 
 import classes from './Code.module.scss';
 
