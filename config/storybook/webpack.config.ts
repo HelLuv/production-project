@@ -1,7 +1,7 @@
 import { Configuration, DefinePlugin } from 'webpack';
 import path from 'path';
 import { BuildPaths, Project } from '../build/types/config';
-import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
+import { buildCssLoaders } from '../build/loaders/buildScssLoader';
 
 export default ({ config }:{config: Configuration}) => {
     const paths: BuildPaths = {

@@ -1,9 +1,10 @@
 import webpack from 'webpack';
-import { BuildOptions } from './types/config';
-import { buildLoaders } from './buildLoaders';
-import { buildResolvers } from './buildResolvers';
-import { buildPlugins } from './buildPlugins';
+
 import { buildDevServer } from './buildDevServer';
+import { buildLoaders } from './buildLoaders';
+import { buildPlugins } from './buildPlugins';
+import { buildResolvers } from './buildResolvers';
+import { BuildOptions } from './types/config';
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
     const { mode, paths, isDev } = options;
@@ -22,7 +23,10 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         },
         resolve: buildResolvers(options),
         plugins: buildPlugins(options),
-        devtool: isDev ? 'inline-source-map' : undefined,
+        devtool: isDev ? 'eval-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined,
+        performance: {
+            hints: false,
+        },
     };
 }
