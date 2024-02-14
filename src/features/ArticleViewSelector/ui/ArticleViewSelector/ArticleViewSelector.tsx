@@ -7,7 +7,10 @@ import ListIconDeprecated from '@/shared/assets/icons/list.svg?react';
 import TableIconDeprecated from '@/shared/assets/icons/table.svg?react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
-import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Icon } from '@/shared/ui/redesigned/Icon';
@@ -16,14 +19,14 @@ import { HStack } from '@/shared/ui/redesigned/Stack';
 import classes from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
-  className?: string;
-  view: ArticleView;
-  onViewClick?: (view: ArticleView) => void;
+    className?: string;
+    view: ArticleView;
+    onViewClick?: (view: ArticleView) => void;
 }
 
 interface ViewType {
-  view: ArticleView;
-  icon: VFC<SVGProps<SVGSVGElement>>;
+    view: ArticleView;
+    icon: VFC<SVGProps<SVGSVGElement>>;
 }
 
 const viewTypes: ViewType[] = [
@@ -56,11 +59,13 @@ export const ArticleViewSelector = memo(
         return (
             <ToggleFeatures
                 featureName="isSiteRedesigned"
-                on={(
+                on={
                     <Card
-                        className={classNames(classes.ArticleViewSelectorRedesigned, mods, [
-                            className,
-                        ])}
+                        className={classNames(
+                            classes.ArticleViewSelectorRedesigned,
+                            mods,
+                            [className],
+                        )}
                         border="semi"
                     >
                         <HStack gap="8">
@@ -71,18 +76,21 @@ export const ArticleViewSelector = memo(
                                     onClick={onClick(viewType.view)}
                                     Svg={viewType.icon}
                                     className={classNames('', {
-                                        [classes.notActive]: view !== viewType.view,
+                                        [classes.notActive]:
+                                            view !== viewType.view,
                                     })}
                                 />
                             ))}
                         </HStack>
                     </Card>
-                )}
-                off={(
+                }
+                off={
                     <div
-                        className={classNames(classes.ArticleViewSelector, mods, [
-                            className,
-                        ])}
+                        className={classNames(
+                            classes.ArticleViewSelector,
+                            mods,
+                            [className],
+                        )}
                     >
                         {viewTypes.map((viewType) => (
                             <ButtonDeprecated
@@ -93,13 +101,14 @@ export const ArticleViewSelector = memo(
                                 <IconDeprecated
                                     Svg={viewType.icon}
                                     className={classNames('', {
-                                        [classes.active]: view === viewType.view,
+                                        [classes.active]:
+                                            view === viewType.view,
                                     })}
                                 />
                             </ButtonDeprecated>
                         ))}
                     </div>
-                )}
+                }
             />
         );
     },

@@ -7,7 +7,10 @@ import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
@@ -20,7 +23,7 @@ import { updateProfileData } from '../../model/service/updateProfileData/updateP
 import { profileActions } from '../../model/slice/profileSlice';
 
 interface EditableProfileCardHeaderProps {
-  className?: string;
+    className?: string;
 }
 
 export const EditableProfileCardHeader = memo(
@@ -49,7 +52,7 @@ export const EditableProfileCardHeader = memo(
         return (
             <ToggleFeatures
                 featureName="isSiteRedesigned"
-                on={(
+                on={
                     <Card border="semi" paddings="24" maxWidth>
                         <HStack
                             maxWidth
@@ -92,8 +95,8 @@ export const EditableProfileCardHeader = memo(
                             )}
                         </HStack>
                     </Card>
-                )}
-                off={(
+                }
+                off={
                     <HStack
                         maxWidth
                         justify="between"
@@ -132,7 +135,7 @@ export const EditableProfileCardHeader = memo(
                             </>
                         )}
                     </HStack>
-                )}
+                }
             />
         );
     },

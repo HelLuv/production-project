@@ -1,6 +1,9 @@
 import type { Preview } from '@storybook/react';
 import {
-    RouterDecorator, StoreDecorator, StyleDecorator, ThemeDecorator,
+    RouterDecorator,
+    StoreDecorator,
+    StyleDecorator,
+    ThemeDecorator,
 } from '../../src/shared/config/storybook';
 import { Theme } from '../../src/app/providers/ThemeProvider';
 

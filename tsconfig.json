@@ -1,32 +1,32 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "outDir": "./dist/",
-    "noImplicitAny": true,
-    "module": "ESNext",
-    "target": "es5",
-    "jsx": "react-jsx",
-    "allowJs": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strictNullChecks": true,
-    "isolatedModules": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "types": ["node", "jest", "@testing-library/jest-dom"]
-  },
-  "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
-  "include": [
-    "./config/jest/setupTests.ts",
-    "src/**/*.tsx",
-    "src/**/*.ts",
-    "src/**/*.scss"
-  ],
+        "strict": true,
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "module": "ESNext",
+        "target": "es5",
+        "jsx": "react-jsx",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strictNullChecks": true,
+        "isolatedModules": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "types": ["node", "jest", "@testing-library/jest-dom"]
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "include": [
+        "./config/jest/setupTests.ts",
+        "src/**/*.tsx",
+        "src/**/*.ts",
+        "src/**/*.scss"
+    ]
 }

@@ -12,15 +12,15 @@ import { Theme } from '@/shared/const/theme';
 import '@/app/styles/index.scss';
 
 export interface ComponentRenderOptions {
-  route?: string;
-  initialState?: DeepPartial<StateSchema>;
-  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
-  theme?: Theme;
+    route?: string;
+    initialState?: DeepPartial<StateSchema>;
+    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
+    theme?: Theme;
 }
 
 interface TestProviderProps {
-  children: ReactNode;
-  options?: ComponentRenderOptions;
+    children: ReactNode;
+    options?: ComponentRenderOptions;
 }
 
 export function TestProvider(props: TestProviderProps) {

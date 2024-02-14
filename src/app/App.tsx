@@ -1,6 +1,4 @@
-import React, {
-    memo, Suspense, useEffect, useState,
-} from 'react';
+import React, { memo, Suspense, useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
 
@@ -38,11 +36,14 @@ const App = memo(() => {
         return (
             <ToggleFeatures
                 featureName="isSiteRedesigned"
-                on={(
-                    <div id="app" className={classNames('app_redesigned', {}, [theme])}>
+                on={
+                    <div
+                        id="app"
+                        className={classNames('app_redesigned', {}, [theme])}
+                    >
                         <AppLoaderLayout />
                     </div>
-                )}
+                }
                 off={<PageLoader />}
             />
         );
@@ -55,33 +56,42 @@ const App = memo(() => {
     return (
         <ToggleFeatures
             featureName="isSiteRedesigned"
-            on={(
-                <div id="app" className={classNames('app_redesigned', {}, [theme])}>
+            on={
+                <div
+                    id="app"
+                    className={classNames('app_redesigned', {}, [theme])}
+                >
                     <Suspense fallback={<PageLoader />}>
                         <MainLayout
                             header={<Navbar />}
                             content={<AppRouter />}
                             sidebar={
-                                <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
+                                <Sidebar
+                                    collapsed={collapsed}
+                                    setCollapsed={setCollapsed}
+                                />
                             }
                             toolbar={toolbar}
                         />
                     </Suspense>
                 </div>
-            )}
-            off={(
+            }
+            off={
                 <div id="app" className={classNames('app', {}, [theme])}>
                     <Suspense fallback={<PageLoader />}>
                         <Navbar />
                         <div className="content-page">
-                            <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
+                            <Sidebar
+                                collapsed={collapsed}
+                                setCollapsed={setCollapsed}
+                            />
                             <div className={classNames('content-bar', mods)}>
                                 <AppRouter />
                             </div>
                         </div>
                     </Suspense>
                 </div>
-            )}
+            }
         />
     );
 });

@@ -15,13 +15,13 @@ import {
 } from '../../selectors/articlesPageSelectors';
 
 interface FetchArticlesListProps {
-  needReplaceData?: boolean;
+    needReplaceData?: boolean;
 }
 
 export const fetchArticlesList = createAsyncThunk<
-  Article[],
-  FetchArticlesListProps,
-  ThunkConfig<string>
+    Article[],
+    FetchArticlesListProps,
+    ThunkConfig<string>
 >('articlePage/fetchArticlesList', async (props, thunkAPI) => {
     const {
         rejectWithValue,

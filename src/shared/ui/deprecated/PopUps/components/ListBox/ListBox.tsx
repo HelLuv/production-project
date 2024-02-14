@@ -11,20 +11,20 @@ import { mapDirectionClasses } from '../../styles/consts';
 import popupClasses from '../../styles/popups.module.scss';
 
 export interface ListBoxItem {
-  value: string;
-  content: ReactNode;
-  disabled?: boolean;
+    value: string;
+    content: ReactNode;
+    disabled?: boolean;
 }
 
 interface ListBoxProps {
-  items?: ListBoxItem[];
-  className?: string;
-  value?: string;
-  defaultValue?: string | null;
-  onChange: <T extends string>(value: T) => void;
-  label?: string | null;
-  unavailable?: boolean;
-  direction?: DropdownDirection;
+    items?: ListBoxItem[];
+    className?: string;
+    value?: string;
+    defaultValue?: string | null;
+    onChange: <T extends string>(value: T) => void;
+    label?: string | null;
+    unavailable?: boolean;
+    direction?: DropdownDirection;
 }
 
 /**
@@ -48,7 +48,11 @@ export const ListBox = (props: ListBoxProps) => {
     return (
         <HStack gap="8">
             {label && (
-                <span className={classNames('', { [classes.disabled]: unavailable })}>
+                <span
+                    className={classNames('', {
+                        [classes.disabled]: unavailable,
+                    })}
+                >
                     {`${label}>`}
                 </span>
             )}
@@ -88,12 +92,15 @@ export const ListBox = (props: ListBoxProps) => {
                                         {
                                             [popupClasses.active]: active,
                                             [popupClasses.selected]: selected,
-                                            [popupClasses.disabled]: item.disabled,
+                                            [popupClasses.disabled]:
+                                                item.disabled,
                                         },
                                         [],
                                     )}
                                 >
-                                    {selected ? `✔ ${item.content}` : item.content}
+                                    {selected
+                                        ? `✔ ${item.content}`
+                                        : item.content}
                                 </li>
                             )}
                         </HListBox.Option>

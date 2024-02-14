@@ -22,7 +22,7 @@ import { initArticlesPage } from '../../model/services/initArticlesPage/initArti
 import { getArticles } from '../../model/slices/articlesPageSlice';
 
 interface ArticlePageInfiniteListProps {
-  className?: string;
+    className?: string;
 }
 
 export const ArticlePageInfiniteList = memo(
@@ -48,7 +48,10 @@ export const ArticlePageInfiniteList = memo(
         if (error) {
             return (
                 <Page>
-                    <Text title={t('Article loading error!')} theme={TextTheme.ERROR} />
+                    <Text
+                        title={t('Article loading error!')}
+                        theme={TextTheme.ERROR}
+                    />
                 </Page>
             );
         }

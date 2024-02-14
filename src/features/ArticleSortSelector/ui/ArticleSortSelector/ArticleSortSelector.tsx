@@ -14,17 +14,15 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import classes from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {
-  className?: string;
-  sort: ArticleSortField;
-  order: SortOrder;
-  onChangeOrder: (newOrder: SortOrder) => void;
-  onChangeSort: (newSort: ArticleSortField) => void;
+    className?: string;
+    sort: ArticleSortField;
+    order: SortOrder;
+    onChangeOrder: (newOrder: SortOrder) => void;
+    onChangeSort: (newSort: ArticleSortField) => void;
 }
 
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
-    const {
-        className, sort, order, onChangeSort, onChangeOrder,
-    } = props;
+    const { className, sort, order, onChangeSort, onChangeOrder } = props;
     const { t } = useTranslation();
 
     const mods: Mods = {};
@@ -49,12 +47,14 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     return (
         <ToggleFeatures
             featureName="isSiteRedesigned"
-            on={(
+            on={
                 <VStack
                     gap="8"
-                    className={classNames(classes.ArticleSortSelectorRedesigned, mods, [
-                        className,
-                    ])}
+                    className={classNames(
+                        classes.ArticleSortSelectorRedesigned,
+                        mods,
+                        [className],
+                    )}
                 >
                     <Text text={t('Sort by')} />
                     <ListBox
@@ -70,10 +70,12 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
                         direction="down left"
                     />
                 </VStack>
-            )}
-            off={(
+            }
+            off={
                 <div
-                    className={classNames(classes.ArticleSortSelector, mods, [className])}
+                    className={classNames(classes.ArticleSortSelector, mods, [
+                        className,
+                    ])}
                 >
                     <Select<ArticleSortField>
                         label={t('Sort by')}
@@ -89,7 +91,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
                         className={classes.order}
                     />
                 </div>
-            )}
+            }
         />
     );
 });

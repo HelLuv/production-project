@@ -9,16 +9,14 @@ import { Skeleton } from '../Skeleton';
 import classes from './Avatar.module.scss';
 
 interface AvatarProps {
-  className?: string;
-  src?: string;
-  size?: number;
-  alt?: string;
+    className?: string;
+    src?: string;
+    size?: number;
+    alt?: string;
 }
 
 export const Avatar = memo((props: AvatarProps) => {
-    const {
-        className, src, size = 100, alt,
-    } = props;
+    const { className, src, size = 100, alt } = props;
 
     const mods: Mods = {};
 

@@ -4,10 +4,16 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
@@ -16,11 +22,14 @@ import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import { getAddNewCommentText } from '../../model/selectors/addNewCommentSelectors';
 import classes from './AddNewComment.module.scss';
-import { addNewCommentActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
+import {
+    addNewCommentActions,
+    addNewCommentReducer,
+} from '../../model/slice/addNewCommentSlice';
 
 export interface AddNewCommentProps {
-  className?: string;
-  onSendComment: (text: string) => void;
+    className?: string;
+    onSendComment: (text: string) => void;
 }
 
 const reducers: ReducersList = {
@@ -54,15 +63,17 @@ const AddNewComment = memo((props: AddNewCommentProps) => {
         <DynamicModuleLoader reducers={reducers}>
             <ToggleFeatures
                 featureName="isSiteRedesigned"
-                on={(
+                on={
                     <Card paddings="24" border="semi" maxWidth>
                         <HStack
                             data-testid="AddNewCommentForm"
                             justify="between"
                             maxWidth
-                            className={classNames(classes.AddNewCommentRedesigned, mods, [
-                                className,
-                            ])}
+                            className={classNames(
+                                classes.AddNewCommentRedesigned,
+                                mods,
+                                [className],
+                            )}
                             gap="16"
                         >
                             <Input
@@ -81,13 +92,15 @@ const AddNewComment = memo((props: AddNewCommentProps) => {
                             </Button>
                         </HStack>
                     </Card>
-                )}
-                off={(
+                }
+                off={
                     <HStack
                         data-testid="AddNewCommentForm"
                         justify="between"
                         maxWidth
-                        className={classNames(classes.AddNewComment, mods, [className])}
+                        className={classNames(classes.AddNewComment, mods, [
+                            className,
+                        ])}
                     >
                         <InputDeprecated
                             data-testid="AddNewCommentForm.input"
@@ -104,7 +117,7 @@ const AddNewComment = memo((props: AddNewCommentProps) => {
                             {t('Send')}
                         </ButtonDeprecated>
                     </HStack>
-                )}
+                }
             />
         </DynamicModuleLoader>
     );

@@ -11,9 +11,9 @@ import { Tabs } from '@/shared/ui/redesigned/Tabs';
 import classes from './ArticleTypeTabs.module.scss';
 
 interface ArticleTypeTabsProps {
-  className?: string;
-  value: ArticleType;
-  onChangeType: (type: ArticleType) => void;
+    className?: string;
+    value: ArticleType;
+    onChangeType: (type: ArticleType) => void;
 }
 
 export const ArticleTypeTabs = memo(
@@ -47,23 +47,31 @@ export const ArticleTypeTabs = memo(
         return (
             <ToggleFeatures
                 featureName="isSiteRedesigned"
-                on={(
+                on={
                     <Tabs
                         direction="column"
                         tabs={tabs}
                         value={value}
-                        onTabClick={(tab: TabItem<ArticleType>) => onChangeType(tab.value)}
-                        className={classNames(classes.ArticleTypeTabs, mods, [className])}
+                        onTabClick={(tab: TabItem<ArticleType>) =>
+                            onChangeType(tab.value)
+                        }
+                        className={classNames(classes.ArticleTypeTabs, mods, [
+                            className,
+                        ])}
                     />
-                )}
-                off={(
+                }
+                off={
                     <TabsDeprecated
                         tabs={tabs}
                         value={value}
-                        onTabClick={(tab: TabItem<ArticleType>) => onChangeType(tab.value)}
-                        className={classNames(classes.ArticleTypeTabs, mods, [className])}
+                        onTabClick={(tab: TabItem<ArticleType>) =>
+                            onChangeType(tab.value)
+                        }
+                        className={classNames(classes.ArticleTypeTabs, mods, [
+                            className,
+                        ])}
                     />
-                )}
+                }
             />
         );
     },

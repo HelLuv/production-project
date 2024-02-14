@@ -10,7 +10,7 @@ import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Page } from '@/widgets/Page';
 
 interface ProfilePageProps {
-  className?: string;
+    className?: string;
 }
 
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
@@ -21,7 +21,10 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     }
 
     return (
-        <Page data-testid="ProfilePage" className={classNames('', {}, [className])}>
+        <Page
+            data-testid="ProfilePage"
+            className={classNames('', {}, [className])}
+        >
             <VStack gap="16" maxWidth>
                 <EditableProfileCard id={id} />
                 <ToggleFeatures

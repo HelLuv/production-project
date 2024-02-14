@@ -41,7 +41,9 @@ describe('User visit Article page', () => {
     });
 
     it('Rate for the article with stubs (fixtures)', () => {
-        cy.intercept('GET', '**/articles/**', { fixture: 'article-details.json' });
+        cy.intercept('GET', '**/articles/**', {
+            fixture: 'article-details.json',
+        });
         getByTestId('ArticleDetails.title').should('exist');
         getByTestId('RatingCard').scrollIntoView();
         cy.setRate(5, 'New feedback');

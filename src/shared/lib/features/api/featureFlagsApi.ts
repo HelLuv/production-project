@@ -2,8 +2,8 @@ import { rtkApi } from '@/shared/api/rtkApi';
 import { FeatureFlags } from '@/shared/types/featureFlags';
 
 interface UpdateFeatureFlagsOptions {
-  userId: string;
-  features: Partial<FeatureFlags>;
+    userId: string;
+    features: Partial<FeatureFlags>;
 }
 
 const featureFlagsApi = rtkApi.injectEndpoints({
@@ -18,4 +18,5 @@ const featureFlagsApi = rtkApi.injectEndpoints({
     }),
 });
 
-export const updateFeatureFlagsMutation = featureFlagsApi.endpoints.updateFeatureFlags.initiate;
+export const updateFeatureFlagsMutation =
+    featureFlagsApi.endpoints.updateFeatureFlags.initiate;

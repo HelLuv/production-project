@@ -21,7 +21,9 @@ describe('getArticleCommentsError.test', () => {
 
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getArticleCommentsError(state as StateSchema)).toEqual(undefined);
+        expect(getArticleCommentsError(state as StateSchema)).toEqual(
+            undefined,
+        );
     });
 });
 
@@ -39,6 +41,8 @@ describe('getArticleCommentsIsLoading.test', () => {
 
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getArticleCommentsIsLoading(state as StateSchema)).toBe(undefined);
+        expect(getArticleCommentsIsLoading(state as StateSchema)).toBe(
+            undefined,
+        );
     });
 });

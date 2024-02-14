@@ -24,7 +24,7 @@ import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 
 interface ArticlesPageProps {
-  className?: string;
+    className?: string;
 }
 
 const reducers: ReducersList = {
@@ -48,37 +48,43 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const content = (
         <ToggleFeatures
             featureName="isSiteRedesigned"
-            on={(
+            on={
                 <StickyContentLayout
-                    content={(
+                    content={
                         <Page
                             data-testid="ArticlesPage"
                             onScrollEnd={onLoadNextPart}
-                            className={classNames(classes.ArticlesPageRedesigned, mods, [
-                                className,
-                            ])}
+                            className={classNames(
+                                classes.ArticlesPageRedesigned,
+                                mods,
+                                [className],
+                            )}
                         >
                             <ArticlePageInfiniteList />
                             <ArticlePageGreeting />
                         </Page>
-                    )}
+                    }
                     left={
-                        <ViewSelectorContainer className={classes.ViewSelectorContainer} />
+                        <ViewSelectorContainer
+                            className={classes.ViewSelectorContainer}
+                        />
                     }
                     right={<FiltersContainer />}
                 />
-            )}
-            off={(
+            }
+            off={
                 <Page
                     data-testid="ArticlesPage"
                     onScrollEnd={onLoadNextPart}
-                    className={classNames(classes.ArticlesPage, mods, [className])}
+                    className={classNames(classes.ArticlesPage, mods, [
+                        className,
+                    ])}
                 >
                     <ArticlesPageFilters />
                     <ArticlePageInfiniteList />
                     <ArticlePageGreeting />
                 </Page>
-            )}
+            }
         />
     );
 

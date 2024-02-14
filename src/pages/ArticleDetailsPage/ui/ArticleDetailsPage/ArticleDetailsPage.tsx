@@ -25,7 +25,7 @@ import { ArticleDetailsPageComments } from '../ArticleDetailsPageComments/Articl
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
-  className?: string;
+    className?: string;
 }
 
 const reducers: ReducersList = {
@@ -53,13 +53,15 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <Suspense fallback={<PageLoader />}>
                 <ToggleFeatures
                     featureName="isSiteRedesigned"
-                    on={(
+                    on={
                         <StickyContentLayout
-                            content={(
+                            content={
                                 <Page
-                                    className={classNames(classes.ArticleDetailsPage, mods, [
-                                        className,
-                                    ])}
+                                    className={classNames(
+                                        classes.ArticleDetailsPage,
+                                        mods,
+                                        [className],
+                                    )}
                                 >
                                     <ArticleDetailsContainer />
                                     <ArticleRating articleId={id} />
@@ -68,27 +70,35 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                                     />
                                     <ArticleDetailsPageComments id={id} />
                                 </Page>
-                            )}
+                            }
                             right={<AdditionalInfoContainer />}
                         />
-                    )}
-                    off={(
+                    }
+                    off={
                         <Page
-                            className={classNames(classes.ArticleDetailsPage, mods, [
-                                className,
-                            ])}
+                            className={classNames(
+                                classes.ArticleDetailsPage,
+                                mods,
+                                [className],
+                            )}
                         >
                             <ArticleDetailsPageHeader />
                             <ArticleDetails id={id} />
                             <ToggleFeatures
                                 featureName="isArticleRatingEnabled"
                                 on={<ArticleRating articleId={id} />}
-                                off={<Card>{t('Article rating will be here soon')}</Card>}
+                                off={
+                                    <Card>
+                                        {t('Article rating will be here soon')}
+                                    </Card>
+                                }
                             />
-                            <ArticleRecommendationsList className={classes.recommendations} />
+                            <ArticleRecommendationsList
+                                className={classes.recommendations}
+                            />
                             <ArticleDetailsPageComments id={id} />
                         </Page>
-                    )}
+                    }
                 />
             </Suspense>
         </DynamicModuleLoader>

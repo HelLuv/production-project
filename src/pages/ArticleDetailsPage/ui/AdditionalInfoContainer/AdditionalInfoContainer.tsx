@@ -12,7 +12,7 @@ import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
 import classes from './AdditionalInfoContainer.module.scss';
 
 interface AdditionalInfoContainerProps {
-  className?: string;
+    className?: string;
 }
 
 export const AdditionalInfoContainer = memo(
@@ -33,7 +33,9 @@ export const AdditionalInfoContainer = memo(
 
         return (
             <Card
-                className={classNames(classes.AdditionalInfoContainer, {}, [className])}
+                className={classNames(classes.AdditionalInfoContainer, {}, [
+                    className,
+                ])}
                 paddings="24"
                 border="semi"
             >

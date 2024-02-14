@@ -7,14 +7,14 @@ import { User, userActions } from '@/entities/User';
 import { LoginErrors } from '../../types/loginSchema';
 
 interface LoginByUsernameProps {
-  username: string;
-  password: string;
+    username: string;
+    password: string;
 }
 
 export const loginByUsername = createAsyncThunk<
-  User,
-  LoginByUsernameProps,
-  ThunkConfig<string>
+    User,
+    LoginByUsernameProps,
+    ThunkConfig<string>
 >('login/loginByUsername', async (authData, thunkAPI) => {
     const {
         rejectWithValue,

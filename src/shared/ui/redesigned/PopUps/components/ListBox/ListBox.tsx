@@ -14,20 +14,20 @@ import { mapDirectionClasses } from '../../styles/consts';
 import popupClasses from '../../styles/popups.module.scss';
 
 export interface ListBoxItem<T extends string> {
-  value: T;
-  content: ReactNode;
-  disabled?: boolean;
+    value: T;
+    content: ReactNode;
+    disabled?: boolean;
 }
 
 interface ListBoxProps<T extends string> {
-  items?: ListBoxItem<T>[];
-  className?: string;
-  value?: T;
-  defaultValue?: string | null;
-  onChange: (value: T) => void;
-  label?: string | null;
-  unavailable?: boolean;
-  direction?: DropdownDirection;
+    items?: ListBoxItem<T>[];
+    className?: string;
+    value?: T;
+    defaultValue?: string | null;
+    onChange: (value: T) => void;
+    label?: string | null;
+    unavailable?: boolean;
+    direction?: DropdownDirection;
 }
 
 export function ListBox<T extends string>(props: ListBoxProps<T>) {
@@ -52,7 +52,11 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
     return (
         <HStack gap="8">
             {label && (
-                <span className={classNames('', { [classes.disabled]: unavailable })}>
+                <span
+                    className={classNames('', {
+                        [classes.disabled]: unavailable,
+                    })}
+                >
                     {`${label}>`}
                 </span>
             )}
@@ -72,7 +76,9 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
                     unselectable={unavailable ? 'on' : 'off'}
                     as={Button}
                     variant="filled"
-                    addonRight={<Icon Svg={ArrowIcon} className={classes.icon} />}
+                    addonRight={
+                        <Icon Svg={ArrowIcon} className={classes.icon} />
+                    }
                 >
                     {selectedItem?.content ?? defaultValue}
                 </HListBox.Button>
@@ -93,12 +99,15 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
                                         {
                                             [popupClasses.active]: active,
                                             [popupClasses.selected]: selected,
-                                            [popupClasses.disabled]: item.disabled,
+                                            [popupClasses.disabled]:
+                                                item.disabled,
                                         },
                                         [],
                                     )}
                                 >
-                                    {selected ? `✔ ${item.content}` : item.content}
+                                    {selected
+                                        ? `✔ ${item.content}`
+                                        : item.content}
                                 </li>
                             )}
                         </HListBox.Option>

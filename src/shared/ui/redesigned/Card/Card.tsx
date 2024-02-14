@@ -9,13 +9,13 @@ export type CardBorder = 'round' | 'normal' | 'semi';
 export type CardPaddings = '0' | '8' | '16' | '24';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  className?: string;
-  children: ReactNode;
-  variant?: CardVariant;
-  maxWidth?: boolean;
-  maxHeight?: boolean;
-  paddings?: CardPaddings;
-  border?: CardBorder;
+    className?: string;
+    children: ReactNode;
+    variant?: CardVariant;
+    maxWidth?: boolean;
+    maxHeight?: boolean;
+    paddings?: CardPaddings;
+    border?: CardBorder;
 }
 
 const mapPaddingsToClassName: Record<CardPaddings, string> = {

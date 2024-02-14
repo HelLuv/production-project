@@ -12,9 +12,9 @@ import { Comment } from '../../model/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
 
 interface CommentListProps {
-  className?: string;
-  comments?: Comment[];
-  isLoading?: boolean;
+    className?: string;
+    comments?: Comment[];
+    isLoading?: boolean;
 }
 
 export const CommentList = memo((props: CommentListProps) => {
@@ -25,7 +25,11 @@ export const CommentList = memo((props: CommentListProps) => {
 
     if (isLoading) {
         return (
-            <VStack gap="16" maxWidth className={classNames('', mods, [className])}>
+            <VStack
+                gap="16"
+                maxWidth
+                className={classNames('', mods, [className])}
+            >
                 <CommentCard isLoading={isLoading} />
                 <CommentCard isLoading={isLoading} />
                 <CommentCard isLoading={isLoading} />

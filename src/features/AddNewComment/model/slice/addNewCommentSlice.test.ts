@@ -9,8 +9,8 @@ describe('addNewCommentSlice.test', () => {
         const state: DeepPartial<AddNewCommentSchema> = { text: 'old text' };
         expect(
             addNewCommentReducer(
-        state as AddNewCommentSchema,
-        addNewCommentActions.setText('new text'),
+                state as AddNewCommentSchema,
+                addNewCommentActions.setText('new text'),
             ),
         ).toEqual({ text: 'new text' });
     });

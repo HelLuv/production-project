@@ -21,9 +21,7 @@ import { ArticleTextBlock } from '../../../model/types/article';
 import { ArticleListItemProps } from '../ArticleListItemProps';
 
 export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
-    const {
-        className, article, view, target,
-    } = props;
+    const { className, article, view, target } = props;
 
     const { t } = useTranslation();
 
@@ -31,7 +29,11 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
 
     const userInfo = (
         <>
-            <Avatar size={32} src={article.user.avatar} className={classes.avatar} />
+            <Avatar
+                size={32}
+                src={article.user.avatar}
+                className={classes.avatar}
+            />
             <Text text={article.user.username} bold />
         </>
     );
@@ -81,7 +83,9 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
                     )}
                     <HStack maxWidth justify="between">
                         <AppLink to={getRouteArticleDetails(article.id)}>
-                            <Button variant="outline">{t('Read more...')}</Button>
+                            <Button variant="outline">
+                                {t('Read more...')}
+                            </Button>
                         </AppLink>
                         {views}
                     </HStack>
@@ -111,7 +115,10 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
                     <Text text={article.title} className={classes.title} />
                     <VStack gap="4" className={classes.footer} maxWidth>
                         <HStack justify="between" maxWidth>
-                            <Text text={article.createdAt} className={classes.date} />
+                            <Text
+                                text={article.createdAt}
+                                className={classes.date}
+                            />
                             {views}
                         </HStack>
                         <HStack gap="4">{userInfo}</HStack>

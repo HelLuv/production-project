@@ -8,12 +8,12 @@ import { MainLayout } from '../MainLayout';
 
 export const AppLoaderLayout = memo(() => (
     <MainLayout
-        header={(
+        header={
             <HStack className={classes.header}>
                 <Skeleton width={40} height={40} border="50%" />
             </HStack>
-        )}
-        content={(
+        }
+        content={
             <VStack gap="16" style={{ height: '100%' }}>
                 <Skeleton width="70%" height={32} border="16px" />
                 <Skeleton width="40%" height={32} border="16px" />
@@ -22,7 +22,7 @@ export const AppLoaderLayout = memo(() => (
                 <Skeleton width="80%" height={32} border="16px" />
                 <Skeleton width="80%" height={32} border="16px" />
             </VStack>
-        )}
+        }
         sidebar={<Skeleton border="32px" width={220} height="100%" />}
     />
 ));

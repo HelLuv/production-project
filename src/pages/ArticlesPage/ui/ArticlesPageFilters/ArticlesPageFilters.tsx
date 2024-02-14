@@ -13,7 +13,7 @@ import classes from './ArticlesPageFilters.module.scss';
 import { useArticleFilters } from '../../lib/hooks/useArticleFilters';
 
 interface ArticlesPageFiltersProps {
-  className?: string;
+    className?: string;
 }
 
 export const ArticlesPageFilters = memo(
@@ -37,7 +37,9 @@ export const ArticlesPageFilters = memo(
 
         return (
             <div
-                className={classNames(classes.ArticlesPageFilters, mods, [className])}
+                className={classNames(classes.ArticlesPageFilters, mods, [
+                    className,
+                ])}
             >
                 <div className={classes.sortWrapper}>
                     <ArticleSortSelector
@@ -46,7 +48,10 @@ export const ArticlesPageFilters = memo(
                         onChangeOrder={onChangeOrder}
                         onChangeSort={onChangeSort}
                     />
-                    <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                    <ArticleViewSelector
+                        view={view}
+                        onViewClick={onChangeView}
+                    />
                 </div>
                 <Card className={classes.search}>
                     <Input

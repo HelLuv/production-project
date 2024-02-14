@@ -7,9 +7,9 @@ import {
 } from 'react';
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
-  className?: string;
-  fallback?: ReactElement;
-  errorFallback?: ReactElement;
+    className?: string;
+    fallback?: ReactElement;
+    errorFallback?: ReactElement;
 }
 
 export const AppImage = memo((props: AppImageProps) => {

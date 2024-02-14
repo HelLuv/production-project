@@ -6,17 +6,17 @@ import { typedMemo } from '@/shared/lib/typedMemo/typedMemo';
 import classes from './Select.module.scss';
 
 export interface SelectOptions<T extends string> {
-  value: T;
-  content: string;
+    value: T;
+    content: string;
 }
 
 interface SelectProps<T extends string> {
-  className?: string;
-  label?: string | null;
-  options?: SelectOptions<T>[];
-  value?: T;
-  onChange?: (value: T) => void;
-  readonly?: boolean;
+    className?: string;
+    label?: string | null;
+    options?: SelectOptions<T>[];
+    value?: T;
+    onChange?: (value: T) => void;
+    readonly?: boolean;
 }
 
 /**
@@ -24,20 +24,19 @@ interface SelectProps<T extends string> {
  * @deprecated
  */
 export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
-    const {
-        className, label, options, value, onChange, readonly,
-    } = props;
+    const { className, label, options, value, onChange, readonly } = props;
 
     const optionsList = useMemo(
-        () => options?.map((option) => (
-            <option
-                className={classes.option}
-                value={option.value}
-                key={option.value}
-            >
-                {option.content}
-            </option>
-        )),
+        () =>
+            options?.map((option) => (
+                <option
+                    className={classes.option}
+                    value={option.value}
+                    key={option.value}
+                >
+                    {option.content}
+                </option>
+            )),
         [options],
     );
 

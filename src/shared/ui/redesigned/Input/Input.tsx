@@ -14,22 +14,22 @@ import { Text } from '../Text';
 import classes from './Input.module.scss';
 
 type HTMLInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange' | 'readonly' | 'size'
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readonly' | 'size'
 >;
 
 type InputSize = 's' | 'm' | 'l';
 
 interface InputProps extends HTMLInputProps {
-  className?: string;
-  value?: string | number;
-  label?: string;
-  onChange?: (value: string) => void;
-  autofocus?: boolean;
-  readonly?: boolean;
-  addonLeft?: ReactNode;
-  addonRight?: ReactNode;
-  size?: InputSize;
+    className?: string;
+    value?: string | number;
+    label?: string;
+    onChange?: (value: string) => void;
+    autofocus?: boolean;
+    readonly?: boolean;
+    addonLeft?: ReactNode;
+    addonRight?: ReactNode;
+    size?: InputSize;
 }
 
 export const Input = memo((props: InputProps) => {

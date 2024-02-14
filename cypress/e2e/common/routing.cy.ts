@@ -9,7 +9,11 @@ describe('Routing', () => {
 
         it('Try to open Profile page', () => {
             cy.login();
-            cy.visit('/profile/1');
+            cy.visit('/profile/1', {
+                headers: {
+                    Authorization: 'admin',
+                },
+            });
             getByTestId('ProfilePage').should('exist');
         });
 

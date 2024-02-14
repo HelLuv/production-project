@@ -11,7 +11,7 @@ import { useGetNotificationsListQuery } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 
 interface NotificationsListProps {
-  className?: string;
+    className?: string;
 }
 
 export const NotificationsList = memo(
@@ -33,7 +33,9 @@ export const NotificationsList = memo(
                 <VStack
                     gap="16"
                     maxWidth
-                    className={classNames(classes.NotificationsList, mods, [className])}
+                    className={classNames(classes.NotificationsList, mods, [
+                        className,
+                    ])}
                 >
                     <Skeleton width="100%" border="8px" height="80px" />
                     <Skeleton width="100%" border="8px" height="80px" />
@@ -46,13 +48,15 @@ export const NotificationsList = memo(
             <VStack
                 gap="16"
                 maxWidth
-                className={classNames(classes.NotificationsList, mods, [className])}
+                className={classNames(classes.NotificationsList, mods, [
+                    className,
+                ])}
             >
-                {data
-          && data.length > 0
-          && data.map((item) => (
-              <NotificationItem key={item.id} notification={item} />
-          ))}
+                {data &&
+                    data.length > 0 &&
+                    data.map((item) => (
+                        <NotificationItem key={item.id} notification={item} />
+                    ))}
             </VStack>
         );
     },

@@ -10,10 +10,10 @@ import { ListBox } from '@/shared/ui/redesigned/PopUps';
 import { Currency } from '../../model/types/currency';
 
 interface CurrencySelectProps {
-  className?: string;
-  value?: Currency;
-  onChange?: (value: Currency) => void;
-  readonly?: boolean;
+    className?: string;
+    value?: Currency;
+    onChange?: (value: Currency) => void;
+    readonly?: boolean;
 }
 
 const options = [
@@ -32,9 +32,7 @@ const options = [
 ];
 
 export const CurrencySelect = memo(
-    ({
-        className, value, onChange, readonly,
-    }: CurrencySelectProps) => {
+    ({ className, value, onChange, readonly }: CurrencySelectProps) => {
         const { t } = useTranslation();
 
         const mods: Mods = {};
@@ -64,14 +62,14 @@ export const CurrencySelect = memo(
                 off={<ListBoxDeprecated {...props} />}
             />
 
-        // <Select
-        //   className={classNames(classes.CurrencySelect, mods, [className])}
-        //   label={t('Choose currency')}
-        //   options={options}
-        //   value={value}
-        //   onChange={onChangeHandler}
-        //   readonly={readonly}
-        // />
+            // <Select
+            //   className={classNames(classes.CurrencySelect, mods, [className])}
+            //   label={t('Choose currency')}
+            //   options={options}
+            //   value={value}
+            //   onChange={onChangeHandler}
+            //   readonly={readonly}
+            // />
         );
     },
 );

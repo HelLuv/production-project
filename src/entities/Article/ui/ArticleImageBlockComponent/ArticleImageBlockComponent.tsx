@@ -9,8 +9,8 @@ import classes from './ArticleImageBlockComponent.module.scss';
 import { ArticleImageBlock } from '../../model/types/article';
 
 interface ArticleImageBlockComponentProps {
-  className?: string;
-  block: ArticleImageBlock;
+    className?: string;
+    block: ArticleImageBlock;
 }
 
 export const ArticleImageBlockComponent = memo(
@@ -19,16 +19,27 @@ export const ArticleImageBlockComponent = memo(
 
         return (
             <div
-                className={classNames(classes.ArticleImageBlockComponent, mods, [
-                    className,
-                ])}
+                className={classNames(
+                    classes.ArticleImageBlockComponent,
+                    mods,
+                    [className],
+                )}
             >
-                <img src={block.src} className={classes.image} alt={block.title} />
+                <img
+                    src={block.src}
+                    className={classes.image}
+                    alt={block.title}
+                />
                 {block.title && (
                     <ToggleFeatures
                         featureName="isSiteRedesigned"
                         on={<Text text={block.title} align="center" />}
-                        off={<TextDeprecated text={block.title} align={TextAlign.CENTER} />}
+                        off={
+                            <TextDeprecated
+                                text={block.title}
+                                align={TextAlign.CENTER}
+                            />
+                        }
                     />
                 )}
             </div>

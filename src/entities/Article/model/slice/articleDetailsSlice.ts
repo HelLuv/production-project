@@ -14,12 +14,12 @@ export const articleDetailsSlice = createSlice({
     name: 'articleDetails',
     initialState,
     reducers: {
-    // update: (state, action: PayloadAction<ArticleDetails>) => {
-    //   state.data = { ...state.data, ...action.payload };
-    // },
-    // revert: (state) => {
-    //   state.validateErrors = undefined;
-    // },
+        // update: (state, action: PayloadAction<ArticleDetails>) => {
+        //   state.data = { ...state.data, ...action.payload };
+        // },
+        // revert: (state) => {
+        //   state.validateErrors = undefined;
+        // },
     },
     extraReducers: (builder) => {
         builder

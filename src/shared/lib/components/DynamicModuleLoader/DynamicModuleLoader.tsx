@@ -3,16 +3,20 @@ import { FC, ReactNode, useEffect } from 'react';
 import { Reducer } from '@reduxjs/toolkit';
 import { useDispatch, useStore } from 'react-redux';
 
-import { StateSchema, StateSchemaKey, StoreWithReducerManager } from '@/app/providers/StoreProvider';
+import {
+    StateSchema,
+    StateSchemaKey,
+    StoreWithReducerManager,
+} from '@/app/providers/StoreProvider';
 
 export type ReducersList = {
-  [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
+    [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 };
 
 interface DynamicModuleLoaderProps {
-  reducers: ReducersList;
-  removeAfterUnmount?: boolean;
-  children: ReactNode;
+    reducers: ReducersList;
+    removeAfterUnmount?: boolean;
+    children: ReactNode;
 }
 
 export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
@@ -26,7 +30,8 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
         const mountedReducers = store.reducerManager.getReducerMap();
 
         Object.entries(reducers).forEach(([name, reducer]) => {
-            const isMounted = mountedReducers[name as StateSchemaKey] !== undefined;
+            const isMounted =
+                mountedReducers[name as StateSchemaKey] !== undefined;
 
             if (!isMounted) {
                 store.reducerManager.add(name as StateSchemaKey, reducer);
@@ -43,8 +48,8 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
                 });
             }
         };
-    // eslint-disable-next-line
-  }, []);
+        // eslint-disable-next-line
+    }, []);
 
     // eslint-disable-next-line react/jsx-no-useless-fragment
     return <>{children}</>;

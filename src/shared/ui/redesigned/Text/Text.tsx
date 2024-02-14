@@ -11,15 +11,15 @@ export type TextAlign = 'left' | 'right' | 'center';
 export type TextSize = 'size_s' | 'size_m' | 'size_l';
 
 interface TextProps {
-  className?: string;
-  title?: string | null;
-  text?: string | null;
-  variant?: TextVariant;
-  align?: TextAlign;
-  size?: TextSize;
-  bold?: boolean;
+    className?: string;
+    title?: string | null;
+    text?: string | null;
+    variant?: TextVariant;
+    align?: TextAlign;
+    size?: TextSize;
+    bold?: boolean;
 
-  'data-testid'?: string;
+    'data-testid'?: string;
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';

@@ -1,3 +1,3 @@
 export function getByTestId(testId: string) {
-    return cy.get(`[data-testid=${testId}]`);
+    return cy.get(`[data-testid="${testId}"]`);
 }

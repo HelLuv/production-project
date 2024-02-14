@@ -21,9 +21,7 @@ import classes from '../ArticleListItem.module.scss';
 import { ArticleListItemProps } from '../ArticleListItemProps';
 
 export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
-    const {
-        className, article, view, target,
-    } = props;
+    const { className, article, view, target } = props;
 
     const { t } = useTranslation();
 
@@ -57,8 +55,14 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
                 <Card>
                     <div className={classes.header}>
                         <Avatar size={30} src={article.user.avatar} />
-                        <Text text={article.user.username} className={classes.username} />
-                        <Text text={article.createdAt} className={classes.date} />
+                        <Text
+                            text={article.user.username}
+                            className={classes.username}
+                        />
+                        <Text
+                            text={article.createdAt}
+                            className={classes.date}
+                        />
                     </div>
                     <Text title={article.title} className={classes.title} />
                     {types}
@@ -76,7 +80,9 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
                     )}
                     <div className={classes.footer}>
                         <AppLink to={getRouteArticleDetails(article.id)}>
-                            <Button theme={ButtonTheme.OUTLINE}>{t('Read more...')}</Button>
+                            <Button theme={ButtonTheme.OUTLINE}>
+                                {t('Read more...')}
+                            </Button>
                         </AppLink>
                         {views}
                     </div>

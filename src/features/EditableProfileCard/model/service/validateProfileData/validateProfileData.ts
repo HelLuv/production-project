@@ -7,9 +7,7 @@ export const validateProfileData = (profile?: Profile) => {
         return [ValidateProfileErrors.NO_DATA];
     }
 
-    const {
-        first, lastname, birthYear, country,
-    } = profile;
+    const { first, lastname, birthYear, country } = profile;
 
     const errors: ValidateProfileErrors[] = [];
 
@@ -22,9 +20,9 @@ export const validateProfileData = (profile?: Profile) => {
     }
 
     if (
-        !birthYear
-    || !Number.isInteger(birthYear)
-    || String(birthYear).length !== 4
+        !birthYear ||
+        !Number.isInteger(birthYear) ||
+        String(birthYear).length !== 4
     ) {
         errors.push(ValidateProfileErrors.INCORRECT_BIRTHYEAR);
     }

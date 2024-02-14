@@ -9,9 +9,9 @@ import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 
 export const updateProfileData = createAsyncThunk<
-  Profile,
-  void,
-  ThunkConfig<ValidateProfileErrors[]>
+    Profile,
+    void,
+    ThunkConfig<ValidateProfileErrors[]>
 >('profile/updateProfileData', async (_, thunkAPI) => {
     const {
         rejectWithValue,
@@ -42,7 +42,12 @@ export const updateProfileData = createAsyncThunk<
         if (axios.isAxiosError(e)) {
             if (e.response && e.response.status === 403) {
                 // eslint-disable-next-line no-console
-                console.log('Error: ', ValidateProfileErrors.INCORRECT_DATA, '\n', e);
+                console.log(
+                    'Error: ',
+                    ValidateProfileErrors.INCORRECT_DATA,
+                    '\n',
+                    e,
+                );
                 return rejectWithValue([ValidateProfileErrors.INCORRECT_DATA]);
             }
             // eslint-disable-next-line no-console

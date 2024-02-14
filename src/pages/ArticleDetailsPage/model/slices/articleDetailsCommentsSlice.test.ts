@@ -31,8 +31,8 @@ describe('articleDetailsCommentsSlice.test', () => {
         };
         expect(
             articleDetailsCommentsReducer(
-        state as ArticleDetailsCommentsSchema,
-        fetchCommentsByArticleId.pending,
+                state as ArticleDetailsCommentsSchema,
+                fetchCommentsByArticleId.pending,
             ),
         ).toEqual({
             isLoading: true,
@@ -49,8 +49,8 @@ describe('articleDetailsCommentsSlice.test', () => {
         };
         expect(
             articleDetailsCommentsReducer(
-        state as ArticleDetailsCommentsSchema,
-        fetchCommentsByArticleId.fulfilled(comments, '', ''),
+                state as ArticleDetailsCommentsSchema,
+                fetchCommentsByArticleId.fulfilled(comments, '', ''),
             ),
         ).toEqual({
             isLoading: false,

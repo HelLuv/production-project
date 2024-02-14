@@ -17,7 +17,7 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { useGetArticlesRecommendationsListQuery } from '../../api/ArticleRecommendationsListApi';
 
 interface ArticleRecommendationsListProps {
-  className?: string;
+    className?: string;
 }
 
 export const ArticleRecommendationsList = memo(
@@ -48,13 +48,18 @@ export const ArticleRecommendationsList = memo(
             >
                 <ToggleFeatures
                     featureName="isSiteRedesigned"
-                    on={<Text size="size_l" title={t('Recommendations') ?? ''} />}
-                    off={(
+                    on={
+                        <Text
+                            size="size_l"
+                            title={t('Recommendations') ?? ''}
+                        />
+                    }
+                    off={
                         <TextDeprecated
                             size={TextSize.L}
                             title={t('Recommendations') ?? ''}
                         />
-                    )}
+                    }
                 />
 
                 {!error && (
@@ -69,18 +74,22 @@ export const ArticleRecommendationsList = memo(
                 {error && (
                     <ToggleFeatures
                         featureName="isSiteRedesigned"
-                        on={(
+                        on={
                             <Text
                                 variant="error"
-                                title={t('Recommendations loading error!') ?? ''}
+                                title={
+                                    t('Recommendations loading error!') ?? ''
+                                }
                             />
-                        )}
-                        off={(
+                        }
+                        off={
                             <TextDeprecated
                                 theme={TextTheme.ERROR}
-                                title={t('Recommendations loading error!') ?? ''}
+                                title={
+                                    t('Recommendations loading error!') ?? ''
+                                }
                             />
-                        )}
+                        }
                     />
                 )}
             </VStack>

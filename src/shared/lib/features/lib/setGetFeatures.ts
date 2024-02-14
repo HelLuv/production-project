@@ -3,7 +3,7 @@ import { FeatureFlags } from '@/shared/types/featureFlags';
 
 const defaultFeatureFlags: FeatureFlags = {
     isSiteRedesigned:
-    localStorage.getItem(LOCAL_STORAGE_LAST_DESIGN_KEY) === 'new',
+        localStorage.getItem(LOCAL_STORAGE_LAST_DESIGN_KEY) === 'new',
 };
 
 let featureFlags: FeatureFlags = {

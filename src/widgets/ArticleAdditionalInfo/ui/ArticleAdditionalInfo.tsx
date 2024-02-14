@@ -10,18 +10,16 @@ import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleAdditionalInfoProps {
-  className?: string;
-  author?: User;
-  createdAt?: string;
-  views?: number;
-  onEdit: () => void;
+    className?: string;
+    author?: User;
+    createdAt?: string;
+    views?: number;
+    onEdit: () => void;
 }
 
 export const ArticleAdditionalInfo = memo(
     (props: ArticleAdditionalInfoProps) => {
-        const {
-            className, author, createdAt, views, onEdit,
-        } = props;
+        const { className, author, createdAt, views, onEdit } = props;
         const { t } = useTranslation();
 
         return (

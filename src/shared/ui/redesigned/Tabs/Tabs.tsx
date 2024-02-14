@@ -7,22 +7,20 @@ import { Flex, FlexDirection } from '../Stack/Flex/Flex';
 import classes from './Tabs.module.scss';
 
 export interface TabItem<T extends string> {
-  value: T;
-  content: ReactNode;
+    value: T;
+    content: ReactNode;
 }
 
 interface TabsProps<T extends string> {
-  className?: string;
-  tabs?: TabItem<T>[];
-  value: string;
-  onTabClick: (tab: TabItem<T>) => void;
-  direction?: FlexDirection;
+    className?: string;
+    tabs?: TabItem<T>[];
+    value: string;
+    onTabClick: (tab: TabItem<T>) => void;
+    direction?: FlexDirection;
 }
 
 export const Tabs = <T extends string>(props: TabsProps<T>) => {
-    const {
-        className, tabs, value, onTabClick, direction = 'row',
-    } = props;
+    const { className, tabs, value, onTabClick, direction = 'row' } = props;
 
     const mods: Mods = {};
 

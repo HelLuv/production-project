@@ -16,7 +16,7 @@ import { Icon } from '@/shared/ui/redesigned/Icon';
 import classes from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
-  className?: string;
+    className?: string;
 }
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
@@ -51,7 +51,13 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
     return (
         <ToggleFeatures
             featureName="isSiteRedesigned"
-            on={<Icon Svg={ThemeIcon} clickable onClick={onToggleThemeHandler} />}
+            on={
+                <Icon
+                    Svg={ThemeIcon}
+                    clickable
+                    onClick={onToggleThemeHandler}
+                />
+            }
             off={<SwitcherDeprecated />}
         />
     );

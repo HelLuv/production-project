@@ -6,15 +6,15 @@ import { Card, CardTheme } from '../Card';
 import classes from './Tabs.module.scss';
 
 export interface TabItem<T extends string> {
-  value: T;
-  content: ReactNode;
+    value: T;
+    content: ReactNode;
 }
 
 interface TabsProps<T extends string> {
-  className?: string;
-  tabs?: TabItem<T>[];
-  value: string;
-  onTabClick: (tab: TabItem<T>) => void;
+    className?: string;
+    tabs?: TabItem<T>[];
+    value: string;
+    onTabClick: (tab: TabItem<T>) => void;
 }
 
 /**
@@ -22,9 +22,7 @@ interface TabsProps<T extends string> {
  * @deprecated
  */
 export const Tabs = <T extends string>(props: TabsProps<T>) => {
-    const {
-        className, tabs, value, onTabClick,
-    } = props;
+    const { className, tabs, value, onTabClick } = props;
 
     const mods: Mods = {};
 
@@ -39,7 +37,11 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
         <div className={classNames(classes.Tabs, mods, [className])}>
             {tabs?.map((tab) => (
                 <Card
-                    theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+                    theme={
+                        tab.value === value
+                            ? CardTheme.NORMAL
+                            : CardTheme.OUTLINED
+                    }
                     className={classes.tab}
                     key={tab.value}
                     onClick={clickHandler(tab)}

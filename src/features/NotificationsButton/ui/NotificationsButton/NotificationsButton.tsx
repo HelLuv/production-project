@@ -15,7 +15,7 @@ import { PopOver } from '@/shared/ui/redesigned/PopUps';
 import classes from './NotificationsButton.module.scss';
 
 interface NotificationsButtonProps {
-  className?: string;
+    className?: string;
 }
 
 export const NotificationsButton = memo(
@@ -37,12 +37,20 @@ export const NotificationsButton = memo(
         const trigger = (
             <ToggleFeatures
                 featureName="isSiteRedesigned"
-                on={<Icon Svg={NotificationIcon} clickable onClick={onOpenDrawer} />}
-                off={(
+                on={
+                    <Icon
+                        Svg={NotificationIcon}
+                        clickable
+                        onClick={onOpenDrawer}
+                    />
+                }
+                off={
                     <div
-                        className={classNames(classes.NotificationsButton, mods, [
-                            className,
-                        ])}
+                        className={classNames(
+                            classes.NotificationsButton,
+                            mods,
+                            [className],
+                        )}
                         onClick={onOpenDrawer}
                     >
                         <IconDeprecated
@@ -50,7 +58,7 @@ export const NotificationsButton = memo(
                             className={classes.icon}
                         />
                     </div>
-                )}
+                }
             />
         );
 
@@ -66,16 +74,20 @@ export const NotificationsButton = memo(
                 ) : (
                     <ToggleFeatures
                         featureName="isSiteRedesigned"
-                        on={(
+                        on={
                             <PopOver trigger={trigger}>
-                                <NotificationsList className={classes.notifications} />
+                                <NotificationsList
+                                    className={classes.notifications}
+                                />
                             </PopOver>
-                        )}
-                        off={(
+                        }
+                        off={
                             <PopOverDeprecated trigger={trigger}>
-                                <NotificationsList className={classes.notifications} />
+                                <NotificationsList
+                                    className={classes.notifications}
+                                />
                             </PopOverDeprecated>
-                        )}
+                        }
                     />
                 )}
             </div>

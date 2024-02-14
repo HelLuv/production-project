@@ -12,7 +12,9 @@ describe('getAddNewCommentText.test', () => {
                 text: 'Comment number 1',
             },
         };
-        expect(getAddNewCommentText(state as StateSchema)).toBe('Comment number 1');
+        expect(getAddNewCommentText(state as StateSchema)).toBe(
+            'Comment number 1',
+        );
     });
 
     test('should work with empty state', () => {

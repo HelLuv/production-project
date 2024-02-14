@@ -9,10 +9,10 @@ import classes from './AppLink.module.scss';
 export type AppLinkVariant = 'primary' | 'secondary' | 'red';
 
 interface AppLinkProps extends LinkProps {
-  className?: string;
-  variant?: AppLinkVariant;
-  children?: ReactNode;
-  activeClassName?: string;
+    className?: string;
+    variant?: AppLinkVariant;
+    children?: ReactNode;
+    activeClassName?: string;
 }
 
 export const AppLink = memo((props: AppLinkProps) => {
@@ -27,10 +27,12 @@ export const AppLink = memo((props: AppLinkProps) => {
     return (
         <NavLink
             to={to}
-            className={({ isActive }) => classNames('', { [activeClassName]: isActive }, [
-                className,
-                classes[variant],
-            ])}
+            className={({ isActive }) =>
+                classNames('', { [activeClassName]: isActive }, [
+                    className,
+                    classes[variant],
+                ])
+            }
             {...otherProps}
         >
             {children}

@@ -16,15 +16,15 @@ import { VStack } from '@/shared/ui/redesigned/Stack';
 import classes from './ArticlesFilter.module.scss';
 
 interface ArticlesFilterProps {
-  className?: string;
-  sort: ArticleSortField;
-  order: SortOrder;
-  type: ArticleType;
-  search: string;
-  onChangeOrder: (newOrder: SortOrder) => void;
-  onChangeSort: (newSort: ArticleSortField) => void;
-  onChangeType: (type: ArticleType) => void;
-  onChangeSearch: (search: string) => void;
+    className?: string;
+    sort: ArticleSortField;
+    order: SortOrder;
+    type: ArticleType;
+    search: string;
+    onChangeOrder: (newOrder: SortOrder) => void;
+    onChangeSort: (newSort: ArticleSortField) => void;
+    onChangeType: (type: ArticleType) => void;
+    onChangeSearch: (search: string) => void;
 }
 
 export const ArticlesFilter = memo((props: ArticlesFilterProps) => {
@@ -52,7 +52,9 @@ export const ArticlesFilter = memo((props: ArticlesFilterProps) => {
                     onChange={onChangeSearch}
                     value={search}
                     size="s"
-                    addonLeft={<Icon Svg={SearchIcon} className={classes.icon} />}
+                    addonLeft={
+                        <Icon Svg={SearchIcon} className={classes.icon} />
+                    }
                 />
                 <ArticleTypeTabs
                     onChangeType={onChangeType}

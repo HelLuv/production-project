@@ -9,7 +9,7 @@ import { Page } from '@/widgets/Page';
 import classes from './ArticleEditPage.module.scss';
 
 interface ArticleEditPageProps {
-  className?: string;
+    className?: string;
 }
 
 const ArticleEditPage = memo(({ className }: ArticleEditPageProps) => {
@@ -21,7 +21,9 @@ const ArticleEditPage = memo(({ className }: ArticleEditPageProps) => {
     const mods: Mods = {};
 
     return (
-        <Page className={classNames(classes.ArticleEditPage, mods, [className])}>
+        <Page
+            className={classNames(classes.ArticleEditPage, mods, [className])}
+        >
             {isEditPage ? t('Edit article #') + id : t('Create new article')}
         </Page>
     );

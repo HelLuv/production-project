@@ -1,6 +1,4 @@
-import {
-    memo, useCallback, useMemo, useState,
-} from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -24,7 +22,7 @@ import { HStack } from '@/shared/ui/redesigned/Stack';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {
-  className?: string;
+    className?: string;
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
@@ -48,41 +46,43 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         off: () => classes.Navbar,
     });
 
-    const NavbarDeprecated = () => useMemo(
-        () => (
-            <header className={classNames(mainClass, {}, [className])}>
-                <Text
-                    className={classes.appName}
-                    title={t('Blog app')}
-                    theme={TextTheme.INVERTED}
-                />
-                <AppLink
-                    to={getRouteArticleCreate()}
-                    theme={AppLinkTheme.SECONDARY}
-                    className={classes.createButton}
-                >
-                    {t('Create article')}
-                </AppLink>
-                <HStack gap="16" className={classes.actions}>
-                    <NotificationsButton />
-                    <AvatarDropdown />
-                </HStack>
-            </header>
-        ),
-        [],
-    );
+    const NavbarDeprecated = () =>
+        useMemo(
+            () => (
+                <header className={classNames(mainClass, {}, [className])}>
+                    <Text
+                        className={classes.appName}
+                        title={t('Blog app')}
+                        theme={TextTheme.INVERTED}
+                    />
+                    <AppLink
+                        to={getRouteArticleCreate()}
+                        theme={AppLinkTheme.SECONDARY}
+                        className={classes.createButton}
+                    >
+                        {t('Create article')}
+                    </AppLink>
+                    <HStack gap="16" className={classes.actions}>
+                        <NotificationsButton />
+                        <AvatarDropdown />
+                    </HStack>
+                </header>
+            ),
+            [],
+        );
 
-    const NavbarRedesigned = () => useMemo(
-        () => (
-            <header className={classNames(mainClass, {}, [className])}>
-                <HStack gap="16" className={classes.actions}>
-                    <NotificationsButton />
-                    <AvatarDropdown />
-                </HStack>
-            </header>
-        ),
-        [],
-    );
+    const NavbarRedesigned = () =>
+        useMemo(
+            () => (
+                <header className={classNames(mainClass, {}, [className])}>
+                    <HStack gap="16" className={classes.actions}>
+                        <NotificationsButton />
+                        <AvatarDropdown />
+                    </HStack>
+                </header>
+            ),
+            [],
+        );
 
     if (authData) {
         return (
@@ -98,7 +98,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <header className={classNames(mainClass, {}, [className])}>
             <ToggleFeatures
                 featureName="isSiteRedesigned"
-                on={(
+                on={
                     <Button
                         className={classes.links}
                         variant="clear"
@@ -106,8 +106,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     >
                         {t('Sign in')}
                     </Button>
-                )}
-                off={(
+                }
+                off={
                     <ButtonDeprecated
                         className={classes.links}
                         theme={ButtonTheme.CLEAR_INVERTED}
@@ -115,7 +115,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     >
                         {t('Sign in')}
                     </ButtonDeprecated>
-                )}
+                }
             />
 
             {isAuthModal && (

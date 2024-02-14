@@ -17,8 +17,8 @@ import classes from './SidebarItem.module.scss';
 import { SidebarItemType } from '../../model/types/sidebar';
 
 interface SidebarItemProps {
-  item: SidebarItemType;
-  collapsed: boolean;
+    item: SidebarItemType;
+    collapsed: boolean;
 }
 
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
@@ -53,7 +53,7 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
     return (
         <ToggleFeatures
             featureName="isSiteRedesigned"
-            on={(
+            on={
                 <div
                     className={classNames(classes.listItemRedesigned, {
                         [classes.collapsedRedesigned]: collapsed,
@@ -65,10 +65,12 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
                         activeClassName={classes.active}
                     >
                         <Icon Svg={item.Icon} />
-                        <span className={classes.listTitle}>{t(item.text)}</span>
+                        <span className={classes.listTitle}>
+                            {t(item.text)}
+                        </span>
                     </AppLink>
                 </div>
-            )}
+            }
             off={<DeprecatedSidebarItem />}
         />
     );

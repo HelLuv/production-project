@@ -7,7 +7,10 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
@@ -23,8 +26,8 @@ import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {
-  className?: string;
-  id?: string;
+    className?: string;
+    id?: string;
 }
 
 const reducers: ReducersList = {
@@ -61,7 +64,9 @@ export const EditableProfileCard = memo(
 
         const onChangeLastname = useCallback(
             (value?: string) => {
-                dispatch(profileActions.updateProfile({ lastname: value || '' }));
+                dispatch(
+                    profileActions.updateProfile({ lastname: value || '' }),
+                );
             },
             [dispatch],
         );
@@ -69,11 +74,15 @@ export const EditableProfileCard = memo(
         const onChangeBirthdate = useCallback(
             (value?: string) => {
                 if (
-                    (value && /^(0|[1-9]\d*)$/.test(value) && value.length < 5)
-          || value === ''
+                    (value &&
+                        /^(0|[1-9]\d*)$/.test(value) &&
+                        value.length < 5) ||
+                    value === ''
                 ) {
                     dispatch(
-                        profileActions.updateProfile({ birthYear: Number(value) || '' }),
+                        profileActions.updateProfile({
+                            birthYear: Number(value) || '',
+                        }),
                     );
                 }
             },
@@ -89,7 +98,9 @@ export const EditableProfileCard = memo(
 
         const onChangeUsername = useCallback(
             (value?: string) => {
-                dispatch(profileActions.updateProfile({ username: value || '' }));
+                dispatch(
+                    profileActions.updateProfile({ username: value || '' }),
+                );
             },
             [dispatch],
         );
@@ -118,15 +129,15 @@ export const EditableProfileCard = memo(
         return (
             <DynamicModuleLoader reducers={reducers}>
                 <EditableProfileCardHeader />
-                {validationErrors?.length
-          && validationErrors.map((error) => (
-              <Text
-                  theme={TextTheme.ERROR}
-                  text={t('error')}
-                  key={error}
-                  data-testid="EditableProfileCard.Error"
-              />
-          ))}
+                {validationErrors?.length &&
+                    validationErrors.map((error) => (
+                        <Text
+                            theme={TextTheme.ERROR}
+                            text={t('error')}
+                            key={error}
+                            data-testid="EditableProfileCard.Error"
+                        />
+                    ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}

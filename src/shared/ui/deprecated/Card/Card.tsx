@@ -5,15 +5,15 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import classes from './Card.module.scss';
 
 export enum CardTheme {
-  NORMAL = 'normal',
-  OUTLINED = 'outlined',
+    NORMAL = 'normal',
+    OUTLINED = 'outlined',
 }
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  className?: string;
-  children: ReactNode;
-  theme?: CardTheme;
-  maxWidth?: boolean;
+    className?: string;
+    children: ReactNode;
+    theme?: CardTheme;
+    maxWidth?: boolean;
 }
 
 /**
@@ -34,7 +34,10 @@ export const Card = memo(
 
         return (
             <div
-                className={classNames(classes.Card, mods, [className, classes[theme]])}
+                className={classNames(classes.Card, mods, [
+                    className,
+                    classes[theme],
+                ])}
                 {...otherProps}
             >
                 {children}

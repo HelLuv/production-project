@@ -1,6 +1,4 @@
-import {
-    HTMLAttributeAnchorTarget, memo, useCallback, useMemo,
-} from 'react';
+import { HTMLAttributeAnchorTarget, memo, useCallback, useMemo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
@@ -16,13 +14,13 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 interface ArticleListProps {
-  className?: string;
-  articles: Article[];
-  isLoading?: boolean;
-  view?: ArticleView;
-  target?: HTMLAttributeAnchorTarget;
-  onScrollEnd?: () => void;
-  virtualized?: boolean;
+    className?: string;
+    articles: Article[];
+    isLoading?: boolean;
+    view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
+    onScrollEnd?: () => void;
+    virtualized?: boolean;
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -99,20 +97,26 @@ export const ArticleList = memo((props: ArticleListProps) => {
         return (
             <ToggleFeatures
                 featureName="isSiteRedesigned"
-                on={(
+                on={
                     <HStack
                         gap="16"
-                        className={classNames(classes.ArticleListRedesigned, mods, [])}
+                        className={classNames(
+                            classes.ArticleListRedesigned,
+                            mods,
+                            [],
+                        )}
                         data-testid="ArticlesList"
                         wrap="wrap"
                     >
                         {articles.length > 0
-                            ? articles.map((article, index) => renderItems(index, article))
+                            ? articles.map((article, index) =>
+                                  renderItems(index, article),
+                              )
                             : null}
                         {isLoading && getSkeletons(view)}
                     </HStack>
-                )}
-                off={(
+                }
+                off={
                     <HStack
                         gap="32"
                         className={classNames(classes.ArticleList, mods, [
@@ -122,11 +126,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
                         data-testid="ArticlesList"
                     >
                         {articles.length > 0
-                            ? articles.map((article, index) => renderItems(index, article))
+                            ? articles.map((article, index) =>
+                                  renderItems(index, article),
+                              )
                             : null}
                         {isLoading && getSkeletons(view)}
                     </HStack>
-                )}
+                }
             />
         );
     }

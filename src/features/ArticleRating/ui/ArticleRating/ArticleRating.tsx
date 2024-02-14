@@ -14,8 +14,8 @@ import {
 } from '../../api/articleRatingApi';
 
 export interface ArticleRatingProps {
-  className?: string;
-  articleId: string;
+    className?: string;
+    articleId: string;
 }
 
 const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {

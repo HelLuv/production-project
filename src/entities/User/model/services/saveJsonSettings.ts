@@ -8,9 +8,9 @@ import { getUserSettings } from '../selectors/getUserSettings/getUserSettings';
 import { JsonSettings } from '../types/jsonSettings';
 
 export const saveJsonSettings = createAsyncThunk<
-  JsonSettings,
-  JsonSettings,
-  ThunkConfig<string>
+    JsonSettings,
+    JsonSettings,
+    ThunkConfig<string>
 >('user/saveJsonSettings', async (newJsonSettings, thunkAPI) => {
     const { rejectWithValue, getState, dispatch } = thunkAPI;
 

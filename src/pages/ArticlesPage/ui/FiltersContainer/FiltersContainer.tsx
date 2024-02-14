@@ -5,7 +5,7 @@ import { ArticlesFilter } from '@/widgets/ArticlesFilter';
 import { useArticleFilters } from '../../lib/hooks/useArticleFilters';
 
 interface FiltersContainerProps {
-  className?: string;
+    className?: string;
 }
 
 export const FiltersContainer = memo(({ className }: FiltersContainerProps) => {

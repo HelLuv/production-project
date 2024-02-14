@@ -11,19 +11,19 @@ export type FlexGap = '4' | '8' | '16' | '24' | '32';
 export type FlexWrap = 'nowrap' | 'wrap';
 
 type DivProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
+    HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
 >;
 
 export interface FlexProps extends DivProps {
-  className?: string;
-  children: ReactNode;
-  justify?: FlexJustify;
-  align?: FlexAlign;
-  direction: FlexDirection;
-  wrap?: FlexWrap;
-  gap?: FlexGap;
-  maxWidth?: boolean;
+    className?: string;
+    children: ReactNode;
+    justify?: FlexJustify;
+    align?: FlexAlign;
+    direction: FlexDirection;
+    wrap?: FlexWrap;
+    gap?: FlexGap;
+    maxWidth?: boolean;
 }
 
 const justifyMap: Record<FlexJustify, string> = {

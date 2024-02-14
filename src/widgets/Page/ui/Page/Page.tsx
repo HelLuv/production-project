@@ -1,6 +1,4 @@
-import {
-    memo, MutableRefObject, ReactNode, useRef, UIEvent,
-} from 'react';
+import { memo, MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
 
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -19,9 +17,9 @@ import { getPageScrollByPath } from '../../model/selectors/pageSelectors';
 import { pageActions } from '../../model/slices/pageSlice';
 
 interface PageProps extends TestProps {
-  className?: string;
-  children: ReactNode;
-  onScrollEnd?: () => void;
+    className?: string;
+    children: ReactNode;
+    onScrollEnd?: () => void;
 }
 
 export const Page = memo((props: PageProps) => {
@@ -33,7 +31,10 @@ export const Page = memo((props: PageProps) => {
 
     const location = useLocation();
 
-    const scrollPosition = useSelector((state: StateSchema) => getPageScrollByPath(state, location.pathname)) || 0;
+    const scrollPosition =
+        useSelector((state: StateSchema) =>
+            getPageScrollByPath(state, location.pathname),
+        ) || 0;
 
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;

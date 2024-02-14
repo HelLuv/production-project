@@ -7,7 +7,7 @@ import { VStack } from '@/shared/ui/redesigned/Stack';
 import classes from './ScrollToolbar.module.scss';
 
 interface ScrollToolbarProps {
-  className?: string;
+    className?: string;
 }
 
 export const ScrollToolbar = memo((props: ScrollToolbarProps) => {

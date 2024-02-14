@@ -5,7 +5,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 
 interface ScrollToTopButtonProps {
-  className?: string;
+    className?: string;
 }
 
 export const ScrollToTopButton = memo((props: ScrollToTopButtonProps) => {

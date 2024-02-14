@@ -1,95 +1,95 @@
 {
-  "about": {
-    "title": "О нас",
-    "content": "Контент страницы о нас"
-  },
-  "article": {
-    "read-more": "Читать больше"
-  },
-  "article-form": {
-    "edit-title": "Редактировать статью",
-    "new-title": "Создать новую статью"
-  },
-  "article-details": {
-    "error": {
-      "not-found": "Статья не найдена"
+    "about": {
+        "title": "О нас",
+        "content": "Контент страницы о нас"
     },
-    "comments": "Комментарии к статье",
-    "back": "Вернуться назад к списку статей",
-    "recommendations": "Рекомендованные статьи",
-    "edit": "Редактировать статью"
-  },
-  "article-sort-field": {
-    "views": "по просмотрам",
-    "title": "по заголовку",
-    "created-at": "по дате создания",
-    "field-label": "Сортировать"
-  },
-  "articles": {
-    "list": {
-      "empty": "Нет статей в этом списке"
+    "article": {
+        "read-more": "Читать больше"
     },
-    "title": "Список статей",
-    "content": "Дополнительная информация"
-  },
-  "comments": {
-    "list": {
-      "empty-state": "Для этой статьи пока что нет комментариев"
+    "article-form": {
+        "edit-title": "Редактировать статью",
+        "new-title": "Создать новую статью"
     },
-    "form": {
-      "submit": "Отправить ваш комментарий"
-    }
-  },
-  "login-form": {
-    "name": {
-      "placeholder": "Введите имя"
+    "article-details": {
+        "error": {
+            "not-found": "Статья не найдена"
+        },
+        "comments": "Комментарии к статье",
+        "back": "Вернуться назад к списку статей",
+        "recommendations": "Рекомендованные статьи",
+        "edit": "Редактировать статью"
     },
-    "password": {
-      "placeholder": "Введите пароль"
+    "article-sort-field": {
+        "views": "по просмотрам",
+        "title": "по заголовку",
+        "created-at": "по дате создания",
+        "field-label": "Сортировать"
     },
-    "error": {
-      "403": "Неверное имя или пароль",
-      "unknown": "Неизвестная ошибка"
+    "articles": {
+        "list": {
+            "empty": "Нет статей в этом списке"
+        },
+        "title": "Список статей",
+        "content": "Дополнительная информация"
     },
-    "submit": "Войти"
-  },
-  "main": {
-    "title": "Главная",
-    "content": "Контент главной страницы"
-  },
-  "navbar": {
-    "main": "Главная",
-    "about": "О нас",
-    "profile": "Профиль",
-    "articles": "Статьи",
-    "sign-in": "Войти",
-    "logout": "Выйти"
-  },
-  "not_found": {
-    "title": "Страница не найдена"
-  },
-  "page_error": {
-    "title": "Произошла непредвиденная ошибка",
-    "refresh": "Обновить страницу"
-  },
-  "profile": {
-    "title": "Профиль",
-    "content": "Контент страницы профиля",
-    "actions": {
-      "cancel": "Отмена",
-      "save": "Сохранить изменения",
-      "edit": "Редактировать профиль"
-    }
-  },
-  "sidebar": {
-    "toggle": "Toggle",
-    "language": "English",
-    "short-language": "En"
-  },
-  "sort-order": {
-    "asc": "по возрастанию",
-    "desc": "по убыванию",
-    "order-label": "Сортировать"
-  },
-  "LanguageShort": "Eng"
+    "comments": {
+        "list": {
+            "empty-state": "Для этой статьи пока что нет комментариев"
+        },
+        "form": {
+            "submit": "Отправить ваш комментарий"
+        }
+    },
+    "login-form": {
+        "name": {
+            "placeholder": "Введите имя"
+        },
+        "password": {
+            "placeholder": "Введите пароль"
+        },
+        "error": {
+            "403": "Неверное имя или пароль",
+            "unknown": "Неизвестная ошибка"
+        },
+        "submit": "Войти"
+    },
+    "main": {
+        "title": "Главная",
+        "content": "Контент главной страницы"
+    },
+    "navbar": {
+        "main": "Главная",
+        "about": "О нас",
+        "profile": "Профиль",
+        "articles": "Статьи",
+        "sign-in": "Войти",
+        "logout": "Выйти"
+    },
+    "not_found": {
+        "title": "Страница не найдена"
+    },
+    "page_error": {
+        "title": "Произошла непредвиденная ошибка",
+        "refresh": "Обновить страницу"
+    },
+    "profile": {
+        "title": "Профиль",
+        "content": "Контент страницы профиля",
+        "actions": {
+            "cancel": "Отмена",
+            "save": "Сохранить изменения",
+            "edit": "Редактировать профиль"
+        }
+    },
+    "sidebar": {
+        "toggle": "Toggle",
+        "language": "English",
+        "short-language": "En"
+    },
+    "sort-order": {
+        "asc": "по возрастанию",
+        "desc": "по убыванию",
+        "order-label": "Сортировать"
+    },
+    "LanguageShort": "Eng"
 }

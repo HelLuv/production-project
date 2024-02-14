@@ -14,7 +14,7 @@ import { Page } from '@/widgets/Page';
 import classes from './ForbiddenPage.module.scss';
 
 interface ForbiddenPageProps {
-  className?: string;
+    className?: string;
 }
 
 const ForbiddenPage = memo(({ className }: ForbiddenPageProps) => {

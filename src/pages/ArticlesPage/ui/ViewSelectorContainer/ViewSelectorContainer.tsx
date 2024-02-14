@@ -5,7 +5,7 @@ import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { useArticleFilters } from '../../lib/hooks/useArticleFilters';
 
 interface ViewSelectorContainerProps {
-  className?: string;
+    className?: string;
 }
 
 export const ViewSelectorContainer = memo(

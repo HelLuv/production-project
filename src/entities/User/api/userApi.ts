@@ -4,8 +4,8 @@ import { JsonSettings } from '../model/types/jsonSettings';
 import { User } from '../model/types/user';
 
 interface JsonSettingsArgs {
-  userId: string;
-  jsonSettings: JsonSettings;
+    userId: string;
+    jsonSettings: JsonSettings;
 }
 
 const userApi = rtkApi.injectEndpoints({
@@ -26,5 +26,6 @@ const userApi = rtkApi.injectEndpoints({
     }),
 });
 
-export const setJsonSettingsMutation = userApi.endpoints.setJsonSettings.initiate;
+export const setJsonSettingsMutation =
+    userApi.endpoints.setJsonSettings.initiate;
 export const getUserDataByIdQuery = userApi.endpoints.getUserDataById.initiate;

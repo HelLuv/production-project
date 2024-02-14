@@ -5,32 +5,32 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import classes from './Text.module.scss';
 
 export enum TextTheme {
-  PRIMARY = 'primary',
-  INVERTED = 'inverted',
-  ERROR = 'error',
+    PRIMARY = 'primary',
+    INVERTED = 'inverted',
+    ERROR = 'error',
 }
 
 export enum TextAlign {
-  RIGHT = 'right',
-  LEFT = 'left',
-  CENTER = 'center',
+    RIGHT = 'right',
+    LEFT = 'left',
+    CENTER = 'center',
 }
 
 export enum TextSize {
-  S = 'size_s',
-  M = 'size_m',
-  L = 'size_l',
+    S = 'size_s',
+    M = 'size_m',
+    L = 'size_l',
 }
 
 interface TextProps {
-  className?: string;
-  title?: string | null;
-  text?: string | null;
-  theme?: TextTheme;
-  align?: TextAlign;
-  size?: TextSize;
+    className?: string;
+    title?: string | null;
+    text?: string | null;
+    theme?: TextTheme;
+    align?: TextAlign;
+    size?: TextSize;
 
-  'data-testid'?: string;
+    'data-testid'?: string;
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';

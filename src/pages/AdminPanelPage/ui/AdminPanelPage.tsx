@@ -8,7 +8,7 @@ import { Page } from '@/widgets/Page';
 import classes from './AdminPanelPage.module.scss';
 
 interface AdminPanelPageProps {
-  className?: string;
+    className?: string;
 }
 
 const AdminPanelPage = memo(({ className }: AdminPanelPageProps) => {

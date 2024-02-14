@@ -13,8 +13,8 @@ import { Button } from '@/shared/ui/redesigned/Button';
 import classes from './LanguageSwitcher.module.scss';
 
 interface LanguageSwitcherProps {
-  className?: string;
-  short?: boolean;
+    className?: string;
+    short?: boolean;
 }
 
 export const LanguageSwitcher = memo(
@@ -30,7 +30,9 @@ export const LanguageSwitcher = memo(
                 <ButtonDeprecated
                     theme={ButtonTheme.CLEAR}
                     onClick={toddleLanguage}
-                    className={classNames(classes.LanguageSwitcher, {}, [className])}
+                    className={classNames(classes.LanguageSwitcher, {}, [
+                        className,
+                    ])}
                 >
                     {t(short ? 'LanguageShort' : 'Language')}
                 </ButtonDeprecated>
@@ -41,11 +43,11 @@ export const LanguageSwitcher = memo(
         return (
             <ToggleFeatures
                 featureName="isSiteRedesigned"
-                on={(
+                on={
                     <Button variant="clear" onClick={toddleLanguage}>
                         {t(short ? 'LanguageShort' : 'Language')}
                     </Button>
-                )}
+                }
                 off={<SwitcherDeprecated />}
             />
         );

@@ -7,9 +7,9 @@ import { Modal } from '@/shared/ui/redesigned/Modal';
 import { LoginFormLazy } from '../LoginForm/LoginForm.lazy';
 
 interface LoginModalProps {
-  className?: string;
-  isOpen: boolean;
-  onClose: () => void;
+    className?: string;
+    isOpen: boolean;
+    onClose: () => void;
 }
 
 export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => (

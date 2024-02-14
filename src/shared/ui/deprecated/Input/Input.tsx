@@ -11,16 +11,16 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import classes from './Input.module.scss';
 
 type HTMLInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange' | 'readonly'
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readonly'
 >;
 
 interface InputProps extends HTMLInputProps {
-  className?: string;
-  value?: string | number;
-  onChange?: (value: string) => void;
-  autofocus?: boolean;
-  readonly?: boolean;
+    className?: string;
+    value?: string | number;
+    onChange?: (value: string) => void;
+    autofocus?: boolean;
+    readonly?: boolean;
 }
 
 /**

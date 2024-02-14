@@ -61,8 +61,14 @@ describe('features/EditableProfileCard', () => {
         await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
         await userEvent.clear(screen.getByTestId('ProfileCard.lastname'));
 
-        await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'test');
-        await userEvent.type(screen.getByTestId('ProfileCard.lastname'), 'test');
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.firstname'),
+            'test',
+        );
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.lastname'),
+            'test',
+        );
 
         expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('test');
         expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('test');
@@ -104,7 +110,10 @@ describe('features/EditableProfileCard', () => {
 
         await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
 
-        await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'test');
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.firstname'),
+            'test',
+        );
 
         await userEvent.click(
             screen.getByTestId('EditableProfileCardHeader.SaveButton'),

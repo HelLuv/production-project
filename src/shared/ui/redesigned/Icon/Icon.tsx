@@ -7,17 +7,17 @@ import classes from './Icon.module.scss';
 type CustomSvgProps = Omit<SVGProps<SVGSVGElement>, 'onClick'>;
 
 interface IconBaseProps extends CustomSvgProps {
-  className?: string;
-  Svg: FC<SVGProps<SVGSVGElement>>;
+    className?: string;
+    Svg: FC<SVGProps<SVGSVGElement>>;
 }
 
 interface NonInteractiveIconProps extends IconBaseProps {
-  clickable?: false;
+    clickable?: false;
 }
 
 interface InteractiveIconProps extends IconBaseProps {
-  clickable: true;
-  onClick: () => void;
+    clickable: true;
+    onClick: () => void;
 }
 
 type IconProps = NonInteractiveIconProps | InteractiveIconProps;

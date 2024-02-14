@@ -11,24 +11,22 @@ import { mapDirectionClasses } from '../../styles/consts';
 import popupClasses from '../../styles/popups.module.scss';
 
 export interface DropdownItem {
-  content: ReactNode;
-  disabled?: boolean;
-  onClick?: () => void;
-  href?: string;
-  value: string;
+    content: ReactNode;
+    disabled?: boolean;
+    onClick?: () => void;
+    href?: string;
+    value: string;
 }
 
 interface DropdownProps {
-  className?: string;
-  items: DropdownItem[];
-  trigger: ReactNode;
-  direction?: DropdownDirection;
+    className?: string;
+    items: DropdownItem[];
+    trigger: ReactNode;
+    direction?: DropdownDirection;
 }
 
 export function Dropdown(props: DropdownProps) {
-    const {
-        className, trigger, items, direction = 'down left',
-    } = props;
+    const { className, trigger, items, direction = 'down left' } = props;
 
     const menuClasses = [mapDirectionClasses[direction], popupClasses.menu];
 
@@ -40,7 +38,9 @@ export function Dropdown(props: DropdownProps) {
                 popupClasses.popup,
             ])}
         >
-            <Menu.Button className={popupClasses.trigger}>{trigger}</Menu.Button>
+            <Menu.Button className={popupClasses.trigger}>
+                {trigger}
+            </Menu.Button>
             <Menu.Items className={classNames(classes.menu, {}, menuClasses)}>
                 {items.map((item) => {
                     const content = ({ active }: { active: boolean }) => (
@@ -76,7 +76,11 @@ export function Dropdown(props: DropdownProps) {
                     }
 
                     return (
-                        <Menu.Item as={Fragment} key={item.value} disabled={item.disabled}>
+                        <Menu.Item
+                            as={Fragment}
+                            key={item.value}
+                            disabled={item.disabled}
+                        >
                             {content}
                         </Menu.Item>
                     );

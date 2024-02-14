@@ -6,13 +6,13 @@ import { Button } from '@/shared/ui/deprecated/Button';
 import classes from './ErrorPage.module.scss';
 
 interface ErrorPageProps {
-  className?: string;
+    className?: string;
 }
 
 export const ErrorPage = ({ className }: ErrorPageProps) => {
     const { t } = useTranslation();
     const reloadPage = () => {
-    // eslint-disable-next-line no-restricted-globals
+        // eslint-disable-next-line no-restricted-globals
         location.reload();
     };
 

@@ -12,7 +12,7 @@ export const BugButton = () => {
         }
     }, [error]);
     return (
-    /* eslint-disable-next-line i18next/no-literal-string */
+        /* eslint-disable-next-line i18next/no-literal-string */
         <Button onClick={onThrow}>Throw error</Button>
     );
 };

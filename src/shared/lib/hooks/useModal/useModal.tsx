@@ -7,9 +7,9 @@ import {
 } from 'react';
 
 interface UseModalProps {
-  isOpen?: boolean;
-  onClose?: () => void;
-  animationDelay?: number;
+    isOpen?: boolean;
+    onClose?: () => void;
+    animationDelay?: number;
 }
 
 /**
@@ -26,7 +26,9 @@ export function useModal({
 }: UseModalProps) {
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const timerRef = useRef() as MutableRefObject<
+        ReturnType<typeof setTimeout>
+    >;
 
     useEffect(() => {
         if (isOpen) {

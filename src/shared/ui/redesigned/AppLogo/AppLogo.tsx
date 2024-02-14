@@ -7,8 +7,8 @@ import { HStack } from '../Stack';
 import classes from './AppLogo.module.scss';
 
 interface AppLogoProps {
-  className?: string;
-  size?: number;
+    className?: string;
+    size?: number;
 }
 
 export const AppLogo = memo(({ className, size = 50 }: AppLogoProps) => (

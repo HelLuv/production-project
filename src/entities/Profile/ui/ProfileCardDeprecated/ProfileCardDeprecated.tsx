@@ -75,7 +75,11 @@ export const ProfileCardDeprecated = memo((props: ProfileCardProps) => {
             className={classNames(classes.ProfileCard, mods, [className])}
         >
             {data?.avatar && (
-                <HStack justify="center" maxWidth className={classes.avatarWrapper}>
+                <HStack
+                    justify="center"
+                    maxWidth
+                    className={classes.avatarWrapper}
+                >
                     <AvatarDeprecated
                         src={data?.avatar}
                         alt={data?.username}

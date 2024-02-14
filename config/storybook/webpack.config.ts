@@ -3,7 +3,7 @@ import path from 'path';
 import { BuildPaths, Project } from '../build/types/config';
 import { buildCssLoaders } from '../build/loaders/buildScssLoader';
 
-export default ({ config }:{config: Configuration}) => {
+export default ({ config }: { config: Configuration }) => {
     const paths: BuildPaths = {
         src: path.resolve(__dirname, '../../src'),
         html: '',

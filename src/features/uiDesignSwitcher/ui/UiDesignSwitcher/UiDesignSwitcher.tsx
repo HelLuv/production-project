@@ -13,7 +13,7 @@ import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 
 interface UiDesignSwitcherProps {
-  className?: string;
+    className?: string;
 }
 
 export const UiDesignSwitcher = memo(({ className }: UiDesignSwitcherProps) => {

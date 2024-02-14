@@ -1,77 +1,77 @@
 {
-  "About page": "About page",
-  "AppLink": "AppLink",
-  "Auth modal": "Auth modal",
-  "Edit profile info": "Edit profile info",
-  "Language": "Русский",
-  "Logout": "Logout",
-  "Main page": "MAIN PAGE",
-  "Page not found": "Page not found",
-  "Profile": "Profile",
-  "Quit": "QUIT!",
-  "Reload page": "Reload page",
-  "Short Lang": "Рус",
-  "Something went wrong!": "Something went wrong!",
-  "TOGGLE": "TOGGLE",
-  "Test key": "This is a test key for an English translation",
-  "Throw error": "Throw error",
-  "Translate": "Перевести",
-  "Your firstname": "Your firstname",
-  "Your lastname": "Your lastname",
-  "article": {
-    "read-more": "Read more"
-  },
-  "article-details": {
-    "error": {
-      "not-found": "Article is not found"
+    "About page": "About page",
+    "AppLink": "AppLink",
+    "Auth modal": "Auth modal",
+    "Edit profile info": "Edit profile info",
+    "Language": "Русский",
+    "Logout": "Logout",
+    "Main page": "MAIN PAGE",
+    "Page not found": "Page not found",
+    "Profile": "Profile",
+    "Quit": "QUIT!",
+    "Reload page": "Reload page",
+    "Short Lang": "Рус",
+    "Something went wrong!": "Something went wrong!",
+    "TOGGLE": "TOGGLE",
+    "Test key": "This is a test key for an English translation",
+    "Throw error": "Throw error",
+    "Translate": "Перевести",
+    "Your firstname": "Your firstname",
+    "Your lastname": "Your lastname",
+    "article": {
+        "read-more": "Read more"
     },
-    "comments": "Comments for this article",
-    "back": "Return back to article list",
-    "recommendations": "Recommended articles",
-    "edit": "Edit the article"
-  },
-  "article-form": {
-    "edit-title": "Edit the article",
-    "new-title": "Create a new article"
-  },
-  "article-sort-field": {
-    "created-at": "creation date",
-    "field-label": "Sort by",
-    "title": "title",
-    "views": "views"
-  },
-  "articles": {
-    "list": {
-      "empty": "This list is empty"
-    }
-  },
-  "comments": {
-    "list": {
-      "empty-state": "There are no comments for this article"
+    "article-details": {
+        "error": {
+            "not-found": "Article is not found"
+        },
+        "comments": "Comments for this article",
+        "back": "Return back to article list",
+        "recommendations": "Recommended articles",
+        "edit": "Edit the article"
     },
-    "form": {
-      "submit": "Submit your comment"
-    }
-  },
-  "navbar": {
-    "main": "Main",
-    "about": "About us",
-    "profile": "Profile",
-    "articles": "Articles",
-    "sign-in": "Sign In",
-    "logout": "Logout"
-  },
-  "profile": {
-    "actions": {
-      "edit": "Edit profile",
-      "cancel": "Cancel changes",
-      "save": "Save changes"
-    }
-  },
-  "sort-order": {
-    "asc": "Ascend",
-    "desc": "Descend",
-    "order-label": "Sort by"
-  },
-  "LanguageShort": "Рус"
+    "article-form": {
+        "edit-title": "Edit the article",
+        "new-title": "Create a new article"
+    },
+    "article-sort-field": {
+        "created-at": "creation date",
+        "field-label": "Sort by",
+        "title": "title",
+        "views": "views"
+    },
+    "articles": {
+        "list": {
+            "empty": "This list is empty"
+        }
+    },
+    "comments": {
+        "list": {
+            "empty-state": "There are no comments for this article"
+        },
+        "form": {
+            "submit": "Submit your comment"
+        }
+    },
+    "navbar": {
+        "main": "Main",
+        "about": "About us",
+        "profile": "Profile",
+        "articles": "Articles",
+        "sign-in": "Sign In",
+        "logout": "Logout"
+    },
+    "profile": {
+        "actions": {
+            "edit": "Edit profile",
+            "cancel": "Cancel changes",
+            "save": "Save changes"
+        }
+    },
+    "sort-order": {
+        "asc": "Ascend",
+        "desc": "Descend",
+        "order-label": "Sort by"
+    },
+    "LanguageShort": "Рус"
 }

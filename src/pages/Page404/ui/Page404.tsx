@@ -8,7 +8,7 @@ import { Page } from '@/widgets/Page';
 import classes from './Page404.module.scss';
 
 interface Page404Props {
-  className?: string;
+    className?: string;
 }
 
 export const Page404 = memo(({ className }: Page404Props) => {

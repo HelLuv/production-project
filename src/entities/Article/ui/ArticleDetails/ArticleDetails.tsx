@@ -6,14 +6,20 @@ import { useSelector } from 'react-redux';
 import CalendarIcon from '@/shared/assets/icons/calendar-icon.svg?react';
 import EyeIcon from '@/shared/assets/icons/eye-icon.svg?react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Icon } from '@/shared/ui/deprecated/Icon';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import {
-    Text as TextDeprecated, TextAlign, TextSize, TextTheme,
+    Text as TextDeprecated,
+    TextAlign,
+    TextSize,
+    TextTheme,
 } from '@/shared/ui/deprecated/Text';
 import { AppImage } from '@/shared/ui/redesigned/AppImage/AppImage';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
@@ -31,8 +37,8 @@ import { fetchArticleById } from '../../model/service/fetchArticleById/fetchArti
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 
 interface ArticleDetailsProps {
-  className?: string;
-  id?: string;
+    className?: string;
+    id?: string;
 }
 
 const reducers: ReducersList = {
@@ -44,7 +50,11 @@ const ArticleDetailsDeprecated = () => {
     return (
         <>
             <HStack justify="center" maxWidth className={classes.avatarWrapper}>
-                <Avatar size={200} src={article?.img} className={classes.avatar} />
+                <Avatar
+                    size={200}
+                    src={article?.img}
+                    className={classes.avatar}
+                />
             </HStack>
             <VStack
                 gap="4"
@@ -87,7 +97,11 @@ const ArticleDetailsRedesigned = () => {
             <AppImage
                 src={article?.img}
                 fallback={
-                    <SkeletonRedesigned width="100%" height={420} border="16px" />
+                    <SkeletonRedesigned
+                        width="100%"
+                        height={420}
+                        border="16px"
+                    />
                 }
                 className={classes.image}
             />
@@ -135,9 +149,21 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     className={classes.avatar}
                 />
                 <Skeleton width={300} height={32} className={classes.title} />
-                <Skeleton width={600} height={24} className={classes.skeleton} />
-                <Skeleton width="100%" height={200} className={classes.skeleton} />
-                <Skeleton width="100%" height={200} className={classes.skeleton} />
+                <Skeleton
+                    width={600}
+                    height={24}
+                    className={classes.skeleton}
+                />
+                <Skeleton
+                    width="100%"
+                    height={200}
+                    className={classes.skeleton}
+                />
+                <Skeleton
+                    width="100%"
+                    height={200}
+                    className={classes.skeleton}
+                />
             </VStack>
         );
     } else if (error) {
@@ -145,15 +171,19 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             <ToggleFeatures
                 featureName="isSiteRedesigned"
                 on={
-                    <Text title={t('Error!')} variant="error" align={TextAlign.CENTER} />
+                    <Text
+                        title={t('Error!')}
+                        variant="error"
+                        align={TextAlign.CENTER}
+                    />
                 }
-                off={(
+                off={
                     <TextDeprecated
                         title={t('Error!')}
                         theme={TextTheme.ERROR}
                         align={TextAlign.CENTER}
                     />
-                )}
+                }
             />
         );
     } else {
@@ -171,7 +201,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             <VStack
                 gap="16"
                 maxWidth
-                className={classNames(classes.ArticleDetails, mods, [className])}
+                className={classNames(classes.ArticleDetails, mods, [
+                    className,
+                ])}
             >
                 {content}
             </VStack>

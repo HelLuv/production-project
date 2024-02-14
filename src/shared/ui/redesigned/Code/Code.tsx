@@ -11,8 +11,8 @@ import { Icon } from '../Icon';
 import classes from './Code.module.scss';
 
 interface CodeProps {
-  className?: string;
-  block: string;
+    className?: string;
+    block: string;
 }
 
 export const Code = memo(({ className, block }: CodeProps) => {
@@ -25,8 +25,12 @@ export const Code = memo(({ className, block }: CodeProps) => {
     return (
         <ToggleFeatures
             featureName="isSiteRedesigned"
-            on={(
-                <pre className={classNames(classes.CodeRedesigned, mods, [className])}>
+            on={
+                <pre
+                    className={classNames(classes.CodeRedesigned, mods, [
+                        className,
+                    ])}
+                >
                     <Icon
                         Svg={CopyIconRedesigned}
                         className={classes.copyBtn}
@@ -35,19 +39,22 @@ export const Code = memo(({ className, block }: CodeProps) => {
                     />
                     <code>{block}</code>
                 </pre>
-            )}
-            off={(
+            }
+            off={
                 <pre className={classNames(classes.Code, mods, [className])}>
                     <Button
                         onClick={onCopy}
                         className={classes.copyBtn}
                         theme={ButtonTheme.CLEAR}
                     >
-                        <IconDeprecated Svg={CopyIcon} className={classes.copyIcon} />
+                        <IconDeprecated
+                            Svg={CopyIcon}
+                            className={classes.copyIcon}
+                        />
                     </Button>
                     <code>{block}</code>
                 </pre>
-            )}
+            }
         />
     );
 });

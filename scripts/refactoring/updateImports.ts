@@ -8,7 +8,14 @@ project.addSourceFilesAtPaths('src/**/*.tsx');
 const files = project.getSourceFiles();
 
 const isAbsolutePath = (path: string) => {
-    const layers = ['app', 'shared', 'entities', 'features', 'widgets', 'pages'];
+    const layers = [
+        'app',
+        'shared',
+        'entities',
+        'features',
+        'widgets',
+        'pages',
+    ];
     return layers.some((layer) => path.startsWith(layer));
 };
 

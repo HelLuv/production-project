@@ -5,16 +5,16 @@ import { JsonSettings } from './jsonSettings';
 export type UserRoles = 'ADMIN' | 'USER' | 'MANAGER';
 
 export interface User {
-  id: string;
-  username: string;
-  avatar?: string;
-  roles?: UserRoles[];
-  features?: FeatureFlags;
-  jsonSettings?: JsonSettings;
+    id: string;
+    username: string;
+    avatar?: string;
+    roles?: UserRoles[];
+    features?: FeatureFlags;
+    jsonSettings?: JsonSettings;
 }
 
 export interface UserSchema {
-  authData?: User;
+    authData?: User;
 
-  _isInitiated: boolean;
+    _isInitiated: boolean;
 }

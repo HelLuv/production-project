@@ -9,8 +9,8 @@ import classes from './ArticleTextBlockComponent.module.scss';
 import { ArticleTextBlock } from '../../model/types/article';
 
 interface ArticleTextBlockComponentProps {
-  className?: string;
-  block: ArticleTextBlock;
+    className?: string;
+    block: ArticleTextBlock;
 }
 
 export const ArticleTextBlockComponent = memo(
@@ -26,9 +26,17 @@ export const ArticleTextBlockComponent = memo(
                 {block.title && (
                     <ToggleFeatures
                         featureName="isSiteRedesigned"
-                        on={<Text title={block.title} className={classes.title} />}
+                        on={
+                            <Text
+                                title={block.title}
+                                className={classes.title}
+                            />
+                        }
                         off={
-                            <TextDeprecated title={block.title} className={classes.title} />
+                            <TextDeprecated
+                                title={block.title}
+                                className={classes.title}
+                            />
                         }
                     />
                 )}
@@ -36,20 +44,20 @@ export const ArticleTextBlockComponent = memo(
                     <ToggleFeatures
                         key={paragraph}
                         featureName="isSiteRedesigned"
-                        on={(
+                        on={
                             <Text
                                 key={paragraph}
                                 text={paragraph}
                                 className={classes.paragraph}
                             />
-                        )}
-                        off={(
+                        }
+                        off={
                             <TextDeprecated
                                 key={paragraph}
                                 text={paragraph}
                                 className={classes.paragraph}
                             />
-                        )}
+                        }
                     />
                 ))}
             </div>

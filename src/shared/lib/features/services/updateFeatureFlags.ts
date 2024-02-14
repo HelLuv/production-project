@@ -7,14 +7,14 @@ import { updateFeatureFlagsMutation } from '../api/featureFlagsApi';
 import { getAllFeatureFlags, setFeatureFlags } from '../lib/setGetFeatures';
 
 interface UpdateFeatureFlagsOptions {
-  userId: string;
-  features: Partial<FeatureFlags>;
+    userId: string;
+    features: Partial<FeatureFlags>;
 }
 
 export const updateFeatureFlags = createAsyncThunk<
-  void,
-  UpdateFeatureFlagsOptions,
-  ThunkConfig<string>
+    void,
+    UpdateFeatureFlagsOptions,
+    ThunkConfig<string>
 >('features/saveJsonSettings', async ({ userId, features }, thunkAPI) => {
     const { rejectWithValue, dispatch } = thunkAPI;
 

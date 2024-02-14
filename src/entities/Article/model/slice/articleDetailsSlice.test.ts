@@ -14,8 +14,8 @@ describe('articleDetailsSlice.test.ts', () => {
         };
         expect(
             articleDetailsReducer(
-        state as ArticleDetailsSchema,
-        fetchArticleById.pending,
+                state as ArticleDetailsSchema,
+                fetchArticleById.pending,
             ),
         ).toEqual({
             isLoading: true,
@@ -31,8 +31,8 @@ describe('articleDetailsSlice.test.ts', () => {
         };
         expect(
             articleDetailsReducer(
-        state as ArticleDetailsSchema,
-        fetchArticleById.fulfilled(article, '', ''),
+                state as ArticleDetailsSchema,
+                fetchArticleById.fulfilled(article, '', ''),
             ),
         ).toEqual({
             isLoading: false,

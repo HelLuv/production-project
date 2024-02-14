@@ -6,8 +6,8 @@ import classes from './ArticleTableBlockComponent.module.scss';
 import { ArticleTableBlock } from '../../model/types/article';
 
 interface ArticleTableBlockComponentProps {
-  className?: string;
-  block: ArticleTableBlock;
+    className?: string;
+    block: ArticleTableBlock;
 }
 
 export const ArticleTableBlockComponent = memo(
@@ -16,9 +16,11 @@ export const ArticleTableBlockComponent = memo(
 
         return (
             <table
-                className={classNames(classes.ArticleTableBlockComponent, mods, [
-                    className,
-                ])}
+                className={classNames(
+                    classes.ArticleTableBlockComponent,
+                    mods,
+                    [className],
+                )}
             >
                 <tbody>
                     {block.rows.map((row, index) => (

@@ -10,10 +10,10 @@ import { ListBox } from '@/shared/ui/redesigned/PopUps';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
-  className?: string;
-  value?: Country;
-  onChange?: (value: Country) => void;
-  readonly?: boolean;
+    className?: string;
+    value?: Country;
+    onChange?: (value: Country) => void;
+    readonly?: boolean;
 }
 
 const options = [
@@ -32,9 +32,7 @@ const options = [
 ];
 
 export const CountrySelect = memo(
-    ({
-        className, value, onChange, readonly,
-    }: CountrySelectProps) => {
+    ({ className, value, onChange, readonly }: CountrySelectProps) => {
         const { t } = useTranslation();
 
         const mods: Mods = {};
@@ -64,14 +62,14 @@ export const CountrySelect = memo(
                 off={<ListBoxDeprecated {...props} />}
             />
 
-        // <Select
-        //   className={classNames(classes.CountrySelect, mods, [className])}
-        //   label={t('Choose country')}
-        //   options={options}
-        //   value={value}
-        //   onChange={onChangeHandler}
-        //   readonly={readonly}
-        // />
+            // <Select
+            //   className={classNames(classes.CountrySelect, mods, [className])}
+            //   label={t('Choose country')}
+            //   options={options}
+            //   value={value}
+            //   onChange={onChangeHandler}
+            //   readonly={readonly}
+            // />
         );
     },
 );

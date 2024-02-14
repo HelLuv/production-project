@@ -12,7 +12,14 @@ const sharedDir = project.getDirectory(sharedUiPath);
 const componentDirs = sharedDir?.getDirectories();
 
 const isAbsolutePath = (path: string) => {
-    const layers = ['app', 'shared', 'entities', 'features', 'widgets', 'pages'];
+    const layers = [
+        'app',
+        'shared',
+        'entities',
+        'features',
+        'widgets',
+        'pages',
+    ];
     return layers.some((layer) => path.startsWith(layer));
 };
 
@@ -41,12 +48,14 @@ files?.forEach((file) => {
         const isSharedLayer = segments?.[0] === 'shared';
         const isUiComponent = segments?.[1] === 'ui';
 
-        const isSharedUiComponentImport = isAbsolutePath(valueWithoutAlias)
-            && isSharedLayer
-            && isUiComponent;
+        const isSharedUiComponentImport =
+            isAbsolutePath(valueWithoutAlias) && isSharedLayer && isUiComponent;
 
         if (isSharedUiComponentImport) {
-            const resultingValue = valueWithoutAlias.split('/').slice(0, 3).join('/');
+            const resultingValue = valueWithoutAlias
+                .split('/')
+                .slice(0, 3)
+                .join('/');
             importDeclaration.setModuleSpecifier(`@/${resultingValue}`);
         }
     });

@@ -10,7 +10,10 @@ import MainIcon from '@/shared/assets/icons/import/home.svg?react';
 import AboutIcon from '@/shared/assets/icons/import/Info.svg?react';
 import ProfileIconDeprecated from '@/shared/assets/icons/profile.svg?react';
 import {
-    getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
+    getRouteAbout,
+    getRouteArticles,
+    getRouteMain,
+    getRouteProfile,
 } from '@/shared/const/router';
 import { toggleFeatures } from '@/shared/lib/features';
 

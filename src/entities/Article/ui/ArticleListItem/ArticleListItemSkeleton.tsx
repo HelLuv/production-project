@@ -11,8 +11,8 @@ import classes from './ArticleListItem.module.scss';
 import { ArticleView } from '../../model/types/article';
 
 interface ArticleListItemSkeletonProps {
-  className?: string;
-  view: ArticleView;
+    className?: string;
+    view: ArticleView;
 }
 
 export const ArticleListItemSkeleton = memo(
@@ -36,10 +36,22 @@ export const ArticleListItemSkeleton = memo(
                 <>
                     <div className={classes.header}>
                         <Skeleton border="50%" height={30} width={30} />
-                        <Skeleton width={150} height={16} className={classes.username} />
-                        <Skeleton width={150} height={16} className={classes.date} />
+                        <Skeleton
+                            width={150}
+                            height={16}
+                            className={classes.username}
+                        />
+                        <Skeleton
+                            width={150}
+                            height={16}
+                            className={classes.date}
+                        />
                     </div>
-                    <Skeleton width={250} height={24} className={classes.title} />
+                    <Skeleton
+                        width={250}
+                        height={24}
+                        className={classes.title}
+                    />
                     <Skeleton height={200} className={classes.image} />
                     <div className={classes.footer}>
                         <Skeleton height={36} width={200} />
@@ -48,20 +60,26 @@ export const ArticleListItemSkeleton = memo(
             );
             return (
                 <div
-                    className={classNames(mainClass, mods, [className, classes[view]])}
+                    className={classNames(mainClass, mods, [
+                        className,
+                        classes[view],
+                    ])}
                 >
                     <ToggleFeatures
                         featureName="isSiteRedesigned"
-                        on={(
-                            <CardRedesigned border="round" className={classes.card}>
+                        on={
+                            <CardRedesigned
+                                border="round"
+                                className={classes.card}
+                            >
                                 {cardContent}
                             </CardRedesigned>
-                        )}
-                        off={(
+                        }
+                        off={
                             <CardDeprecated className={classes.card}>
                                 {cardContent}
                             </CardDeprecated>
-                        )}
+                        }
                     />
                 </div>
             );
@@ -71,19 +89,23 @@ export const ArticleListItemSkeleton = memo(
             <>
                 <ToggleFeatures
                     featureName="isSiteRedesigned"
-                    on={(
+                    on={
                         <Skeleton
                             width="100%"
                             height={150}
                             border="32px"
                             className={classes.img}
                         />
-                    )}
-                    off={(
+                    }
+                    off={
                         <div className={classes.imageWrapper}>
-                            <Skeleton width={200} height={200} className={classes.img} />
+                            <Skeleton
+                                width={200}
+                                height={200}
+                                className={classes.img}
+                            />
                         </div>
-                    )}
+                    }
                 />
                 <div className={classes.infoWrapper}>
                     <Skeleton width={130} height={16} />
@@ -93,19 +115,24 @@ export const ArticleListItemSkeleton = memo(
         );
 
         return (
-            <div className={classNames(mainClass, mods, [className, classes[view]])}>
+            <div
+                className={classNames(mainClass, mods, [
+                    className,
+                    classes[view],
+                ])}
+            >
                 <ToggleFeatures
                     featureName="isSiteRedesigned"
-                    on={(
+                    on={
                         <CardRedesigned border="round" className={classes.card}>
                             {cardContent}
                         </CardRedesigned>
-                    )}
-                    off={(
+                    }
+                    off={
                         <CardDeprecated className={classes.card}>
                             {cardContent}
                         </CardDeprecated>
-                    )}
+                    }
                 />
             </div>
         );

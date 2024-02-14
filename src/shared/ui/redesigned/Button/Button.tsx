@@ -17,16 +17,16 @@ export type ButtonColor = 'normal' | 'success' | 'error';
 export type ButtonSize = 'sizeM' | 'sizeL' | 'sizeXL';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
-  variant?: ButtonVariant;
-  color?: ButtonColor;
-  square?: boolean;
-  size?: ButtonSize;
-  disabled?: boolean;
-  children?: ReactNode;
-  fullWidth?: boolean;
-  addonLeft?: ReactNode;
-  addonRight?: ReactNode;
+    className?: string;
+    variant?: ButtonVariant;
+    color?: ButtonColor;
+    square?: boolean;
+    size?: ButtonSize;
+    disabled?: boolean;
+    children?: ReactNode;
+    fullWidth?: boolean;
+    addonLeft?: ReactNode;
+    addonRight?: ReactNode;
 }
 
 export const Button = forwardRef(

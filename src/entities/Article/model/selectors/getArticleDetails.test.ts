@@ -36,7 +36,9 @@ describe('getArticleDetails.test', () => {
 
     test('getArticleDetailsIsLoading with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(undefined);
+        expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(
+            undefined,
+        );
     });
 
     test('getArticleDetailsError', () => {
@@ -45,7 +47,9 @@ describe('getArticleDetails.test', () => {
                 error: 'Some error',
             },
         };
-        expect(getArticleDetailsError(state as StateSchema)).toEqual('Some error');
+        expect(getArticleDetailsError(state as StateSchema)).toEqual(
+            'Some error',
+        );
     });
 
     test('getArticleDetailsError with empty state', () => {

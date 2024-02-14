@@ -5,30 +5,30 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import classes from './Button.module.scss';
 
 export enum ButtonTheme {
-  PRIMAL = 'primal',
-  CLEAR = 'clear',
-  CLEAR_INVERTED = 'clearInverted',
-  CLEAR_SECONDARY_INVERTED = 'clearSecondaryInverted',
-  OUTLINE = 'outline',
-  OUTLINE_RED = 'outlineRed',
-  BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'backgroundInverted',
+    PRIMAL = 'primal',
+    CLEAR = 'clear',
+    CLEAR_INVERTED = 'clearInverted',
+    CLEAR_SECONDARY_INVERTED = 'clearSecondaryInverted',
+    OUTLINE = 'outline',
+    OUTLINE_RED = 'outlineRed',
+    BACKGROUND = 'background',
+    BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
 export enum ButtonSize {
-  M = 'sizeM',
-  L = 'sizeL',
-  XL = 'sizeXL',
+    M = 'sizeM',
+    L = 'sizeL',
+    XL = 'sizeXL',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
-  theme?: ButtonTheme;
-  square?: boolean;
-  size?: ButtonSize;
-  disabled?: boolean;
-  children?: ReactNode;
-  fullWidth?: boolean;
+    className?: string;
+    theme?: ButtonTheme;
+    square?: boolean;
+    size?: ButtonSize;
+    disabled?: boolean;
+    children?: ReactNode;
+    fullWidth?: boolean;
 }
 
 /**
@@ -58,7 +58,10 @@ export const Button = memo((props: ButtonProps) => {
     return (
         <button
             type="button"
-            className={classNames(classes.Button, mods, [className, classes[theme]])}
+            className={classNames(classes.Button, mods, [
+                className,
+                classes[theme],
+            ])}
             disabled={disabled}
             {...otherProps}
         >

@@ -14,8 +14,8 @@ import {
 } from '../../api/profileRatingApi';
 
 export interface ProfileRatingProps {
-  className?: string;
-  profileId: string;
+    className?: string;
+    profileId: string;
 }
 
 const ProfileRating = memo(({ className, profileId }: ProfileRatingProps) => {

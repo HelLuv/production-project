@@ -15,8 +15,8 @@ import classes from './NotificationItem.module.scss';
 import { Notification } from '../../model/types/notification';
 
 interface NotificationItemProps {
-  className?: string;
-  notification: Notification;
+    className?: string;
+    notification: Notification;
 }
 
 export const NotificationItem = memo(
@@ -26,24 +26,31 @@ export const NotificationItem = memo(
         const content = (
             <ToggleFeatures
                 featureName="isSiteRedesigned"
-                on={(
+                on={
                     <Card
-                        className={classNames(classes.NotificationItem, mods, [className])}
+                        className={classNames(classes.NotificationItem, mods, [
+                            className,
+                        ])}
                     >
-                        <Text title={notification.title} text={notification.description} />
+                        <Text
+                            title={notification.title}
+                            text={notification.description}
+                        />
                     </Card>
-                )}
-                off={(
+                }
+                off={
                     <CardDeprecated
                         theme={CardTheme.OUTLINED}
-                        className={classNames(classes.NotificationItem, mods, [className])}
+                        className={classNames(classes.NotificationItem, mods, [
+                            className,
+                        ])}
                     >
                         <TextDeprecated
                             title={notification.title}
                             text={notification.description}
                         />
                     </CardDeprecated>
-                )}
+                }
             />
         );
 

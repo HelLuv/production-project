@@ -1,9 +1,10 @@
-import {
-    memo, ReactNode, useCallback, useEffect,
-} from 'react';
+import { memo, ReactNode, useCallback, useEffect } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import {
+    AnimationProvider,
+    useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider';
 import { toggleFeatures } from '@/shared/lib/features';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 // eslint-disable-next-line import-path-checker/path-checker
@@ -13,19 +14,17 @@ import classes from './Drawer.module.scss';
 import { Overlay } from '../Overlay/Overlay';
 
 interface DrawerProps {
-  className?: string;
-  children: ReactNode;
-  isOpen?: boolean;
-  onClose?: () => void;
-  // lazy?: boolean;
+    className?: string;
+    children: ReactNode;
+    isOpen?: boolean;
+    onClose?: () => void;
+    // lazy?: boolean;
 }
 
 const height = window.innerHeight - 100;
 
 const DrawerContent = memo((props: DrawerProps) => {
-    const {
-        className, children, isOpen, onClose,
-    } = props;
+    const { className, children, isOpen, onClose } = props;
 
     const { Spring, Gesture } = useAnimationLibs();
 
@@ -109,7 +108,11 @@ const DrawerContent = memo((props: DrawerProps) => {
                 <Overlay onClick={() => close()} />
                 <Spring.a.div
                     className={classes.sheet}
-                    style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
+                    style={{
+                        display,
+                        bottom: `calc(-100vh + ${height - 100}px)`,
+                        y,
+                    }}
                     {...bind()}
                 >
                     {children}

@@ -5,10 +5,10 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import classes from './Skeleton.module.scss';
 
 interface SkeletonProps {
-  className?: string;
-  height?: number | string;
-  width?: number | string;
-  border?: string;
+    className?: string;
+    height?: number | string;
+    width?: number | string;
+    border?: string;
 }
 
 /**
@@ -16,9 +16,7 @@ interface SkeletonProps {
  * @deprecated
  */
 export const Skeleton = memo((props: SkeletonProps) => {
-    const {
-        className, width, border, height,
-    } = props;
+    const { className, width, border, height } = props;
 
     const style: CSSProperties = {
         width,

@@ -27,8 +27,8 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 
 interface ArticleDetailsPageCommentsProps {
-  className?: string;
-  id?: string;
+    className?: string;
+    id?: string;
 }
 
 export const ArticleDetailsPageComments = memo(
@@ -55,34 +55,44 @@ export const ArticleDetailsPageComments = memo(
 
         return (
             <Suspense fallback={<PageLoader />}>
-                <VStack gap="16" maxWidth className={classNames('', mods, [className])}>
+                <VStack
+                    gap="16"
+                    maxWidth
+                    className={classNames('', mods, [className])}
+                >
                     <ToggleFeatures
                         featureName="isSiteRedesigned"
                         on={<Text size="size_l" title={t('Comments') ?? ''} />}
                         off={
-                            <TextDeprecated size={TextSize.L} title={t('Comments') ?? ''} />
+                            <TextDeprecated
+                                size={TextSize.L}
+                                title={t('Comments') ?? ''}
+                            />
                         }
                     />
 
                     <AddNewComment onSendComment={onSendComment} />
                     {!commentsError && (
-                        <CommentList comments={comments} isLoading={commentsIsLoading} />
+                        <CommentList
+                            comments={comments}
+                            isLoading={commentsIsLoading}
+                        />
                     )}
                     {commentsError && (
                         <ToggleFeatures
                             featureName="isSiteRedesigned"
-                            on={(
+                            on={
                                 <Text
                                     variant="error"
                                     title={t('Comments loading error!') ?? ''}
                                 />
-                            )}
-                            off={(
+                            }
+                            off={
                                 <TextDeprecated
                                     theme={TextTheme.ERROR}
                                     title={t('Comments loading error!') ?? ''}
                                 />
-                            )}
+                            }
                         />
                     )}
                 </VStack>

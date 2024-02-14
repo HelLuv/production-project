@@ -31,9 +31,9 @@ import { loginByUsername } from '../../model/services/loginByUsername/loginByUse
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 
 export interface LoginFormProps {
-  className?: string;
-  isFocused?: boolean;
-  onSuccess: () => void;
+    className?: string;
+    isFocused?: boolean;
+    onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -67,7 +67,9 @@ const LoginForm = memo(
         );
 
         const onLoginClick = useCallback(async () => {
-            const result = await dispatch(loginByUsername({ username, password }));
+            const result = await dispatch(
+                loginByUsername({ username, password }),
+            );
             if (result.meta.requestStatus === 'fulfilled') {
                 onSuccess();
                 forceUpdate();
@@ -96,11 +98,13 @@ const LoginForm = memo(
             <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
                 <ToggleFeatures
                     featureName="isSiteRedesigned"
-                    on={(
+                    on={
                         <VStack
-                            className={classNames(classes.LoginFormRedesigned, {}, [
-                                className,
-                            ])}
+                            className={classNames(
+                                classes.LoginFormRedesigned,
+                                {},
+                                [className],
+                            )}
                             gap="16"
                         >
                             <Text title={t('Auth form')} />
@@ -129,12 +133,19 @@ const LoginForm = memo(
                                 {t('Log in')}
                             </Button>
                         </VStack>
-                    )}
-                    off={(
-                        <div className={classNames(classes.LoginForm, {}, [className])}>
+                    }
+                    off={
+                        <div
+                            className={classNames(classes.LoginForm, {}, [
+                                className,
+                            ])}
+                        >
                             <TextDeprecated title={t('Auth form')} />
                             {error && (
-                                <TextDeprecated text={t(error)} theme={TextTheme.ERROR} />
+                                <TextDeprecated
+                                    text={t(error)}
+                                    theme={TextTheme.ERROR}
+                                />
                             )}
                             <InputDeprecated
                                 type="text"
@@ -160,7 +171,7 @@ const LoginForm = memo(
                                 {t('Log in')}
                             </ButtonDeprecated>
                         </div>
-                    )}
+                    }
                 />
             </DynamicModuleLoader>
         );

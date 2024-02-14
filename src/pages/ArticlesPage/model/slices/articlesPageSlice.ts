@@ -46,7 +46,10 @@ export const articlesPageSlice = createSlice({
         setView: (state, action: PayloadAction<ArticleView>) => {
             state.view = action.payload;
             // state.limit = state.view === 'TABLE' ? 9 : 4;
-            localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
+            localStorage.setItem(
+                ARTICLES_VIEW_LOCALSTORAGE_KEY,
+                action.payload,
+            );
         },
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;

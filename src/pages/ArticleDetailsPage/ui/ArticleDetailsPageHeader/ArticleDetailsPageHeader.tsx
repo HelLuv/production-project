@@ -13,7 +13,7 @@ import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getCanEditArticle } from '../../model/selectors/getArticle';
 
 interface ArticleDetailsPageHeaderProps {
-  className?: string;
+    className?: string;
 }
 
 export const ArticleDetailsPageHeader = memo(

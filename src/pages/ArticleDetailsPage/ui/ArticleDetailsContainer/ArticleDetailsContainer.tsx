@@ -6,7 +6,7 @@ import { ArticleDetails } from '@/entities/Article';
 import { Card } from '@/shared/ui/redesigned/Card';
 
 interface ArticleDetailsContainerProps {
-  className?: string;
+    className?: string;
 }
 
 export const ArticleDetailsContainer = memo(

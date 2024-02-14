@@ -9,10 +9,10 @@ import { AppImage } from '../../redesigned/AppImage/AppImage';
 import classes from './Avatar.module.scss';
 
 interface AvatarProps {
-  className?: string;
-  src?: string;
-  size?: number;
-  alt?: string;
+    className?: string;
+    src?: string;
+    size?: number;
+    alt?: string;
 }
 
 /**
@@ -20,9 +20,7 @@ interface AvatarProps {
  * @deprecated
  */
 export const Avatar = memo((props: AvatarProps) => {
-    const {
-        className, src, size = 100, alt,
-    } = props;
+    const { className, src, size = 100, alt } = props;
 
     const mods: Mods = {};
 
